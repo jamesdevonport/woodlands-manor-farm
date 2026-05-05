@@ -52,10 +52,10 @@ export function Header() {
       >
         <Link href="/" className="flex items-center" aria-label={SITE.name}>
           <Image
-            src="/images/about/c044be35178ab1af.png"
+            src="/images/wmf-logo.png"
             alt={SITE.name}
-            width={200}
-            height={56}
+            width={350}
+            height={100}
             priority
             className={cn("h-12 w-auto transition-all duration-300", scrolled && "h-10")}
           />
