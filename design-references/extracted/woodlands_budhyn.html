@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Budhyn — Glamping Bude, Cornwall · Woodlands Manor Farm</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#F7F4EF;--sage:#7f9789;--sage-light:#adbfb9;--violet:#8B7BB5;--violet-hover:#7a6aa4;--dark-sage:#4a6459;--mid-sage:#6a8478;--text-dark:#1E2422;--text-mid:#4A5550;--text-light:#8A9990;--white:#FEFEFE;--border:rgba(127,151,137,0.15);--gold:#C9A85C}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-dark);font-weight:300;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+.nav-logo-img{display:flex;align-items:center;text-decoration:none}
+.nav-logo-png{height:46px;width:auto;display:block;transition:height 0.3s}
+nav.scrolled .nav-logo-png{height:36px}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-back{color:rgba(247,243,238,0.85);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:color 0.2s}
+.nav-back:hover{color:#F7F4EF}
+.nav-book{background:var(--violet);color:#FEFEFE;padding:10px 22px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}
+.nav-book:hover{background:var(--violet-hover)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:600px;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,20,14,0.72) 0%,rgba(10,20,14,0.15) 18%,rgba(10,20,14,0) 38%,rgba(10,20,14,0) 52%,rgba(10,20,14,0.68) 100%)}
+.hero-content{position:absolute;bottom:0;left:0;right:0;padding:0 72px 64px}
+.hero-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:14px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(48px,6vw,84px);color:#F7F4EF;font-weight:400;line-height:1.05;margin-bottom:10px}
+.hero-title em{font-style:italic;color:var(--sage-light);display:block}
+.hero-meaning{font-size:13px;color:rgba(247,244,239,0.55);letter-spacing:2px;margin-bottom:20px;font-style:italic}
+.hero-stats{display:flex;align-items:center;gap:32px;margin-bottom:28px}
+.hs-item{display:flex;flex-direction:column;gap:3px}
+.hs-val{font-family:'Playfair Display',serif;font-size:22px;color:#F7F4EF;font-weight:400;line-height:1}
+.hs-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light)}
+.hs-divider{width:1px;height:32px;background:rgba(173,191,185,0.25)}
+.hero-ctas{display:flex;gap:14px;align-items:center}
+.btn-book-hero{background:var(--violet);color:#FEFEFE;padding:14px 28px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s}
+.btn-book-hero:hover{background:var(--violet-hover)}
+.btn-ghost{color:#F7F4EF;text-decoration:none;font-size:12px;letter-spacing:1px;border-bottom:1px solid rgba(247,244,239,0.35);padding-bottom:2px;font-weight:300}
+
+/* QUICK FACTS */
+.quick-facts{background:var(--dark-sage);display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid rgba(173,191,185,0.1)}
+.qf-item{padding:28px 20px;text-align:center;border-right:1px solid rgba(173,191,185,0.12)}
+.qf-item:last-child{border-right:none}
+.qf-icon{font-size:22px;margin-bottom:8px;display:block}
+.qf-val{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;display:block;margin-bottom:3px}
+.qf-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);font-weight:300}
+
+/* INTRO SPLIT */
+.intro-split{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
+.intro-img{overflow:hidden;position:relative}
+.intro-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s}
+.intro-split:hover .intro-img img{transform:scale(1.03)}
+.intro-content{background:var(--white);padding:72px 64px;display:flex;flex-direction:column;justify-content:center}
+.intro-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:12px}
+.intro-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);color:var(--dark-sage);font-weight:400;line-height:1.15;margin-bottom:20px}
+.intro-title em{font-style:italic;color:var(--sage)}
+.intro-body{font-size:14px;color:var(--text-mid);line-height:1.85;font-weight:300;margin-bottom:32px}
+.intro-features{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:32px}
+.feat{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-mid)}.feat::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--sage);flex-shrink:0}
+.btn-primary{background:var(--violet);color:#FEFEFE;padding:14px 28px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;display:inline-block}
+.btn-primary:hover{background:var(--violet-hover)}
+
+/* WHATS INCLUDED */
+.included-section{background:var(--cream);padding:80px 72px}
+.section-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);color:var(--dark-sage);font-weight:400;line-height:1.15;margin-bottom:40px}
+.section-title em{font-style:italic;color:var(--sage)}
+.included-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.inc-card{background:var(--white);padding:32px 24px;position:relative}
+.inc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--sage)}
+.inc-icon{font-size:28px;margin-bottom:14px;display:block}
+.inc-title{font-size:14px;font-weight:500;color:var(--dark-sage);margin-bottom:8px}
+.inc-body{font-size:12px;color:var(--text-mid);line-height:1.75;font-weight:300}
+
+/* GALLERY STRIP */
+.gallery-strip{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:3px;height:580px}
+.gs-item{overflow:hidden;position:relative;cursor:pointer}
+.gs-item:first-child{grid-row:span 2}
+.gs-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s}
+.gs-item:hover img{transform:scale(1.05)}
+
+/* BOOKING SECTION */
+.booking-section{background:var(--dark-sage);padding:72px}
+.booking-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.booking-left .be-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:12px}
+.booking-left h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);color:#F7F4EF;font-weight:400;line-height:1.15;margin-bottom:16px}
+.booking-left h2 em{font-style:italic;color:var(--sage-light)}
+.booking-left p{font-size:14px;color:rgba(247,244,239,0.65);line-height:1.85;font-weight:300;margin-bottom:24px}
+.booking-notes{display:flex;flex-direction:column;gap:10px}
+.bn{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(247,244,239,0.65)}.bn::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--sage-light);flex-shrink:0;margin-top:6px}
+.booking-box{background:rgba(255,255,255,0.07);border:1px solid rgba(173,191,185,0.2);border-radius:4px;padding:28px}
+.bb-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);margin-bottom:6px;font-weight:400}
+.bb-title{font-family:'Playfair Display',serif;font-size:20px;color:#F7F4EF;margin-bottom:18px}
+.bw-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;margin-bottom:12px}
+.bw-col{background:rgba(255,255,255,0.06);padding:10px 14px}
+.bw-col label{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);margin-bottom:4px}
+.bw-col input{background:none;border:none;color:#F7F4EF;font-family:'Jost',sans-serif;font-size:13px;width:100%;outline:none;cursor:pointer}
+.bw-col input::placeholder{color:rgba(247,244,239,0.4)}
+.btn-book-lg{display:block;width:100%;background:var(--violet);color:#FEFEFE;border:none;padding:14px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;transition:background 0.2s;text-decoration:none;text-align:center}
+.btn-book-lg:hover{background:var(--violet-hover)}
+.bb-note{font-size:11px;color:rgba(247,244,239,0.4);text-align:center;margin-top:10px}
+.bb-note a{color:var(--sage-light)}
+
+/* COMBINE SECTION */
+.combine-section{background:var(--sage);padding:52px 72px;display:flex;align-items:center;justify-content:space-between;gap:48px}
+.combine-text h2{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,34px);color:#F7F4EF;font-weight:400;margin-bottom:8px}
+.combine-text p{font-size:14px;color:rgba(247,244,239,0.75);font-weight:300;line-height:1.7;max-width:540px}
+.btn-white{background:#F7F4EF;color:var(--dark-sage);padding:13px 26px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap;flex-shrink:0}
+
+/* FULL DETAIL */
+.detail-section{background:var(--white);padding:80px 72px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:32px}
+.dc h3{font-family:'Playfair Display',serif;font-size:18px;color:var(--dark-sage);font-weight:400;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.dc ul{list-style:none}
+.dc li{font-size:13px;color:var(--text-mid);padding:7px 0;border-bottom:1px solid rgba(127,151,137,0.07);display:flex;align-items:flex-start;gap:8px;line-height:1.55;font-weight:300}
+.dc li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:6px}
+
+/* OTHER YURT */
+.other-yurt{background:var(--cream);padding:0;display:grid;grid-template-columns:1fr 1fr;min-height:420px}
+.oy-img{overflow:hidden;position:relative}
+.oy-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s}
+.other-yurt:hover .oy-img img{transform:scale(1.04)}
+.oy-content{padding:64px 56px;display:flex;flex-direction:column;justify-content:center;background:var(--white)}
+.oy-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:10px}
+.oy-title{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,38px);color:var(--dark-sage);font-weight:400;line-height:1.15;margin-bottom:8px}
+.oy-title em{font-style:italic;color:var(--sage)}
+.oy-meaning{font-size:12px;color:var(--text-light);letter-spacing:2px;font-style:italic;margin-bottom:14px}
+.oy-body{font-size:14px;color:var(--text-mid);line-height:1.8;font-weight:300;margin-bottom:24px}
+
+/* FOOTER */
+footer{background:#111815;padding:48px 72px 32px}
+.footer-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;gap:48px}
+.footer-brand p{font-size:12px;color:rgba(247,244,239,0.4);line-height:1.8;font-weight:300;margin-top:12px;max-width:280px}
+.footer-contact a{display:block;color:rgba(247,244,239,0.5);text-decoration:none;font-size:12px;font-weight:300;margin-bottom:6px;transition:color 0.2s}
+.footer-contact a:hover{color:#F7F4EF}
+.footer-bottom{display:flex;justify-content:space-between;font-size:11px;color:rgba(247,244,239,0.3);padding-top:24px;border-top:1px solid rgba(247,244,239,0.08)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(247,244,239,0.3);text-decoration:none}
+.footer-logo-img{height:34px;width:auto}
+
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()">&#215;</button>
+  <div class="wmf-drawer-logo">
+    <div class="wmf-drawer-logo-name">Woodlands Manor Farm</div>
+    <div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="/images/book-direct/290345902746f478.jpg" alt="Budhyn — glamping at Woodlands Manor Farm, Bude">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Woodlands Manor Farm &bull; Glamping in Cornwall</p>
+    <h1 class="hero-title">Budhyn Yurt<em>A dwelling in the valley</em></h1>
+    <p class="hero-meaning">Cornish: &ldquo;dwelling, homestead&rdquo;</p>
+    <div class="hero-stats">
+      <div class="hs-item"><span class="hs-val">4</span><span class="hs-label">Guests</span></div>
+      <div class="hs-divider"></div>
+      <div class="hs-item"><span class="hs-val">5.8m</span><span class="hs-label">Diameter</span></div>
+      <div class="hs-divider"></div>
+      <div class="hs-item"><span class="hs-val">3m</span><span class="hs-label">Centre height</span></div>
+      <div class="hs-divider"></div>
+      <div class="hs-item"><span class="hs-val">All year</span><span class="hs-label">Available</span></div>
+      <div class="hs-divider"></div>
+      <div class="hs-item"><span class="hs-val">&#128021;</span><span class="hs-label">Dogs welcome</span></div>
+    </div>
+    <div class="hero-ctas">
+      <a href="https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/" target="_blank" class="btn-book-hero">Check availability</a>
+      <a href="#whats-included" class="btn-ghost">What&rsquo;s included &darr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK FACTS -->
+<div class="quick-facts">
+  <div class="qf-item"><span class="qf-icon">&#127956;</span><span class="qf-val">5.8m</span><span class="qf-label">Diameter</span></div>
+  <div class="qf-item"><span class="qf-icon">&#128716;</span><span class="qf-val">Super king + 2 singles</span><span class="qf-label">Sleeping</span></div>
+  <div class="qf-item"><span class="qf-icon">&#128293;</span><span class="qf-val">Nordpeis Orion</span><span class="qf-label">Wood-burning stove</span></div>
+  <div class="qf-item"><span class="qf-icon">&#127858;</span><span class="qf-val">Weber BBQ</span><span class="qf-label">+ covered outdoor area</span></div>
+  <div class="qf-item"><span class="qf-icon">&#127944;</span><span class="qf-val">Heated pool</span><span class="qf-label">8am–8pm daily</span></div>
+</div>
+
+<!-- INTRO SPLIT -->
+<div class="intro-split">
+  <div class="intro-img"><img src="/images/animals/d2e104531205804a.jpg" alt="The farm at Woodlands Manor Farm"></div>
+  <div class="intro-content">
+    <p class="intro-eyebrow">Glamping in Cornwall&rsquo;s finest valley</p>
+    <h2 class="intro-title">Proper luxury,<br><em>under canvas</em></h2>
+    <p class="intro-body">Budhyn — meaning 'dwelling' in Cornish — sits nestled in the quiet valley at Woodlands Manor Farm, surrounded by meadow and woodland. Step inside and you are met by the warm glow of the Nordpeis Orion stove at the heart of the yurt, a super king-size bed made up with quality linen, and the kind of atmosphere that makes you wonder why you ever stayed in a hotel.</p>
+    <p class="intro-body" style="margin-top:-16px">Outside, a Weber BBQ with a large covered terrace means al fresco dining whatever the weather, and a fire pit completes the evening. You have full access to everything on the farm — the heated pool, the games room, the woodland walk and the animals.</p>
+    <div class="intro-features">
+      <div class="feat">Nordpeis Orion wood-burner</div>
+      <div class="feat">Super king-size bed</div>
+      <div class="feat">Two single beds</div>
+      <div class="feat">Private shower room</div>
+      <div class="feat">Private kitchen area</div>
+      <div class="feat">Weber BBQ + covered terrace</div>
+      <div class="feat">Fire pit</div>
+      <div class="feat">Dogs welcome</div>
+    </div>
+    <a href="https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/" target="_blank" class="btn-primary">Check availability &amp; book</a>
+  </div>
+</div>
+
+<!-- WHATS INCLUDED -->
+<div class="included-section" id="whats-included">
+  <p class="section-eyebrow">Everything you need</p>
+  <h2 class="section-title">What&rsquo;s <em>included</em></h2>
+  <div class="included-grid">
+    <div class="inc-card">
+      <span class="inc-icon">&#128293;</span>
+      <div class="inc-title">Nordpeis Orion stove</div>
+      <p class="inc-body">A premium high-end wood-burning stove at the heart of the yurt — keeps you toasty warm on cool evenings and creates an atmosphere you can&rsquo;t replicate anywhere else.</p>
+    </div>
+    <div class="inc-card">
+      <span class="inc-icon">&#127858;</span>
+      <div class="inc-title">Weber BBQ &amp; fire pit</div>
+      <p class="inc-body">A full Weber BBQ with a large covered outdoor area — so you can grill come rain or shine. A fire pit completes the evening. Firewood provided on arrival.</p>
+    </div>
+    <div class="inc-card">
+      <span class="inc-icon">&#127859;</span>
+      <div class="inc-title">Private kitchen</div>
+      <p class="inc-body">Fridge/ice box, microwave, toaster, electric kettle, two-ring induction hob, folding table and chairs, plus everything you need to cook and eat — pans, utensils, crockery, cutlery, glasses.</p>
+    </div>
+    <div class="inc-card">
+      <span class="inc-icon">&#128705;</span>
+      <div class="inc-title">Private shower room</div>
+      <p class="inc-body">Your own dedicated shower room with WC, hand basin and a large heated towel rail — warm and private, just steps from your yurt door.</p>
+    </div>
+    <div class="inc-card">
+      <span class="inc-icon">&#128716;</span>
+      <div class="inc-title">Super king + two singles</div>
+      <p class="inc-body">A luxurious super king-size (6ft) double bed made up with quality bed linen, plus two single beds — perfect for a couple with two children.</p>
+    </div>
+    <div class="inc-card">
+      <span class="inc-icon">&#127944;</span>
+      <div class="inc-title">Indoor pool access</div>
+      <p class="inc-body">Full access to the large heated indoor swimming pool, maintained at 30°C year-round, open 8am to 8pm every day. Included with your stay, no booking required.</p>
+    </div>
+    <div class="inc-card">
+      <span class="inc-icon">&#127918;</span>
+      <div class="inc-title">Games room</div>
+      <p class="inc-body">Table tennis, pool table, foosball, giant Connect Four, air hockey and a full soft play area — all included with your yurt booking.</p>
+    </div>
+    <div class="inc-card">
+      <span class="inc-icon">&#128004;</span>
+      <div class="inc-title">Feed the animals</div>
+      <p class="inc-body">Sunday and Wednesday mornings, Ruth takes guests to feed the pigs, goats, alpacas, ponies, rabbits and chickens. A highlight guests mention in every review.</p>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY STRIP -->
+<div class="gallery-strip">
+  <div class="gs-item"><img src="/images/book-direct/290345902746f478.jpg" alt="Budhyn interior — Nordpeis stove and super king bed"></div>
+  <div class="gs-item"><img src="/images/budhyn-yurt/413fc9c154a95c8e.jpg" alt="Heated indoor pool at Woodlands Manor Farm"></div>
+  <div class="gs-item"><img src="/images/animals/d2e104531205804a.jpg" alt="Feeding the animals at Woodlands"></div>
+  <div class="gs-item"><img src="/images/blog-template/6acc248ff59e6e43.jpg" alt="Bluebell woodland walk"></div>
+  <div class="gs-item"><img src="/images/blog-template/50732616e754d9b7.jpg" alt="Playing field and kite flying"></div>
+</div>
+
+<!-- BOOKING SECTION -->
+<div class="booking-section" id="booking">
+  <div class="booking-inner">
+    <div class="booking-left">
+      <p class="be-eyebrow">Best price guaranteed</p>
+      <h2>Book <em>Budhyn</em><br>direct</h2>
+      <p>Booking direct with Andy and Ruth always gives you the best available price — no booking platform fees, no commission.</p>
+      <div class="booking-notes">
+        <div class="bn">Super king-size bed + two singles — linen included</div>
+        <div class="bn">Dogs very welcome — please bring dog bedding &amp; bowls</div>
+        <div class="bn">Short breaks available out of season (3 &amp; 4 nights)</div>
+        <div class="bn">Welcome basket: tea, coffee, milk, sugar, herbs, salt &amp; pepper</div>
+        <div class="bn">Call Andy on 07887 677 354 for group bookings or returning guest code</div>
+      </div>
+    </div>
+    <div class="booking-box">
+      <div class="bb-label">Direct booking &mdash; best price</div>
+      <div class="bb-title">Check availability</div>
+      <div class="bw-row">
+        <div class="bw-col"><label>Arrival</label><input type="text" placeholder="Select date" onclick="window.open('https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/','_blank')"></div>
+        <div class="bw-col"><label>Departure</label><input type="text" placeholder="Select date" onclick="window.open('https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/','_blank')"></div>
+      </div>
+      <a href="https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/" target="_blank" class="btn-book-lg">Check Availability &amp; Book</a>
+      <div class="bb-note">No booking fees &middot; <a href="tel:07887677354">Call 07887 677 354</a> for help</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMBINE BOTH YURTS -->
+<div class="combine-section">
+  <div class="combine-text">
+    <h2>Booking with another family? Take both yurts.</h2>
+    <p>Budhyn and Fenton are next to each other in the valley. Book both and you can sleep 8 guests — two families, two yurts, one fire pit between friends. Call Andy to arrange.</p>
+  </div>
+  <a href="tel:07887677354" class="btn-white">Call Andy &mdash; 07887 677 354</a>
+</div>
+
+<!-- FULL DETAIL -->
+<div class="detail-section">
+  <p class="section-eyebrow">The full picture</p>
+  <h2 class="section-title">Every detail, <em>inside &amp; out</em></h2>
+  <div class="detail-grid">
+    <div class="dc">
+      <h3>Inside the yurt</h3>
+      <ul>
+        <li>5.8m diameter Mongolian yurt, 3m high at the centre</li>
+        <li>Nordpeis Orion high-end wood-burning stove — centrepiece of the yurt</li>
+        <li>Super king-size (6ft) double bed — quality linen included</li>
+        <li>Two single beds with linen</li>
+        <li>Rugs, cushions &amp; soft furnishings throughout</li>
+        <li>Mood lighting for evenings</li>
+      </ul>
+    </div>
+    <div class="dc">
+      <h3>Kitchen &amp; bathroom</h3>
+      <ul>
+        <li>Private kitchen area: fridge/ice box, microwave, toaster, kettle, two-ring induction hob</li>
+        <li>Full cooking equipment: pans, utensils, plates, bowls, mugs, glasses, cutlery</li>
+        <li>Folding dining table and chairs</li>
+        <li>Washing-up area adjacent to kitchen</li>
+        <li>Private shower room with WC, hand basin &amp; large heated towel rail</li>
+      </ul>
+    </div>
+    <div class="dc">
+      <h3>Outside &amp; good to know</h3>
+      <ul>
+        <li>Weber BBQ with large covered outdoor area — grill in all weathers</li>
+        <li>Fire pit with seating</li>
+        <li>Picnic table and chairs</li>
+        <li>Firewood provided on arrival</li>
+        <li>Well-behaved dogs very welcome — please bring bedding &amp; bowls</li>
+        <li>Short breaks (3 &amp; 4 nights) available out of season</li>
+        <li>Welcome basket: tea, coffee, milk, sugar, herbs, salt &amp; pepper</li>
+        <li>2 miles to Duckpool Beach &amp; South West Coast Path</li>
+        <li>6 miles to Bude town, sea pool &amp; surf beaches</li>
+      </ul>
+    </div>
+    <div class="dc">
+      <h3>Farm facilities included</h3>
+      <ul><li>Heated indoor pool — 30°C year-round, 8am–8pm daily</li><li>Games room — table tennis, pool, foosball, giant Connect Four, soft play</li><li>Bluebell woodland walk — magical in April & May</li><li>Playing field with 5-a-side goals, playground, swings & slide</li><li>Feed the Animals with Ruth — Sundays & Wednesdays</li><li>Duckpool Beach (National Trust) — 2 miles</li><li>Bude town, beaches & sea pool — 6 miles</li></ul>
+    </div>
+  </div>
+</div>
+
+<!-- OTHER YURT -->
+<div class="other-yurt">
+  <div class="oy-img"><img src="/images/blog-template/50732616e754d9b7.jpg" alt="Fenton"></div>
+  <div class="oy-content">
+    <p class="oy-eyebrow">Also available</p>
+    <h2 class="oy-title">Fenton<br><em>Yurt</em></h2>
+    <p class="oy-meaning">Cornish: &ldquo;spring, stream&rdquo;</p>
+    <p class="oy-body">Fenton — meaning 'spring' or 'stream' — is the companion yurt to Budhyn, identical in size and specification and positioned right alongside it in the valley. Book both yurts together to sleep 8 — perfect for two families or a group of friends sharing the valley.</p>
+    <a href="woodlands_fenton.html" class="btn-primary">View Fenton Yurt</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity:0.7">
+      <p>A 17th-century farm in the Coombe Valley offering cottages, yurts, an indoor pool, and the warmest of Cornish welcomes.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm. All rights reserved.</span>
+    <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
+  </div>
+</footer>
+
+<script>
+</script>
+</body>
+</html>

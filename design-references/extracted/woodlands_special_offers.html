@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Special Offers — Holiday Cottage Deals in Bude, Cornwall · Woodlands Manor Farm</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EF;--sage:#7f9789;--sage-light:#adbfb9;
+  --violet:#8B7BB5;--violet-hover:#7a6aa4;
+  --dark-sage:#4a6459;--mid-sage:#6a8478;
+  --text-dark:#1E2422;--text-mid:#4A5550;--text-light:#8A9990;
+  --white:#FEFEFE;--border:rgba(127,151,137,0.15);
+  --gold:#C9A85C;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-dark);font-weight:300;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+.nav-logo-img{display:flex;align-items:center;text-decoration:none}
+.nav-logo-png{height:44px;width:auto;display:block;transition:height 0.3s}
+nav.scrolled .nav-logo-png{height:36px}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-back{color:rgba(247,243,238,0.75);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:color 0.2s}
+.nav-back:hover{color:#F7F4EF}
+.nav-book{background:var(--violet);color:#FEFEFE;padding:10px 22px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}
+.nav-book:hover{background:var(--violet-hover)}
+
+/* ── HERO ── */
+.hero{position:relative;height:100vh;min-height:440px;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,20,14,0.72) 0%,rgba(10,20,14,0.15) 18%,rgba(10,20,14,0) 38%,rgba(10,20,14,0) 52%,rgba(10,20,14,0.58) 100%);bottom:0;left:0;right:0;padding:0 72px 56px}
+.hero-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:14px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(44px,5.5vw,72px);color:#F7F4EF;font-weight:400;line-height:1.06;margin-bottom:16px}
+.hero-title em{font-style:italic;color:var(--sage-light)}
+.hero-desc{font-size:15px;color:rgba(247,244,239,0.72);font-weight:300;max-width:560px;line-height:1.8}
+
+/* ── STANDING OFFERS STRIP ── */
+.standing-strip{background:var(--dark-sage);padding:0 72px;display:flex;gap:0;border-bottom:1px solid rgba(173,191,185,0.1)}
+.standing-item{flex:1;padding:28px 20px;display:flex;align-items:center;gap:14px;border-right:1px solid rgba(173,191,185,0.12);cursor:pointer;transition:background 0.2s;text-decoration:none}
+.standing-item:last-child{border-right:none}
+.standing-item:hover{background:rgba(255,255,255,0.06)}
+.si-icon{font-size:22px;flex-shrink:0}
+.si-label{font-size:12px;font-weight:500;color:#F7F4EF;display:block;margin-bottom:2px}
+.si-note{font-size:11px;color:rgba(247,244,239,0.5);font-weight:300}
+
+/* ── MAIN CONTENT ── */
+.page-inner{padding:72px 72px 0}
+
+/* ── OFFER CARDS ── */
+.offers-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px}
+.offers-header h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);color:var(--dark-sage);font-weight:400}
+.offers-header h2 em{font-style:italic;color:var(--sage)}
+.offers-subtext{font-size:13px;color:var(--text-light);max-width:320px;text-align:right;line-height:1.6}
+
+.offers-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px}
+
+/* Individual offer card */
+.offer-card{background:var(--white);overflow:hidden;position:relative;display:flex;flex-direction:column;transition:box-shadow 0.3s}
+.offer-card:hover{box-shadow:0 10px 40px rgba(74,100,89,0.12);z-index:2;position:relative}
+.offer-card.featured{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr}
+.offer-card.featured .oc-img{min-height:360px}
+
+.oc-img{overflow:hidden;position:relative;flex-shrink:0}
+.oc-img img{width:100%;height:240px;object-fit:cover;display:block;transition:transform 0.6s}
+.offer-card.featured .oc-img img{height:100%}
+.offer-card:hover .oc-img img{transform:scale(1.04)}
+
+/* Offer badge */
+.oc-badge{position:absolute;top:16px;left:16px;padding:6px 14px;border-radius:2px;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500}
+.badge-hot{background:#C84B31;color:#fff}
+.badge-last{background:var(--dark-sage);color:var(--sage-light)}
+.badge-break{background:var(--violet);color:#fff}
+.badge-group{background:var(--mid-sage);color:#fff}
+.badge-returning{background:var(--gold);color:#1E2422}
+.badge-winter{background:#3d5549;color:var(--sage-light)}
+
+/* Offer savings flash */
+.oc-saving{position:absolute;top:16px;right:16px;background:#F7F4EF;border-radius:50%;width:60px;height:60px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(0,0,0,0.15)}
+.oc-saving-pct{font-family:'Playfair Display',serif;font-size:18px;color:var(--dark-sage);font-weight:400;line-height:1}
+.oc-saving-off{font-size:9px;letter-spacing:1px;text-transform:uppercase;color:var(--text-light)}
+
+.oc-body{padding:28px 28px 24px;flex:1;display:flex;flex-direction:column}
+.offer-card.featured .oc-body{padding:44px 48px;justify-content:center}
+.oc-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:10px}
+.oc-title{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark-sage);font-weight:400;line-height:1.2;margin-bottom:8px}
+.offer-card.featured .oc-title{font-size:30px;margin-bottom:12px}
+.oc-desc{font-size:13px;color:var(--text-mid);line-height:1.8;font-weight:300;margin-bottom:20px;flex:1}
+.offer-card.featured .oc-desc{font-size:14px}
+.oc-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.oc-meta-item{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--text-light)}
+.oc-meta-item::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--sage-light);flex-shrink:0}
+.oc-cta{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--border)}
+.btn-offer{background:var(--violet);color:#FEFEFE;padding:11px 22px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}
+.btn-offer:hover{background:var(--violet-hover)}
+.btn-offer-outline{color:var(--dark-sage);text-decoration:none;font-size:11px;letter-spacing:1px;border-bottom:1px solid rgba(74,100,89,0.25);padding-bottom:2px;transition:border-color 0.2s}
+.btn-offer-outline:hover{border-color:var(--dark-sage)}
+
+/* ── NO OFFERS STATE ── */
+.no-offers-card{background:var(--white);padding:56px;text-align:center;grid-column:span 2}
+.no-offers-icon{font-size:48px;margin-bottom:16px;opacity:0.35}
+.no-offers-title{font-family:'Playfair Display',serif;font-size:24px;color:var(--dark-sage);font-weight:400;margin-bottom:10px}
+.no-offers-body{font-size:14px;color:var(--text-mid);font-weight:300;line-height:1.75;max-width:480px;margin:0 auto 24px}
+
+/* ── STANDING OFFERS SECTION ── */
+.standing-section{background:var(--cream);padding:72px}
+.standing-offers-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:40px}
+.so-card{background:var(--white);padding:32px 28px;position:relative;overflow:hidden}
+.so-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--sage)}
+.so-card.gold::before{background:var(--gold)}
+.so-card.violet::before{background:var(--violet)}
+.so-card.dark::before{background:var(--dark-sage)}
+.so-icon{font-size:28px;margin-bottom:14px;display:block}
+.so-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--dark-sage);font-weight:400;margin-bottom:8px}
+.so-desc{font-size:13px;color:var(--text-mid);line-height:1.8;font-weight:300;margin-bottom:20px}
+.so-terms{font-size:11px;color:var(--text-light);line-height:1.5;padding-top:14px;border-top:1px solid var(--border)}
+
+/* ── EMAIL SIGN-UP ── */
+.signup-section{background:var(--dark-sage);padding:72px}
+.signup-inner{max-width:700px;margin:0 auto;text-align:center}
+.signup-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:14px}
+.signup-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);color:#F7F4EF;font-weight:400;line-height:1.15;margin-bottom:16px}
+.signup-title em{font-style:italic;color:var(--sage-light)}
+.signup-body{font-size:14px;color:rgba(247,244,239,0.65);line-height:1.8;font-weight:300;margin-bottom:36px}
+.signup-form{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:8px;align-items:end}
+.form-group{display:flex;flex-direction:column;gap:6px;text-align:left}
+.form-group label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.form-group input{background:rgba(255,255,255,0.1);border:1px solid rgba(173,191,185,0.2);border-radius:2px;padding:13px 16px;color:#F7F4EF;font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color 0.2s;width:100%}
+.form-group input::placeholder{color:rgba(247,244,239,0.35)}
+.form-group input:focus{border-color:rgba(173,191,185,0.5)}
+.btn-signup{background:var(--violet);color:#FEFEFE;border:none;padding:13px 24px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;transition:background 0.2s;white-space:nowrap;align-self:end}
+.btn-signup:hover{background:var(--violet-hover)}
+.signup-note{font-size:11px;color:rgba(247,244,239,0.4);margin-top:14px;line-height:1.6}
+
+/* ── CONTACT OFFER ── */
+.contact-offer{background:var(--sage);padding:56px 72px;display:flex;align-items:center;justify-content:space-between;gap:48px}
+.co-text h2{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,34px);color:#F7F4EF;font-weight:400;margin-bottom:8px}
+.co-text p{font-size:14px;color:rgba(247,244,239,0.72);font-weight:300;line-height:1.7;max-width:500px}
+.co-actions{display:flex;flex-direction:column;gap:10px;align-items:flex-end;flex-shrink:0}
+.btn-white{background:#F7F4EF;color:var(--dark-sage);padding:13px 26px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap;text-align:center}
+.co-email{font-size:12px;color:rgba(247,244,239,0.6);text-align:right}
+.co-email a{color:#F7F4EF;text-decoration:none}
+
+/* ── FOOTER ── */
+footer{background:#111815;padding:48px 72px 32px}
+.footer-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;gap:48px}
+.footer-brand p{font-size:12px;color:rgba(247,244,239,0.4);line-height:1.8;font-weight:300;margin-top:12px;max-width:280px}
+.footer-contact a{display:block;color:rgba(247,244,239,0.5);text-decoration:none;font-size:12px;font-weight:300;margin-bottom:6px;transition:color 0.2s}
+.footer-contact a:hover{color:#F7F4EF}
+.footer-bottom{display:flex;justify-content:space-between;font-size:11px;color:rgba(247,244,239,0.3);padding-top:24px;border-top:1px solid rgba(247,244,239,0.08)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(247,244,239,0.3);text-decoration:none}
+.footer-logo-img{height:34px;width:auto}
+
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()">&#215;</button>
+  <div class="wmf-drawer-logo">
+    <div class="wmf-drawer-logo-name">Woodlands Manor Farm</div>
+    <div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <img src="/images/blog-template/6acc248ff59e6e43.jpg" alt="Special offers at Woodlands Manor Farm — Cornwall holiday cottages">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Woodlands Manor Farm &bull; Bude, Cornwall</p>
+      <h1 class="hero-title">Special <em>offers</em></h1>
+      <p class="hero-desc">Last-minute breaks, short stays, group discounts and returning guest savings — the best deals on Cornwall&rsquo;s finest farm holiday, all in one place.</p>
+    </div>
+  </div>
+</div>
+
+<!-- STANDING OFFERS NAVIGATION STRIP -->
+<div class="standing-strip">
+  <a href="#current-offers" class="standing-item">
+    <span class="si-icon">&#127381;</span>
+    <div><span class="si-label">Current offers</span><span class="si-note">Check what&rsquo;s available now</span></div>
+  </a>
+  <a href="#short-breaks" class="standing-item">
+    <span class="si-icon">&#128197;</span>
+    <div><span class="si-label">Short breaks</span><span class="si-note">3 &amp; 4 night stays available</span></div>
+  </a>
+  <a href="#standing-offers" class="standing-item">
+    <span class="si-icon">&#127991;</span>
+    <div><span class="si-label">Always-on savings</span><span class="si-note">Best price guaranteed — book direct</span></div>
+  </a>
+  <a href="#signup" class="standing-item">
+    <span class="si-icon">&#128140;</span>
+    <div><span class="si-label">Get notified</span><span class="si-note">Sign up for new offers</span></div>
+  </a>
+</div>
+
+<!-- CURRENT OFFERS SECTION -->
+<div class="page-inner" id="current-offers">
+  <div class="offers-header">
+    <h2>Current <em>offers</em></h2>
+    <p class="offers-subtext">Offers are updated regularly. Contact Andy to check for unadvertised last-minute availability.</p>
+  </div>
+
+  <div class="offers-grid">
+
+    <!-- FEATURED OFFER — Last minute summer availability -->
+    <div class="offer-card featured">
+      <div class="oc-img">
+        <img src="/images/blog-template/50732616e754d9b7.jpg" alt="Last minute summer availability at Woodlands Manor Farm">
+        <div class="oc-badge badge-hot">Last minute</div>
+        <div class="oc-saving"><span class="oc-saving-pct" style="font-size:13px">Best<br>price</span></div>
+      </div>
+      <div class="oc-body">
+        <div class="oc-tag">Limited availability &bull; Book direct</div>
+        <div class="oc-title">Summer 2026 last-minute availability</div>
+        <p class="oc-desc">A small number of dates have just become available across our cottages and yurts for the summer season. Book direct by phone or email and receive best price guaranteed — our thank-you for choosing to book with us directly rather than through a third-party platform.</p>
+        <div class="oc-meta">
+          <div class="oc-meta-item">Available now</div>
+          <div class="oc-meta-item">All properties</div>
+          <div class="oc-meta-item">Best price guaranteed when you book direct</div>
+          <div class="oc-meta-item">Subject to availability</div>
+        </div>
+        <div class="oc-cta">
+          <a href="tel:07887677354" class="btn-offer">Call Andy &mdash; 07887 677 354</a>
+          <a href="mailto:enquiries@woodlandsmanorfarm.co.uk?subject=Last Minute Availability Enquiry" class="btn-offer-outline">Email an enquiry</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Short break offer -->
+    <div class="offer-card">
+      <div class="oc-img">
+        <img src="/images/budhyn-yurt/413fc9c154a95c8e.jpg" alt="Short break special offer — Woodlands Manor Farm">
+        <div class="oc-badge badge-break">Short break</div>
+      </div>
+      <div class="oc-body">
+        <div class="oc-tag">Out of season &bull; 3 &amp; 4 nights</div>
+        <div class="oc-title">Autumn &amp; winter short breaks</div>
+        <p class="oc-desc">From September through to May, short breaks of 3 and 4 nights are available on most properties. The pool is warm, the wood-burners are lit, and Cornwall in autumn and winter is a very different — and very beautiful — thing.</p>
+        <div class="oc-meta">
+          <div class="oc-meta-item">September &ndash; May</div>
+          <div class="oc-meta-item">3 &amp; 4 night minimum</div>
+          <div class="oc-meta-item">All cottages &amp; yurts</div>
+        </div>
+        <div class="oc-cta">
+          <a href="woodlands_book_direct.html" class="btn-offer">Check availability</a>
+          <a href="tel:07887677354" class="btn-offer-outline">Call to discuss</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Returning guest offer -->
+    <div class="offer-card">
+      <div class="oc-img">
+        <img src="/images/about/f768b622b6cab139.jpg" alt="Returning guest discount — Woodlands Manor Farm">
+        <div class="oc-badge badge-returning">Returning guest</div>
+        <div class="oc-saving" style="background:var(--gold)"><span class="oc-saving-pct" style="font-size:14px;color:#1E2422">Your<br>code</span></div>
+      </div>
+      <div class="oc-body">
+        <div class="oc-tag">Past guests only &bull; Book direct</div>
+        <div class="oc-title">Welcome back discount</div>
+        <p class="oc-desc">Stayed with us before? At check-out, you were given a personal discount code to use on your next direct booking. Enter it during checkout and the saving is applied automatically. Can&rsquo;t find it? Just call Andy.</p>
+        <div class="oc-meta">
+          <div class="oc-meta-item">Previous guests only</div>
+          <div class="oc-meta-item">Must book direct</div>
+          <div class="oc-meta-item">Code given at departure</div>
+        </div>
+        <div class="oc-cta">
+          <a href="woodlands_book_direct.html" class="btn-offer">Book direct now</a>
+          <a href="tel:07887677354" class="btn-offer-outline">Lost your code?</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group discount -->
+    <div class="offer-card" style="grid-column:span 2;display:grid;grid-template-columns:1fr 1fr">
+      <div class="oc-img" style="min-height:320px">
+        <img src="/images/book-direct/985fe867d0049680.jpg" alt="Group booking discount at Woodlands Manor Farm" style="height:100%">
+        <div class="oc-badge badge-group">Group booking</div>
+        <div class="oc-saving"><span class="oc-saving-pct" style="font-size:13px">Best<br>price</span></div>
+      </div>
+      <div class="oc-body" style="padding:44px 48px;justify-content:center">
+        <div class="oc-tag">2 or more properties &bull; Call direct</div>
+        <div class="oc-title">Group booking discount</div>
+        <p class="oc-desc">Booking two or more cottages together for a family reunion, milestone birthday, hen party or corporate retreat? Call Andy directly and you&rsquo;ll get our best price across all properties booked, plus personal assistance with coordinating your arrival and any additional experiences.</p>
+        <div class="oc-meta" style="margin-top:4px">
+          <div class="oc-meta-item">2+ properties</div>
+          <div class="oc-meta-item">Up to 44 guests</div>
+          <div class="oc-meta-item">Must call to book</div>
+          <div class="oc-meta-item">Exclusive use available</div>
+        </div>
+        <div class="oc-cta">
+          <a href="tel:07887677354" class="btn-offer">Call Andy &mdash; 07887 677 354</a>
+          <a href="mailto:enquiries@woodlandsmanorfarm.co.uk?subject=Group Booking Enquiry" class="btn-offer-outline">Email an enquiry</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CMS placeholder card — for Webflow -->
+    <div class="offer-card" id="short-breaks" style="grid-column:span 2">
+      <div style="padding:40px 48px;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;border-left:4px solid var(--sage-light)">
+        <div style="font-size:36px;opacity:0.35">&#128197;</div>
+        <div>
+          <div style="font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:6px">For Webflow — CMS tip</div>
+          <div style="font-family:'Playfair Display',serif;font-size:18px;color:var(--dark-sage);font-weight:400;margin-bottom:6px">Add live offers via Webflow CMS</div>
+          <p style="font-size:13px;color:var(--text-light);font-weight:300;line-height:1.7">Create a <strong style="font-weight:500;color:var(--text-mid)">Special Offers</strong> CMS collection with fields: title, badge type, saving %, description, valid dates, property, CTA link. Then connect this grid to the collection — offers update automatically when you add or remove them in the Webflow Editor, no code needed. Remove this placeholder card when live.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ALWAYS-ON OFFERS -->
+<div class="standing-section" id="standing-offers">
+  <div style="max-width:1100px;margin:0 auto">
+    <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:12px">Always available</p>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);color:var(--dark-sage);font-weight:400;margin-bottom:8px">Savings that are <em style="font-style:italic;color:var(--sage)">always on</em></h2>
+    <p style="font-size:14px;color:var(--text-mid);line-height:1.8;font-weight:300;max-width:560px;margin-bottom:0">These are not seasonal promotions — they are part of how we do things at Woodlands Manor Farm.</p>
+    <div class="standing-offers-grid">
+
+      <div class="so-card violet">
+        <span class="so-icon">&#127991;</span>
+        <div class="so-title">Best price guaranteed — book direct</div>
+        <p class="so-desc">Book directly through our website or by phone and you are guaranteed the best available price — we never charge less through any third-party platform. Always. On every property.</p>
+        <div class="so-terms">Valid on all direct bookings &bull; No code needed &bull; Best price guaranteed</div>
+      </div>
+
+      <div class="so-card gold">
+        <span class="so-icon">&#127381;</span>
+        <div class="so-title">Returning guest loyalty code</div>
+        <p class="so-desc">Every guest who checks out receives a personal discount code for their next stay. It is our way of saying thank you — and it is on top of the standard direct booking discount.</p>
+        <div class="so-terms">Given at departure &bull; One per stay &bull; Must book direct to redeem</div>
+      </div>
+
+      <div class="so-card dark">
+        <span class="so-icon">&#128197;</span>
+        <div class="so-title">Out-of-season short breaks</div>
+        <p class="so-desc">Between September and May, 3 and 4-night breaks are available on most properties. Cornwall out of season is genuinely special — quieter roads, empty beaches, cosy evenings by the fire.</p>
+        <div class="so-terms">September to May &bull; Most properties &bull; Subject to availability</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EMAIL SIGN-UP -->
+<div class="signup-section" id="signup">
+  <div class="signup-inner">
+    <p class="signup-eyebrow">Be the first to know</p>
+    <h2 class="signup-title">Sign up for <em>new offers</em></h2>
+    <p class="signup-body">We send occasional emails when new special offers, last-minute availability or competitions come up. No spam — just genuine deals from Andy and Ruth when they have something worth sharing.</p>
+    <form class="signup-form" onsubmit="handleSignup(event)">
+      <div class="form-group">
+        <label for="signup-first">First name *</label>
+        <input type="text" id="signup-first" placeholder="Ruth" required>
+      </div>
+      <div class="form-group">
+        <label for="signup-last">Last name *</label>
+        <input type="text" id="signup-last" placeholder="Peters" required>
+      </div>
+      <div class="form-group">
+        <label for="signup-email">Email address *</label>
+        <input type="email" id="signup-email" placeholder="you@email.com" required>
+      </div>
+      <button type="submit" class="btn-signup">Sign up</button>
+    </form>
+    <p class="signup-note">We use Mailchimp to send occasional updates. You can unsubscribe at any time. We will never share your details with anyone outside Woodlands Manor Farm.</p>
+    <div id="signup-success" style="display:none;background:rgba(127,151,137,0.2);border:1px solid rgba(173,191,185,0.3);border-radius:2px;padding:16px 20px;margin-top:16px;font-size:14px;color:#F7F4EF;text-align:center">
+      &#10003; &nbsp;Thank you! You&rsquo;re on the list. We&rsquo;ll be in touch when new offers come up.
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT / CUSTOM OFFER -->
+<div class="contact-offer">
+  <div class="co-text">
+    <h2>Didn&rsquo;t find what you were looking for?</h2>
+    <p>Tell us what you have in mind — dates, property size, occasion — and Andy and Ruth will come back to you with the best available options. No hard sell, just a helpful conversation about your holiday.</p>
+  </div>
+  <div class="co-actions">
+    <a href="tel:07887677354" class="btn-white">Call 07887 677 354</a>
+    <div class="co-email">Or email <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity:0.7">
+      <p>A 17th-century farm in the Coombe Valley offering cottages, yurts, an indoor pool, and the warmest of Cornish welcomes.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm. All rights reserved.</span>
+    <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+function handleSignup(e){
+  e.preventDefault();
+  var first = document.getElementById('signup-first').value;
+  var last = document.getElementById('signup-last').value;
+  var email = document.getElementById('signup-email').value;
+  if(first && last && email){
+    document.getElementById('signup-success').style.display='block';
+    e.target.style.display='none';
+    // In Webflow: connect this form to Mailchimp via Webflow Integrations
+    // or embed Mailchimp's own form HTML here
+  }
+}
+</script>
+</body>
+</html>

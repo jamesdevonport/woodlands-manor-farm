@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Things to Do in Bude · Woodlands Manor Farm, Bude Cornwall</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#F7F4EF;--sage:#7f9789;--sage-light:#adbfb9;--violet:#8B7BB5;--violet-hover:#7a6aa4;--dark-sage:#4a6459;--text-dark:#1E2422;--text-mid:#4A5550;--text-light:#8A9990;--white:#FEFEFE;--border:rgba(127,151,137,0.15);--gold:#C9A85C}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-dark);font-weight:300;overflow-x:hidden}
+.nav-logo-img{display:flex;align-items:center;text-decoration:none}.nav-logo-png{height:46px;width:auto;display:block;transition:height 0.3s}nav.scrolled .nav-logo-png{height:36px}
+.nav-right{display:flex;align-items:center;gap:16px}.nav-back{color:rgba(247,243,238,0.85);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:color 0.2s}.nav-back:hover{color:#F7F4EF}
+.nav-book{background:var(--violet);color:#FEFEFE;padding:10px 22px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}.nav-book:hover{background:var(--violet-hover)}
+.hero{position:relative;height:58vh;min-height:480px;overflow:hidden}.hero img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,20,14,0.72) 0%,rgba(10,20,14,0.15) 18%,rgba(10,20,14,0) 38%,rgba(10,20,14,0) 52%,rgba(10,20,14,0.65) 100%)}
+.hero-content{position:absolute;bottom:0;left:0;right:0;padding:0 72px 56px}
+.hero-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:14px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,68px);color:#F7F4EF;font-weight:400;line-height:1.06;margin-bottom:12px}
+.hero-title em{font-style:italic;color:var(--sage-light)}
+.hero-desc{font-size:15px;color:rgba(247,244,239,0.72);font-weight:300;max-width:540px;line-height:1.8}
+/* Sub-nav breadcrumb strip */
+.sub-nav{background:var(--dark-sage);padding:0 72px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(173,191,185,0.1)}.sub-nav::-webkit-scrollbar{display:none}
+.sub-nav a{color:rgba(247,244,239,0.55);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;padding:16px 18px;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.2s,border-color 0.2s}.sub-nav a:hover,.sub-nav a.active{color:#F7F4EF;border-bottom-color:var(--sage-light)}
+/* Content */
+.page-content{max-width:1100px;margin:0 auto;padding:72px}
+.section-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);color:var(--dark-sage);font-weight:400;line-height:1.15;margin-bottom:8px}
+.section-title em{font-style:italic;color:var(--sage)}
+.section-body{font-size:15px;color:var(--text-mid);line-height:1.85;font-weight:300;margin-bottom:0}
+/* Grids */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:40px}
+.card-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:40px}
+.info-card{background:var(--white);padding:32px 28px;position:relative;overflow:hidden}
+.info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--sage)}
+.info-card.violet::before{background:var(--violet)}.info-card.gold::before{background:var(--gold)}.info-card.dark::before{background:var(--dark-sage)}
+.ic-icon{font-size:26px;margin-bottom:12px;display:block}
+.ic-title{font-size:16px;font-weight:500;color:var(--dark-sage);margin-bottom:8px;font-family:'Jost',sans-serif}
+.ic-body{font-size:13px;color:var(--text-mid);line-height:1.8;font-weight:300}
+.ic-body a{color:var(--violet);text-decoration:none}
+/* Split layout */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:48px}
+.split-img{overflow:hidden}.split-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:400px}
+.split-content{padding:56px 52px;background:var(--white);display:flex;flex-direction:column;justify-content:center}
+.split.reversed .split-img{order:2}.split.reversed .split-content{order:1}
+/* List items */
+.item-list{list-style:none;margin-top:16px}.item-list li{font-size:14px;color:var(--text-mid);padding:9px 0;border-bottom:1px solid rgba(127,151,137,0.08);display:flex;align-items:flex-start;gap:10px;line-height:1.6;font-weight:300}
+.item-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:7px}
+/* Rule cards */
+.rule-card{background:var(--white);border-left:4px solid var(--violet);padding:20px 24px;margin-bottom:12px}
+.rule-card.warn{border-left-color:#D4A853}
+.rule-card.safe{border-left-color:var(--sage)}
+.rule-title{font-size:14px;font-weight:500;color:var(--dark-sage);margin-bottom:4px}
+.rule-body{font-size:13px;color:var(--text-mid);line-height:1.7;font-weight:300}
+/* Restaurant cards */
+.restaurant-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:32px}
+.rest-card{background:var(--white);padding:24px}
+.rest-name{font-family:'Playfair Display',serif;font-size:17px;color:var(--dark-sage);font-weight:400;margin-bottom:4px}
+.rest-type{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:8px}
+.rest-body{font-size:12px;color:var(--text-mid);line-height:1.7;font-weight:300;margin-bottom:12px}
+.rest-link{font-size:11px;color:var(--violet);text-decoration:none;letter-spacing:1px;border-bottom:1px solid rgba(139,123,181,0.3);padding-bottom:1px}
+/* Inventory cols */
+.inv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px}
+.inv-col h3{font-family:'Playfair Display',serif;font-size:17px;color:var(--dark-sage);font-weight:400;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.inv-col ul{list-style:none}.inv-col li{font-size:12px;color:var(--text-mid);padding:5px 0;border-bottom:1px solid rgba(127,151,137,0.06);font-weight:300}
+/* Animal card */
+.animal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:40px}
+.animal-card{background:var(--white);overflow:hidden}
+.animal-card-img{overflow:hidden;height:220px}.animal-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s}.animal-card:hover .animal-card-img img{transform:scale(1.04)}
+.animal-card-body{padding:24px}
+.animal-name{font-family:'Playfair Display',serif;font-size:18px;color:var(--dark-sage);font-weight:400;margin-bottom:4px}
+.animal-species{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sage);margin-bottom:10px;font-weight:400}
+.animal-bio{font-size:13px;color:var(--text-mid);line-height:1.75;font-weight:300}
+/* Attraction cards */
+.attraction-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:32px}
+.attr-card{background:var(--white);padding:28px}
+.attr-distance{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:8px}
+.attr-name{font-family:'Playfair Display',serif;font-size:18px;color:var(--dark-sage);font-weight:400;margin-bottom:8px}
+.attr-body{font-size:13px;color:var(--text-mid);line-height:1.75;font-weight:300;margin-bottom:12px}
+.attr-link{font-size:11px;color:var(--violet);text-decoration:none;letter-spacing:1px;border-bottom:1px solid rgba(139,123,181,0.3);padding-bottom:1px}
+/* CTA strip */
+.cta-strip{background:var(--sage);padding:52px 72px;display:flex;align-items:center;justify-content:space-between;gap:48px;margin-top:0}
+.cta-strip h2{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,32px);color:#F7F4EF;font-weight:400;margin-bottom:6px}
+.cta-strip p{font-size:14px;color:rgba(247,244,239,0.7);font-weight:300}
+.btn-white{background:#F7F4EF;color:var(--dark-sage);padding:13px 26px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap;flex-shrink:0}
+/* Footer */
+footer{background:#111815;padding:48px 72px 32px}
+.footer-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;gap:48px}
+.footer-brand p{font-size:12px;color:rgba(247,244,239,0.4);line-height:1.8;font-weight:300;margin-top:12px;max-width:280px}
+.footer-contact a{display:block;color:rgba(247,244,239,0.5);text-decoration:none;font-size:12px;font-weight:300;margin-bottom:6px;transition:color 0.2s}.footer-contact a:hover{color:#F7F4EF}
+.footer-bottom{display:flex;justify-content:space-between;font-size:11px;color:rgba(247,244,239,0.3);padding-top:24px;border-top:1px solid rgba(247,244,239,0.08)}
+.footer-links{display:flex;gap:24px}.footer-links a{color:rgba(247,244,239,0.3);text-decoration:none}
+.footer-logo-img{height:34px;width:auto}
+
+/* ── ABOUT SUB-NAV ── */
+.about-subnav-wrap{background:var(--dark-sage);border-bottom:1px solid rgba(173,191,185,0.12)}
+.about-subnav{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;padding:0 48px;-webkit-overflow-scrolling:touch}
+.about-subnav::-webkit-scrollbar{display:none}
+.about-subnav a{
+  color:rgba(247,244,239,0.55);text-decoration:none;
+  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  font-family:'Jost',sans-serif;font-weight:400;
+  padding:16px 20px;
+  border-bottom:2px solid transparent;
+  white-space:nowrap;
+  transition:color 0.2s,border-color 0.2s;
+  flex-shrink:0;
+}
+.about-subnav a:hover{color:rgba(247,244,239,0.85)}
+.about-subnav a.active{
+  color:#F7F4EF;
+  border-bottom-color:var(--sage-light);
+  font-weight:500;
+}
+.about-subnav-label{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--sage-light);font-weight:400;
+  padding:16px 20px 16px 0;
+  white-space:nowrap;flex-shrink:0;
+  border-right:1px solid rgba(173,191,185,0.15);
+  margin-right:8px;
+  display:flex;align-items:center;
+}
+
+
+/* ── HAMBURGER + DRAWER ── */
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Overlay -->
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+
+<!-- Drawer -->
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()" aria-label="Close menu">&#215;</button>
+  <div class="wmf-drawer-logo">
+    <div class="wmf-drawer-logo-name">Woodlands Manor Farm</div>
+    <div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <img src="/images/blog-template/dcf926b3c1174be3.jpg" alt="Things to Do in Bude — Woodlands Manor Farm">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Woodlands Manor Farm &bull; Bude, Cornwall</p>
+    <h1 class="hero-title">Things to do<br><em>in &amp; around Bude</em></h1>
+    <p class="hero-desc">Two miles from the farm, Cornwall begins in earnest. Beaches, coastline, castles, gardens and adventures &mdash; Andy and Ruth&rsquo;s personal picks.</p>
+  </div>
+</div>
+<div class="about-subnav-wrap" style="position:sticky;top:73px;z-index:8000;box-shadow:0 2px 8px rgba(10,20,14,0.18)">
+  <div class="about-subnav">
+    <span class="about-subnav-label">About</span>
+    <a href="woodlands_about.html">About Woodlands</a>
+<a href="woodlands_on_the_farm.html">On the Farm</a>
+<a href="woodlands_animals.html">The Animals</a>
+<a href="woodlands_things_to_do.html" class="active">Things to Do</a>
+<a href="woodlands_places_to_eat.html">Places to Eat</a>
+<a href="woodlands_little_extras.html">Little Extras</a>
+<a href="woodlands_inventory.html">Inventory</a>
+<a href="woodlands_dog_rules.html">Dog Rules</a>
+
+  </div>
+</div>
+
+
+<div class="page-content">
+  <p class="section-eyebrow">North Cornwall &amp; North Devon</p>
+  <h2 class="section-title">Things to do <em>in &amp; around Bude</em></h2>
+  <p class="section-body">Woodlands is perfectly located on the North Cornwall / North Devon border, putting you within easy reach of some of England&rsquo;s finest beaches, coastline, gardens and attractions. Here are Andy and Ruth&rsquo;s personal picks.</p>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--dark-sage);font-weight:400;margin:48px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--border)">Beaches nearby</h3>
+  <div class="card-grid-2">
+    <div class="info-card"><span class="ic-icon">&#127958;&#65039;</span><div class="ic-title">Duckpool Beach &mdash; 2 miles</div><p class="ic-body">Our closest beach. A stunning, wild National Trust beach at the foot of the Coombe Valley. Dog-friendly all year round. Rock pools, stream, and one of the most unspoilt stretches of North Cornwall coastline.</p></div>
+    <div class="info-card violet"><span class="ic-icon">&#127940;</span><div class="ic-title">Summerleaze &amp; Crooklets, Bude &mdash; 6 miles</div><p class="ic-body">Bude&rsquo;s two main town beaches. Summerleaze has the famous tidal sea pool &mdash; one of the finest outdoor swimming spots in England. Crooklets is the main surf beach. Both have beach cafes.</p></div>
+    <div class="info-card"><span class="ic-icon">&#127958;&#65039;</span><div class="ic-title">Sandymouth &amp; Northcott Mouth &mdash; 4 miles</div><p class="ic-body">Two spectacular National Trust beaches within a couple of miles of each other. Sandymouth has dramatic rock formations and a lovely beach cafe. Northcott Mouth is quieter and wilder.</p></div>
+    <div class="info-card dark"><span class="ic-icon">&#127958;&#65039;</span><div class="ic-title">Widemouth Bay &mdash; 8 miles</div><p class="ic-body">One of the most popular beaches in North Cornwall &mdash; vast expanses of golden sand at low tide. Great for families and beginner surfers. The Beach House bar is listed in the Times&rsquo; top 20 beach bars in the UK.</p></div>
+    <div class="info-card"><span class="ic-icon">&#127958;&#65039;</span><div class="ic-title">Crackington Haven &mdash; 10 miles</div><p class="ic-body">Tucked away on the North Cornwall coast, Crackington is a hidden gem known for its dramatic cliffs and rugged beauty. The Coombe Barton Inn and Haven Beach Cafe serve excellent food including the best crab sandwiches around.</p></div>
+    <div class="info-card violet"><span class="ic-icon">&#127758;</span><div class="ic-title">South West Coast Path &mdash; 2 miles</div><p class="ic-body">The 630-mile South West Coast Path passes just 2 miles from the farm. The section between Hartland Point and Bude is among the most spectacular in England &mdash; dramatic sea stacks, hidden coves and clifftop views.</p></div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:22px;color:var(--dark-sage);font-weight:400;margin:48px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--border)">Attractions &amp; days out</h3>
+  <div class="attraction-grid">
+    <div class="attr-card"><div class="attr-distance">30 miles</div><div class="attr-name">Tintagel Castle</div><p class="attr-body">One of the most spectacular historic sites in Britain. Built half on the mainland and half on a jagged headland, it is associated with the legend of King Arthur. English Heritage site &mdash; book in advance.</p><a href="https://www.english-heritage.org.uk/visit/places/tintagel-castle/" target="_blank" class="attr-link">Book tickets &rarr;</a></div>
+    <div class="attr-card"><div class="attr-distance">60 miles</div><div class="attr-name">Lost Gardens of Heligan</div><p class="attr-body">One of the most mysterious estates in England. Lost to the brambles since WW1, re-awakened in 1990 to become Europe&rsquo;s largest garden restoration project. 200 acres of paradise for explorers and garden lovers.</p><a href="https://www.heligan.com/" target="_blank" class="attr-link">Book tickets &rarr;</a></div>
+    <div class="attr-card"><div class="attr-distance">60 miles</div><div class="attr-name">The Eden Project</div><p class="attr-body">Home to the world&rsquo;s largest indoor rainforest. Eden&rsquo;s tropical biome houses an incredible selection of plants. One of Cornwall&rsquo;s most iconic attractions &mdash; book well in advance in summer.</p><a href="https://www.edenproject.com/" target="_blank" class="attr-link">Book tickets &rarr;</a></div>
+    <div class="attr-card"><div class="attr-distance">14 miles</div><div class="attr-name">Clovelly</div><p class="attr-body">A picturesque North Devon fishing village with steep cobbled streets and timeless charm. Famously car-free &mdash; transport relies on donkeys and sledges. Stunning views of the Bristol Channel.</p><a href="https://www.clovelly.co.uk/" target="_blank" class="attr-link">Plan your visit &rarr;</a></div>
+    <div class="attr-card"><div class="attr-distance">25 miles</div><div class="attr-name">Boscastle</div><p class="attr-body">A charming village in a deep valley on the North Cornwall coast. Famous for its natural harbour and the Museum of Witchcraft and Magic. Perfect for hikers, history enthusiasts and nature lovers.</p><a href="https://www.visitcornwall.com/boscastle" target="_blank" class="attr-link">Learn more &rarr;</a></div>
+    <div class="attr-card"><div class="attr-distance">20 miles</div><div class="attr-name">St Nectan&rsquo;s Glen</div><p class="attr-body">One of Cornwall&rsquo;s most unspoilt hidden corners. A waterfall, ancient woodland and cafe in a genuinely magical setting. Voted an area of outstanding natural beauty and an SSSI.</p><a href="https://www.st-nectansglen.co.uk/" target="_blank" class="attr-link">Learn more &rarr;</a></div>
+    <div class="attr-card"><div class="attr-distance">14 miles</div><div class="attr-name">The Milky Way Adventure Park</div><p class="attr-body">A fantastic adventure park for the whole family &mdash; rides, shows, indoor play and outdoor attractions. Perfect for a full day out with children of all ages.</p><a href="https://www.themilkyway.co.uk/" target="_blank" class="attr-link">Plan your visit &rarr;</a></div>
+    <div class="attr-card"><div class="attr-distance">50 miles</div><div class="attr-name">Padstow</div><p class="attr-body">Cornwall&rsquo;s most celebrated foodie destination. Rick Stein restaurants, the National Lobster Hatchery, wildlife boat trips and a beautiful harbour town. Worth the hour&rsquo;s drive.</p><a href="https://padstowlive.com/" target="_blank" class="attr-link">Plan your visit &rarr;</a></div>
+    <div class="attr-card"><div class="attr-distance">28 miles</div><div class="attr-name">Bodmin Steam Railway</div><p class="attr-body">Cornwall&rsquo;s premier steam railway &mdash; a 13-mile round trip through stunning scenery. Christmas specials with Santa, dining services and murder mystery events on selected dates.</p><a href="https://bodminrailway.co.uk/" target="_blank" class="attr-link">Book tickets &rarr;</a></div>
+  </div>
+</div>
+
+<div class="cta-strip">
+  <div><h2>Make the most of North Cornwall.</h2><p>Book your stay at Woodlands Manor Farm &mdash; the perfect base.</p></div>
+  <a href="woodlands_book_direct.html" class="btn-white">Check availability</a>
+</div>
+<footer>
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity:0.7">
+      <p>A 17th-century farm in the Coombe Valley &mdash; cottages, yurts, heated pool and the warmest Cornish welcome.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm.</span>
+    <div class="footer-links"><a href="woodlands_privacy.html">Privacy</a><a href="woodlands_terms.html">Terms</a></div>
+  </div>
+</footer>
+<script></script>
+</body>
+</html>

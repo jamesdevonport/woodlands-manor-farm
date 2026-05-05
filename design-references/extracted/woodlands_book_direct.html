@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Direct — Best Rate Guaranteed · Woodlands Manor Farm, Bude Cornwall</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EF;--sage:#7f9789;--sage-light:#adbfb9;
+  --violet:#8B7BB5;--violet-hover:#7a6aa4;
+  --dark-sage:#4a6459;--mid-sage:#6a8478;
+  --text-dark:#1E2422;--text-mid:#4A5550;--text-light:#8A9990;
+  --white:#FEFEFE;--border:rgba(127,151,137,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-dark);font-weight:300;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+.nav-logo-img{display:flex;align-items:center;text-decoration:none}
+.nav-logo-png{height:44px;width:auto;display:block;transition:height 0.3s}
+nav.scrolled .nav-logo-png{height:36px}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-back{color:rgba(247,243,238,0.75);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:color 0.2s}
+.nav-back:hover{color:#F7F4EF}
+.nav-tel{color:rgba(247,243,238,0.75);text-decoration:none;font-size:13px;font-family:'Jost',sans-serif;transition:color 0.2s}
+.nav-tel:hover{color:#F7F4EF}
+
+/* ── HERO — compact, purposeful ── */
+.hero{position:relative;height:100vh;min-height:420px;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,20,14,0.72) 0%,rgba(10,20,14,0.15) 18%,rgba(10,20,14,0) 38%,rgba(10,20,14,0) 52%,rgba(10,20,14,0.58) 100%);bottom:0;left:0;right:0;padding:0 72px 52px;display:flex;align-items:flex-end;justify-content:space-between;gap:48px}
+.hero-left .hero-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:12px}
+.hero-left h1{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,66px);color:#F7F4EF;font-weight:400;line-height:1.08;margin-bottom:8px}
+.hero-left h1 em{font-style:italic;color:var(--sage-light)}
+.hero-left p{font-size:14px;color:rgba(247,244,239,0.7);font-weight:300;max-width:440px;line-height:1.7}
+
+/* Booking badge on hero */
+.hero-badge{background:rgba(74,100,89,0.88);backdrop-filter:blur(8px);border:1px solid rgba(173,191,185,0.25);border-radius:4px;padding:24px 28px;flex-shrink:0;text-align:center;min-width:240px}
+.hb-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);margin-bottom:8px;font-weight:400}
+.hb-price{font-family:'Playfair Display',serif;font-size:22px;color:#F7F4EF;margin-bottom:4px}
+.hb-note{font-size:11px;color:rgba(247,244,239,0.55);margin-bottom:16px;line-height:1.5}
+.btn-check-now{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;text-align:center}
+.btn-check-now:hover{background:var(--violet-hover)}
+
+/* ── WHY BOOK DIRECT ── */
+.why-strip{background:var(--dark-sage);padding:40px 72px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px}
+.why-item{background:rgba(255,255,255,0.04);padding:28px 24px;text-align:center}
+.why-icon{font-size:26px;margin-bottom:12px;display:block}
+.why-title{font-size:13px;font-weight:500;color:#F7F4EF;margin-bottom:6px}
+.why-body{font-size:12px;color:rgba(247,244,239,0.55);font-weight:300;line-height:1.6}
+
+/* ── BOOKING WIDGET SECTION ── */
+.booking-section{background:var(--white);padding:72px}
+.booking-section-inner{max-width:1100px;margin:0 auto}
+.booking-header{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:48px}
+.booking-header-left .section-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:12px}
+.booking-header-left h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);color:var(--dark-sage);font-weight:400;line-height:1.15;margin-bottom:16px}
+.booking-header-left h2 em{font-style:italic;color:var(--sage)}
+.booking-header-left p{font-size:14px;color:var(--text-mid);line-height:1.85;font-weight:300}
+.booking-header-right{display:flex;flex-direction:column;gap:16px;padding-top:40px}
+.booking-note-card{background:var(--cream);border:1px solid var(--border);border-radius:2px;padding:18px 20px;display:flex;align-items:flex-start;gap:14px}
+.bnc-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.bnc-title{font-size:13px;font-weight:500;color:var(--dark-sage);margin-bottom:3px}
+.bnc-body{font-size:12px;color:var(--text-mid);line-height:1.6;font-weight:300}
+.bnc-body a{color:var(--violet);text-decoration:none}
+
+/* Supercontrol widget placeholder */
+.widget-wrap{background:var(--cream);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:32px}
+.widget-placeholder{padding:64px 48px;text-align:center}
+.wp-icon{font-size:48px;margin-bottom:16px;display:block;opacity:0.4}
+.wp-title{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark-sage);font-weight:400;margin-bottom:8px}
+.wp-body{font-size:13px;color:var(--text-light);font-weight:300;max-width:400px;margin:0 auto 20px}
+.wp-code{background:var(--dark-sage);color:var(--sage-light);padding:10px 18px;border-radius:2px;font-size:12px;font-family:'Courier New',monospace;display:inline-block}
+
+/* ── PROPERTY QUICK-SELECT ── */
+.properties-section{background:var(--cream);padding:72px}
+.properties-section-inner{max-width:1100px;margin:0 auto}
+.prop-select-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px}
+.prop-select-header h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,38px);color:var(--dark-sage);font-weight:400}
+.prop-select-header h2 em{font-style:italic;color:var(--sage)}
+.prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-bottom:3px}
+.prop-card{background:var(--white);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:box-shadow 0.3s}
+.prop-card:hover{box-shadow:0 8px 32px rgba(74,100,89,0.12);position:relative;z-index:2}
+.pc-img{overflow:hidden;position:relative}
+.pc-img img{width:100%;height:180px;object-fit:cover;display:block;transition:transform 0.5s}
+.prop-card:hover .pc-img img{transform:scale(1.04)}
+.pc-tag{position:absolute;top:12px;left:12px;background:rgba(74,100,89,0.82);color:rgba(247,244,239,0.9);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:4px 10px;border-radius:1px;font-family:'Jost',sans-serif}
+.pc-body{padding:18px 20px 16px;flex:1;display:flex;flex-direction:column}
+.pc-name{font-family:'Playfair Display',serif;font-size:17px;color:var(--dark-sage);font-weight:400;margin-bottom:4px}
+.pc-sleeps{font-size:11px;color:var(--text-light);letter-spacing:1px;margin-bottom:12px}
+.pc-features{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;flex:1}
+.pc-feat{font-size:10px;color:var(--text-mid);padding:3px 8px;background:var(--cream);border-radius:20px}
+.pc-book{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--border)}
+.pc-book-label{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--violet);font-weight:500}
+.pc-book-arrow{font-size:14px;color:var(--sage)}
+
+/* Yurts row — 2 col */
+.yurt-row{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+
+/* ── RETURNING GUESTS ── */
+.returning-section{background:var(--dark-sage);padding:56px 72px;display:flex;align-items:center;justify-content:space-between;gap:48px}
+.rg-text .rg-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:10px}
+.rg-text h2{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,34px);color:#F7F4EF;font-weight:400;margin-bottom:10px}
+.rg-text p{font-size:14px;color:rgba(247,244,239,0.65);font-weight:300;line-height:1.75;max-width:540px}
+.rg-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-end;flex-shrink:0}
+.btn-call{background:rgba(255,255,255,0.1);color:#F7F4EF;padding:14px 28px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;border:1px solid rgba(247,244,239,0.25);transition:background 0.2s;white-space:nowrap;text-align:center}
+.btn-call:hover{background:rgba(255,255,255,0.18)}
+.rg-note{font-size:12px;color:rgba(247,244,239,0.4);text-align:right}
+
+/* ── GROUP BOOKINGS ── */
+.group-section{background:var(--cream);padding:72px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.gs-left .gs-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:12px}
+.gs-left h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,42px);color:var(--dark-sage);font-weight:400;line-height:1.2;margin-bottom:18px}
+.gs-left h2 em{font-style:italic;color:var(--sage)}
+.gs-left p{font-size:14px;color:var(--text-mid);line-height:1.85;font-weight:300;margin-bottom:28px}
+.gs-stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border);border-radius:2px;overflow:hidden;margin-bottom:28px}
+.gs-stat{background:var(--white);padding:20px 16px;text-align:center}
+.gs-stat-num{font-family:'Playfair Display',serif;font-size:30px;color:var(--dark-sage);line-height:1;display:block;margin-bottom:3px}
+.gs-stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light)}
+.btn-primary{background:var(--violet);color:#FEFEFE;padding:14px 28px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;display:inline-block}
+.btn-primary:hover{background:var(--violet-hover)}
+.gs-right-img{border-radius:2px;overflow:hidden}
+.gs-right-img img{width:100%;height:440px;object-fit:cover;display:block}
+
+/* ── TRUST STRIP ── */
+.trust-strip{background:var(--white);padding:40px 72px;display:flex;align-items:center;justify-content:space-between;gap:40px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.trust-item{display:flex;align-items:center;gap:14px}
+.ti-icon{font-size:24px;flex-shrink:0}
+.ti-label{font-size:12px;font-weight:500;color:var(--dark-sage);line-height:1.3}
+.ti-note{font-size:11px;color:var(--text-light);font-weight:300;margin-top:2px}
+.trust-divider{width:1px;height:36px;background:var(--border);flex-shrink:0}
+
+/* ── FOOTER ── */
+footer{background:#111815;padding:48px 72px 32px}
+.footer-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;gap:48px}
+.footer-brand p{font-size:12px;color:rgba(247,244,239,0.4);line-height:1.8;font-weight:300;margin-top:12px;max-width:280px}
+.footer-contact a{display:block;color:rgba(247,244,239,0.5);text-decoration:none;font-size:12px;font-weight:300;margin-bottom:6px;transition:color 0.2s}
+.footer-contact a:hover{color:#F7F4EF}
+.footer-bottom{display:flex;justify-content:space-between;font-size:11px;color:rgba(247,244,239,0.3);padding-top:24px;border-top:1px solid rgba(247,244,239,0.08)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(247,244,239,0.3);text-decoration:none}
+.footer-logo-img{height:34px;width:auto}
+
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()">&#215;</button>
+  <div class="wmf-drawer-logo">
+    <div class="wmf-drawer-logo-name">Woodlands Manor Farm</div>
+    <div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <img src="/images/about/f768b622b6cab139.jpg" alt="Woodlands Manor Farm — book direct for the best rate">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <p class="hero-eyebrow">Woodlands Manor Farm &bull; Bude, Cornwall</p>
+        <h1>Book direct.<br><em>Best price guaranteed.</em></h1>
+        <p>No booking fees. No third-party commission. Just the best possible price for your stay, direct from Andy and Ruth.</p>
+      </div>
+      <div class="hero-badge">
+        <div class="hb-label">Booking powered by</div>
+        <div class="hb-price">Supercontrol</div>
+        <div class="hb-note">Secure, trusted booking engine &mdash; same system used by the UK&rsquo;s leading holiday cottage agencies</div>
+        <a href="#booking-widget" class="btn-check-now">Check availability now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY BOOK DIRECT -->
+<div class="why-strip">
+  <div class="why-item">
+    <span class="why-icon">&#127991;</span>
+    <div class="why-title">Best price guaranteed</div>
+    <p class="why-body">We never charge more on our own site than on any third-party platform. Book here and you always get the lowest rate.</p>
+  </div>
+  <div class="why-item">
+    <span class="why-icon">&#128176;</span>
+    <div class="why-title">Zero booking fees</div>
+    <p class="why-body">No service charge, no credit card surcharge, no platform commission. What you see is what you pay.</p>
+  </div>
+  <div class="why-item">
+    <span class="why-icon">&#128100;</span>
+    <div class="why-title">Talk to Andy &amp; Ruth directly</div>
+    <p class="why-body">Call or email us and you speak to the owners — not a call centre. Any question, any special request, any time.</p>
+  </div>
+  <div class="why-item">
+    <span class="why-icon">&#127381;</span>
+    <div class="why-title">Returning guest discount</div>
+    <p class="why-body">Come back and you get a discount code at departure. Redeemable on your next direct booking — our way of saying thank you.</p>
+  </div>
+</div>
+
+<!-- BOOKING WIDGET SECTION -->
+<div class="booking-section" id="booking-widget">
+  <div class="booking-section-inner">
+    <div class="booking-header">
+      <div class="booking-header-left">
+        <p class="section-eyebrow">Secure online booking</p>
+        <h2>Check availability<br>&amp; <em>reserve your stay</em></h2>
+        <p>Select your arrival and departure dates and choose your property from the calendar below. The booking system is provided by Supercontrol — the UK&rsquo;s leading holiday cottage booking platform — so you can book with complete confidence.</p>
+      </div>
+      <div class="booking-header-right">
+        <div class="booking-note-card">
+          <span class="bnc-icon">&#128274;</span>
+          <div>
+            <div class="bnc-title">Secure &amp; trusted</div>
+            <p class="bnc-body">All bookings are processed securely by Supercontrol. Your payment details are fully protected.</p>
+          </div>
+        </div>
+        <div class="booking-note-card">
+          <span class="bnc-icon">&#127381;</span>
+          <div>
+            <div class="bnc-title">Returning guest?</div>
+            <p class="bnc-body">Enter your discount code during checkout. If you can&rsquo;t find it, <a href="tel:07887677354">call Andy on 07887 677 354</a> and he will sort it out.</p>
+          </div>
+        </div>
+        <div class="booking-note-card">
+          <span class="bnc-icon">&#128101;</span>
+          <div>
+            <div class="bnc-title">Booking multiple cottages?</div>
+            <p class="bnc-body">For group bookings of 2 or more properties, <a href="tel:07887677354">call Andy directly</a> for a group discount and to hold dates.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUPERCONTROL WIDGET -->
+    <div class="widget-wrap">
+      <!--
+      ════════════════════════════════════════════════
+      PASTE YOUR SUPERCONTROL EMBED CODE HERE
+      Remove the placeholder div below and paste
+      the iframe or script tag from Supercontrol.
+      ════════════════════════════════════════════════
+      -->
+      <div class="widget-placeholder">
+        <span class="wp-icon">&#128197;</span>
+        <div class="wp-title">Availability calendar &amp; booking</div>
+        <p class="wp-body">Your Supercontrol booking widget will appear here. Paste your embed code from the Supercontrol dashboard to activate.</p>
+        <div class="wp-code">Paste Supercontrol embed code here</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PROPERTY QUICK-SELECT -->
+<div class="properties-section" id="properties">
+  <div class="properties-section-inner">
+    <div class="prop-select-header">
+      <h2>Browse all properties<br>then <em>book direct</em></h2>
+    </div>
+
+    <div class="prop-grid">
+
+      <!-- Manor House -->
+      <a href="woodlands_manor_house.html" class="prop-card">
+        <div class="pc-img">
+          <img src="/images/book-direct/981e46492d801dd1.jpg" alt="Woodlands Manor House">
+          <div class="pc-tag">Flagship &bull; Sleeps 12</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-name">Woodlands Manor House</div>
+          <div class="pc-sleeps">Sleeps 12 + cots &bull; 6 bedrooms &bull; 3 bathrooms</div>
+          <div class="pc-features">
+            <span class="pc-feat">Grade II listed</span>
+            <span class="pc-feat">Aga kitchen</span>
+            <span class="pc-feat">3 lounges</span>
+            <span class="pc-feat">Private garden</span>
+            <span class="pc-feat">Dogs welcome</span>
+          </div>
+          <div class="pc-book">
+            <span class="pc-book-label">View &amp; book</span>
+            <span class="pc-book-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Rose Cottage -->
+      <a href="#booking-widget" class="prop-card">
+        <div class="pc-img">
+          <img src="/images/book-direct/981e46492d801dd1.jpg" alt="Rose Cottage">
+          <div class="pc-tag">Sleeps 8</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-name">Rose Cottage</div>
+          <div class="pc-sleeps">Sleeps 8 + cots &bull; 4 bedrooms &bull; 2 bathrooms</div>
+          <div class="pc-features">
+            <span class="pc-feat">Stone fireplace</span>
+            <span class="pc-feat">2 lounges</span>
+            <span class="pc-feat">Ground floor bedroom</span>
+            <span class="pc-feat">Dogs welcome</span>
+          </div>
+          <div class="pc-book">
+            <span class="pc-book-label">Book direct</span>
+            <span class="pc-book-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Jasmine -->
+      <a href="#booking-widget" class="prop-card">
+        <div class="pc-img">
+          <img src="/images/about/f768b622b6cab139.jpg" alt="Jasmine Cottage">
+          <div class="pc-tag">Sleeps 6</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-name">Jasmine Cottage</div>
+          <div class="pc-sleeps">Sleeps 6 + cots &bull; 3 bedrooms &bull; 2 bathrooms</div>
+          <div class="pc-features">
+            <span class="pc-feat">Secret door to Lavender</span>
+            <span class="pc-feat">Stone wood burner</span>
+            <span class="pc-feat">Dogs welcome</span>
+          </div>
+          <div class="pc-book">
+            <span class="pc-book-label">Book direct</span>
+            <span class="pc-book-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Lavender -->
+      <a href="#booking-widget" class="prop-card">
+        <div class="pc-img">
+          <img src="/images/animals/37f845543e54531f.jpg" alt="Lavender Cottage">
+          <div class="pc-tag">Sleeps 4</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-name">Lavender Cottage</div>
+          <div class="pc-sleeps">Sleeps 4 + cots &bull; 2 bedrooms &bull; 2 bathrooms</div>
+          <div class="pc-features">
+            <span class="pc-feat">Single level</span>
+            <span class="pc-feat">Links to Jasmine</span>
+            <span class="pc-feat">Dogs welcome</span>
+          </div>
+          <div class="pc-book">
+            <span class="pc-book-label">Book direct</span>
+            <span class="pc-book-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Stables -->
+      <a href="#booking-widget" class="prop-card">
+        <div class="pc-img">
+          <img src="/images/book-direct/ef583bcb3234cb40.jpg" alt="The Stables">
+          <div class="pc-tag">Sleeps 4</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-name">The Stables</div>
+          <div class="pc-sleeps">Sleeps 4 + cots &bull; 2 bedrooms &bull; 2 ensuites</div>
+          <div class="pc-features">
+            <span class="pc-feat">Valley view patio</span>
+            <span class="pc-feat">Freestanding bath</span>
+            <span class="pc-feat">Dogs welcome</span>
+          </div>
+          <div class="pc-book">
+            <span class="pc-book-label">Book direct</span>
+            <span class="pc-book-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Coach House -->
+      <a href="#booking-widget" class="prop-card">
+        <div class="pc-img">
+          <img src="/images/book-direct/985fe867d0049680.jpg" alt="The Coach House">
+          <div class="pc-tag">Sleeps 2</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-name">The Coach House</div>
+          <div class="pc-sleeps">Sleeps 2 + cot &bull; 1 bedroom &bull; 1 bathroom</div>
+          <div class="pc-features">
+            <span class="pc-feat">Vaulted ceilings</span>
+            <span class="pc-feat">Super king bed</span>
+            <span class="pc-feat">Dogs welcome</span>
+          </div>
+          <div class="pc-book">
+            <span class="pc-book-label">Book direct</span>
+            <span class="pc-book-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Honeysuckle -->
+      <a href="#booking-widget" class="prop-card" style="grid-column: 1 / -1; display:grid; grid-template-columns: 300px 1fr;">
+        <div class="pc-img" style="height:auto">
+          <img src="/images/blog-template/6acc248ff59e6e43.jpg" alt="Honeysuckle Cottage" style="height:100%;min-height:200px">
+          <div class="pc-tag">Sleeps 2</div>
+        </div>
+        <div class="pc-body" style="padding:28px 32px">
+          <div class="pc-name" style="font-size:20px">Honeysuckle Cottage</div>
+          <div class="pc-sleeps">Sleeps 2 + cot &bull; 1 bedroom &bull; 1 bathroom &bull; Single level</div>
+          <div class="pc-features" style="margin:12px 0">
+            <span class="pc-feat">Ground floor</span>
+            <span class="pc-feat">Open plan</span>
+            <span class="pc-feat">Perfect for couples or young families</span>
+            <span class="pc-feat">Dogs welcome</span>
+          </div>
+          <div class="pc-book" style="max-width:300px">
+            <span class="pc-book-label">Book direct</span>
+            <span class="pc-book-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Yurts -->
+    <div style="margin-top:40px;margin-bottom:16px">
+      <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:12px">Glamping</p>
+      <h3 style="font-family:'Playfair Display',serif;font-size:24px;color:var(--dark-sage);font-weight:400">The Yurts</h3>
+    </div>
+    <div class="yurt-row">
+      <a href="woodlands_yurts.html" class="prop-card">
+        <div class="pc-img">
+          <img src="/images/book-direct/290345902746f478.jpg" alt="Budhyn Yurt">
+          <div class="pc-tag">Glamping &bull; Sleeps 4</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-name">Budhyn Yurt</div>
+          <div class="pc-sleeps">Sleeps 4 + cots &bull; Private bathroom &bull; All year</div>
+          <div class="pc-features">
+            <span class="pc-feat">Nordpeis wood-burner</span>
+            <span class="pc-feat">Private kitchen</span>
+            <span class="pc-feat">Valley views</span>
+            <span class="pc-feat">Dogs welcome</span>
+          </div>
+          <div class="pc-book">
+            <span class="pc-book-label">View &amp; book</span>
+            <span class="pc-book-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+      <a href="woodlands_yurts.html" class="prop-card">
+        <div class="pc-img">
+          <img src="/images/blog-template/50732616e754d9b7.jpg" alt="Fenton Yurt">
+          <div class="pc-tag">Glamping &bull; Sleeps 4</div>
+        </div>
+        <div class="pc-body">
+          <div class="pc-name">Fenton Yurt</div>
+          <div class="pc-sleeps">Sleeps 4 + cots &bull; Private bathroom &bull; All year</div>
+          <div class="pc-features">
+            <span class="pc-feat">Nordpeis wood-burner</span>
+            <span class="pc-feat">Private kitchen</span>
+            <span class="pc-feat">Book both for 8 guests</span>
+            <span class="pc-feat">Dogs welcome</span>
+          </div>
+          <div class="pc-book">
+            <span class="pc-book-label">View &amp; book</span>
+            <span class="pc-book-arrow">&#8594;</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item">
+    <span class="ti-icon">&#11088;</span>
+    <div>
+      <div class="ti-label">4.9 Google rating</div>
+      <div class="ti-note">Based on 71+ reviews</div>
+    </div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <span class="ti-icon">&#127942;</span>
+    <div>
+      <div class="ti-label">TripAdvisor Travellers&rsquo; Choice 2026</div>
+      <div class="ti-note">Consistently top-rated</div>
+    </div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <span class="ti-icon">&#127775;</span>
+    <div>
+      <div class="ti-label">Booking.com 6 Awards</div>
+      <div class="ti-note">2026 Traveller Review Awards</div>
+    </div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <span class="ti-icon">&#128274;</span>
+    <div>
+      <div class="ti-label">Secure payments</div>
+      <div class="ti-note">Supercontrol booking engine</div>
+    </div>
+  </div>
+  <div class="trust-divider"></div>
+  <div class="trust-item">
+    <span class="ti-icon">&#128100;</span>
+    <div>
+      <div class="ti-label">Owner-run since 2003</div>
+      <div class="ti-note">Andy &amp; Ruth Peters</div>
+    </div>
+  </div>
+</div>
+
+<!-- RETURNING GUESTS -->
+<div class="returning-section">
+  <div class="rg-text">
+    <p class="rg-eyebrow">Welcome back</p>
+    <h2>Returning guest? Your discount is waiting.</h2>
+    <p>When you checked out of Woodlands, you were given a discount code to use on your next direct booking. Enter it during checkout and the saving is applied automatically. Can&rsquo;t find it? No problem — just call Andy and he will sort it out for you.</p>
+  </div>
+  <div class="rg-actions">
+    <a href="tel:07887677354" class="btn-call">Call Andy &mdash; 07887 677 354</a>
+    <div class="rg-note">Or email <a href="mailto:enquiries@woodlandsmanorfarm.co.uk" style="color:var(--sage-light);text-decoration:none">enquiries@woodlandsmanorfarm.co.uk</a></div>
+  </div>
+</div>
+
+<!-- GROUP BOOKINGS -->
+<div class="group-section">
+  <div class="gs-left">
+    <p class="gs-eyebrow">Groups &amp; exclusive use</p>
+    <h2>Booking multiple<br><em>cottages together?</em></h2>
+    <p>For groups taking two or more properties, please call Andy directly rather than booking online. He can hold multiple dates simultaneously, apply a group discount, and make sure everything is coordinated for your arrival.</p>
+    <div class="gs-stats">
+      <div class="gs-stat">
+        <span class="gs-stat-num">44</span>
+        <span class="gs-stat-label">Max guests</span>
+      </div>
+      <div class="gs-stat">
+        <span class="gs-stat-num">9</span>
+        <span class="gs-stat-label">Properties</span>
+      </div>
+      <div class="gs-stat">
+        <span class="gs-stat-num">&#127991;</span>
+        <span class="gs-stat-label">Best price guarantee</span>
+      </div>
+      <div class="gs-stat">
+        <span class="gs-stat-num">1</span>
+        <span class="gs-stat-label">Private pool</span>
+      </div>
+    </div>
+    <a href="tel:07887677354" class="btn-primary">Call Andy &mdash; 07887 677 354</a>
+  </div>
+  <div class="gs-right-img">
+    <img src="/images/about/f768b622b6cab139.jpg" alt="Woodlands Manor Farm — exclusive use for groups">
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity:0.7">
+      <p>A 17th-century farm in the Coombe Valley offering cottages, yurts, an indoor pool, and the warmest of Cornish welcomes.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm. All rights reserved.</span>
+    <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiences, Weddings &amp; Events — Woodlands Manor Farm, Bude Cornwall</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EF;--sage:#7f9789;--sage-light:#adbfb9;
+  --violet:#8B7BB5;--violet-hover:#7a6aa4;
+  --dark-sage:#4a6459;--mid-sage:#6a8478;
+  --text-dark:#1E2422;--text-mid:#4A5550;--text-light:#8A9990;
+  --white:#FEFEFE;--border:rgba(127,151,137,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-dark);font-weight:300;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+.nav-logo-img{display:flex;align-items:center;text-decoration:none}
+.nav-logo-png{height:44px;width:auto;display:block;transition:height 0.3s}
+nav.scrolled .nav-logo-png{height:36px}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-back{color:rgba(247,243,238,0.75);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:color 0.2s}
+.nav-back:hover{color:#F7F4EF}
+.nav-book{background:var(--violet);color:#FEFEFE;padding:10px 22px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}
+.nav-book:hover{background:var(--violet-hover)}
+
+/* ── HERO ── */
+.hero{position:relative;height:100vh;min-height:500px;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 40%;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,20,14,0.72) 0%,rgba(10,20,14,0.15) 18%,rgba(10,20,14,0) 38%,rgba(10,20,14,0) 52%,rgba(10,20,14,0.58) 100%);bottom:0;left:0;right:0;padding:0 72px 64px}
+.eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:14px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(46px,5.5vw,76px);color:#F7F4EF;font-weight:400;line-height:1.06;margin-bottom:18px}
+.hero-title em{font-style:italic;color:var(--sage-light);display:block}
+.hero-desc{font-size:16px;color:rgba(247,244,239,0.72);font-weight:300;max-width:580px;line-height:1.8}
+
+/* ── INTRO STRIP ── */
+.intro-strip{background:var(--dark-sage);padding:36px 72px;display:flex;align-items:center;justify-content:space-between;gap:48px;border-bottom:1px solid rgba(173,191,185,0.1)}
+.intro-strip-text p{font-size:15px;color:rgba(247,244,239,0.72);font-weight:300;line-height:1.7;max-width:640px}
+.intro-strip-text p strong{color:#F7F4EF;font-weight:500}
+.btn-enquire-lg{background:var(--violet);color:#FEFEFE;padding:14px 28px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap;flex-shrink:0}
+.btn-enquire-lg:hover{background:var(--violet-hover)}
+
+/* ── SECTION WRAPPER ── */
+.page-inner{max-width:1200px;margin:0 auto;padding:0 72px}
+
+/* ── SECTION HEADINGS ── */
+.section-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,46px);color:var(--dark-sage);font-weight:400;line-height:1.15;margin-bottom:8px}
+.section-title em{font-style:italic;color:var(--sage)}
+.section-divider{display:flex;align-items:center;gap:24px;margin:72px 0 48px}
+.section-divider h2{font-family:'Playfair Display',serif;font-size:24px;color:var(--dark-sage);font-weight:400;white-space:nowrap}
+.section-divider-line{flex:1;height:1px;background:var(--border)}
+
+/* ── EXPERIENCE CARDS — alternating layout ── */
+.exp-card{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:3px;background:var(--white);overflow:hidden;transition:box-shadow 0.3s}
+.exp-card:hover{box-shadow:0 12px 48px rgba(74,100,89,0.12)}
+.exp-card.reversed{direction:rtl}
+.exp-card.reversed>*{direction:ltr}
+.exp-card-img{position:relative;overflow:hidden;min-height:400px}
+.exp-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s ease}
+.exp-card:hover .exp-card-img img{transform:scale(1.04)}
+.exp-card-img-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(74,100,89,0.2),rgba(74,100,89,0))}
+.exp-card-body{padding:52px 56px;display:flex;flex-direction:column;justify-content:center}
+.exp-card-tag{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--sage);font-weight:400;margin-bottom:14px}
+.exp-card-title{font-family:'Playfair Display',serif;font-size:30px;color:var(--dark-sage);font-weight:400;line-height:1.15;margin-bottom:16px}
+.exp-card-desc{font-size:14px;color:var(--text-mid);line-height:1.85;font-weight:300;margin-bottom:28px}
+.exp-card-animals{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+.animal-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:var(--cream);border:1px solid var(--border);border-radius:20px;font-size:11px;color:var(--text-mid)}
+.animal-chip-icon{font-size:13px}
+.btn-enquire{display:inline-flex;align-items:center;gap:8px;background:var(--violet);color:#FEFEFE;padding:13px 24px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s,gap 0.2s}
+.btn-enquire:hover{background:var(--violet-hover);gap:12px}
+.exp-card-duration{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-light);margin-bottom:20px;letter-spacing:0.5px}
+.exp-card-duration::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--sage-light);flex-shrink:0}
+
+/* ── WEDDINGS BANNER ── */
+.weddings-banner{background:var(--dark-sage);display:grid;grid-template-columns:1fr 1fr;min-height:520px;margin-bottom:3px}
+.wb-img{overflow:hidden}
+.wb-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s}
+.weddings-banner:hover .wb-img img{transform:scale(1.03)}
+.wb-content{padding:64px 60px;display:flex;flex-direction:column;justify-content:center}
+.wb-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:14px}
+.wb-title{font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,48px);color:#F7F4EF;font-weight:400;line-height:1.12;margin-bottom:18px}
+.wb-title em{font-style:italic;color:var(--sage-light)}
+.wb-body{font-size:14px;color:rgba(247,244,239,0.65);line-height:1.85;font-weight:300;margin-bottom:28px}
+.wb-specs{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:32px}
+.wb-specs li{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(247,244,239,0.75)}
+.wb-specs li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--sage-light);flex-shrink:0}
+.btn-enquire-light{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.12);color:#F7F4EF;padding:13px 24px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;border:1px solid rgba(247,244,239,0.3);transition:background 0.2s}
+.btn-enquire-light:hover{background:rgba(255,255,255,0.2)}
+
+/* ── HOW IT WORKS ── */
+.how-section{background:var(--cream);padding:80px 0}
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);overflow:hidden}
+.how-step{background:var(--white);padding:40px 36px;text-align:center}
+.how-num{font-family:'Playfair Display',serif;font-size:48px;color:var(--sage-light);font-weight:400;line-height:1;margin-bottom:16px}
+.how-title{font-size:15px;font-weight:500;color:var(--dark-sage);margin-bottom:10px}
+.how-body{font-size:13px;color:var(--text-mid);line-height:1.75;font-weight:300}
+
+/* ── BOTTOM CTA ── */
+.bottom-cta{background:var(--sage);padding:72px;display:flex;align-items:center;justify-content:space-between;gap:48px}
+.bottom-cta-text h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,42px);color:#F7F4EF;font-weight:400;margin-bottom:10px}
+.bottom-cta-text p{font-size:15px;color:rgba(247,244,239,0.75);font-weight:300}
+.bottom-cta-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-end;flex-shrink:0}
+.btn-cta-white{background:#F7F4EF;color:var(--dark-sage);padding:14px 28px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap;text-align:center}
+.cta-contact-line{font-size:12px;color:rgba(247,244,239,0.65);text-align:right}
+.cta-contact-line a{color:#F7F4EF;text-decoration:none}
+
+/* ── FOOTER ── */
+footer{background:#111815;padding:48px 72px 32px}
+.footer-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;gap:48px}
+.footer-brand p{font-size:12px;color:rgba(247,244,239,0.4);line-height:1.8;font-weight:300;margin-top:12px;max-width:280px}
+.footer-contact a{display:block;color:rgba(247,244,239,0.5);text-decoration:none;font-size:12px;font-weight:300;margin-bottom:6px;transition:color 0.2s}
+.footer-contact a:hover{color:#F7F4EF}
+.footer-bottom{display:flex;justify-content:space-between;font-size:11px;color:rgba(247,244,239,0.3);padding-top:24px;border-top:1px solid rgba(247,244,239,0.08)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(247,244,239,0.3);text-decoration:none}
+.footer-logo-img{height:34px;width:auto}
+
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()">&#215;</button>
+  <div class="wmf-drawer-logo">
+    <div class="wmf-drawer-logo-name">Woodlands Manor Farm</div>
+    <div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <img src="/images/book-direct/985fe867d0049680.jpg" alt="Ruth with the animals at Woodlands Manor Farm">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Woodlands Manor Farm &bull; Bude, Cornwall</p>
+      <h1 class="hero-title">Experiences,<br><em>weddings &amp; events</em></h1>
+      <p class="hero-desc">From a two-hour pony experience with little Lulu, to an intimate wedding in the Cornish valley — Ruth and Andy can arrange something truly special around your stay.</p>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  <div class="intro-strip-text">
+    <p>All experiences are <strong>arranged directly with Ruth and Andy</strong> — there is no online booking system for these. Simply get in touch, tell us what you are interested in, and we will design the perfect experience for you and your group. Every enquiry is personal.</p>
+  </div>
+  <a href="mailto:enquiries@woodlandsmanorfarm.co.uk" class="btn-enquire-lg">Enquire by email</a>
+</div>
+
+<!-- ANIMAL EXPERIENCES SECTION -->
+<div style="padding:72px 72px 0">
+  <div class="section-label">With Ruth &amp; the animals</div>
+  <h2 class="section-title">Animal <em>experiences</em></h2>
+  <p style="font-size:15px;color:var(--text-mid);line-height:1.85;font-weight:300;max-width:580px;margin-top:8px">Ruth knows every animal on this farm personally — their names, their quirks, their favourite treats. These experiences are her way of sharing that love with guests.</p>
+</div>
+
+<!-- 1. PONY EXPERIENCE -->
+<div style="margin-top:48px">
+  <div class="exp-card">
+    <div class="exp-card-img">
+      <img src="/images/book-direct/985fe867d0049680.jpg" alt="Lulu the mini Shetland pony at Woodlands Manor Farm">
+      <div class="exp-card-img-overlay"></div>
+    </div>
+    <div class="exp-card-body">
+      <div class="exp-card-tag">Animal experience &bull; With Ruth</div>
+      <div class="exp-card-title">Pony Experience</div>
+      <div class="exp-card-duration">2 hours &bull; All ages &bull; Enquire to book</div>
+      <p class="exp-card-desc">We have four ponies on the farm — from special little Lulu, our mini Shetland, to Merlin our Welsh Cob. They all love a fuss. Join Ruth for a two-hour experience learning how to care for a pony as if it were your own. At the end, you can take Lulu for a walk or perhaps have a little ride — weather and experience dependent.</p>
+      <div class="exp-card-animals">
+        <div class="animal-chip"><span class="animal-chip-icon">&#128014;</span>Lulu — mini Shetland</div>
+        <div class="animal-chip"><span class="animal-chip-icon">&#128014;</span>Merlin — Welsh Cob</div>
+      </div>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk?subject=Pony Experience Enquiry" class="btn-enquire">Enquire about this experience &rarr;</a>
+    </div>
+  </div>
+
+  <!-- 2. ALPACA EXPERIENCE -->
+  <div class="exp-card reversed">
+    <div class="exp-card-img">
+      <img src="/images/animals/37f845543e54531f.jpg" alt="The three alpacas at Woodlands — Erebus, Henry and Napoleon">
+      <div class="exp-card-img-overlay"></div>
+    </div>
+    <div class="exp-card-body">
+      <div class="exp-card-tag">Animal experience &bull; With Ruth</div>
+      <div class="exp-card-title">Alpaca Experience</div>
+      <div class="exp-card-duration">2 hours &bull; All ages &bull; Enquire to book</div>
+      <p class="exp-card-desc">Our three Amigos are packed with personality. Erebus loves children, Henry is the boss, and Napoleon is the cheekiest of the bunch — you can't help but fall in love with all of them. Join Ruth for a two-hour experience getting to know their personalities first hand, learning how to care for them and taking them for a walk around their enclosure.</p>
+      <div class="exp-card-animals">
+        <div class="animal-chip"><span class="animal-chip-icon">&#129432;</span>Erebus — loves children</div>
+        <div class="animal-chip"><span class="animal-chip-icon">&#129432;</span>Henry — the boss</div>
+        <div class="animal-chip"><span class="animal-chip-icon">&#129432;</span>Napoleon — the cheeky one</div>
+      </div>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk?subject=Alpaca Experience Enquiry" class="btn-enquire">Enquire about this experience &rarr;</a>
+    </div>
+  </div>
+
+  <!-- 3. PYGMY GOAT EXPERIENCE -->
+  <div class="exp-card">
+    <div class="exp-card-img">
+      <img src="/images/book-direct/985fe867d0049680.jpg" alt="Zap and Sparky — the pygmy goats at Woodlands">
+      <div class="exp-card-img-overlay"></div>
+    </div>
+    <div class="exp-card-body">
+      <div class="exp-card-tag">Animal experience &bull; With Ruth</div>
+      <div class="exp-card-title">Pygmy Goat Experience</div>
+      <div class="exp-card-duration">2 hours &bull; Perfect for children &bull; Enquire to book</div>
+      <p class="exp-card-desc">Join Ruth for two hours of pure fun with Zap and Sparky, our resident pygmy goats. Learn how to care for them, groom their coats and take them for a little walk around the fields. Afterwards, we set up the goat adventure course and tempt them over the obstacles with their favourite treats. You won&rsquo;t stop laughing at their antics.</p>
+      <div class="exp-card-animals">
+        <div class="animal-chip"><span class="animal-chip-icon">&#128016;</span>Zap</div>
+        <div class="animal-chip"><span class="animal-chip-icon">&#128016;</span>Sparky</div>
+        <div class="animal-chip"><span class="animal-chip-icon">&#127917;</span>Goat adventure course</div>
+      </div>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk?subject=Pygmy Goat Experience Enquiry" class="btn-enquire">Enquire about this experience &rarr;</a>
+    </div>
+  </div>
+
+  <!-- 4. BESPOKE ANIMAL EXPERIENCE -->
+  <div class="exp-card reversed" style="background:var(--cream)">
+    <div class="exp-card-img">
+      <img src="/images/about/f768b622b6cab139.jpg" alt="The farm at Woodlands Manor Farm — design your own animal experience">
+      <div class="exp-card-img-overlay"></div>
+    </div>
+    <div class="exp-card-body" style="background:var(--cream)">
+      <div class="exp-card-tag">Bespoke &bull; Designed by Ruth for you</div>
+      <div class="exp-card-title">Special Farm Animal<br>Experience</div>
+      <div class="exp-card-duration">Flexible duration &bull; Any group size &bull; Enquire to book</div>
+      <p class="exp-card-desc">Do you have a favourite farm animal? Design your own experience with Ruth. Combine animal care with taking animals for a walk around the farm — walk with Lulu, play with the goats, tickle the pigs&rsquo; tummies or meet the alpacas. Ruth will design the perfect animal experience for your group, whatever your ages and interests.</p>
+      <div class="exp-card-animals">
+        <div class="animal-chip"><span class="animal-chip-icon">&#128014;</span>Ponies</div>
+        <div class="animal-chip"><span class="animal-chip-icon">&#129432;</span>Alpacas</div>
+        <div class="animal-chip"><span class="animal-chip-icon">&#128016;</span>Pygmy goats</div>
+        <div class="animal-chip"><span class="animal-chip-icon">&#128055;</span>Pigs</div>
+        <div class="animal-chip"><span class="animal-chip-icon">&#10024;</span>You choose</div>
+      </div>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk?subject=Bespoke Animal Experience Enquiry" class="btn-enquire">Design your experience &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- WEDDINGS & CELEBRATIONS -->
+<div class="weddings-banner" id="weddings" style="margin-top:3px">
+  <div class="wb-img">
+    <img src="/images/book-direct/ef583bcb3234cb40.jpg" alt="Woodlands Manor Farm — the perfect setting for weddings and celebrations">
+  </div>
+  <div class="wb-content">
+    <p class="wb-eyebrow">Celebrations &amp; special events</p>
+    <h2 class="wb-title">Weddings &amp;<br><em>celebrations</em></h2>
+    <p class="wb-body">Woodlands is the perfect location for an intimate wedding or special celebration. With the ability to sleep over 40 guests on the farm, everyone can relax and enjoy the day in perfect Cornish comfort, admiring the picturesque valley setting.</p>
+    <ul class="wb-specs">
+      <li>Sleeps 40+ across 9 properties — exclusive use available</li>
+      <li>Tipis, marquees and caterers can be arranged</li>
+      <li>Intimate valley setting, 2 miles from the Cornish coast</li>
+      <li>Heated indoor pool and full farm facilities for guests</li>
+      <li>Ruth and Andy will work with you from first enquiry to the day</li>
+    </ul>
+    <a href="mailto:enquiries@woodlandsmanorfarm.co.uk?subject=Wedding Enquiry — Woodlands Manor Farm" class="btn-enquire-light">Enquire about your wedding &rarr;</a>
+  </div>
+</div>
+
+<!-- OUTDOOR EXPERIENCES -->
+<div style="padding:72px 72px 0">
+  <div class="section-divider">
+    <h2>Outdoor &amp; Creative Experiences</h2>
+    <div class="section-divider-line"></div>
+  </div>
+</div>
+
+<div style="padding:0 72px 72px;display:grid;grid-template-columns:1fr 1fr;gap:3px">
+
+  <!-- ART EXPERIENCE -->
+  <div style="background:var(--white);overflow:hidden">
+    <div style="overflow:hidden;height:280px">
+      <img src="/images/blog-template/6acc248ff59e6e43.jpg" alt="Art workshops in the Bude area" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s">
+    </div>
+    <div style="padding:32px">
+      <div class="exp-card-tag">Creative &bull; Local artists</div>
+      <div class="exp-card-title" style="font-size:22px;margin-top:8px">Art Experience</div>
+      <div class="exp-card-duration" style="margin:10px 0 16px">Various durations &bull; All abilities</div>
+      <p class="exp-card-desc">Bude and the surrounding area has a vibrant art community. Many established artists hold workshops throughout the year — from watercolours inspired by the sea, to pottery, wood turning and more. Contact Ruth and she will find the artist that best fits your needs and interests.</p>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk?subject=Art Experience Enquiry" class="btn-enquire" style="margin-top:20px;display:inline-flex">Enquire &rarr;</a>
+    </div>
+  </div>
+
+  <!-- SURF EXPERIENCE -->
+  <div style="background:var(--white);overflow:hidden">
+    <div style="overflow:hidden;height:280px">
+      <img src="/images/blog-template/dcf926b3c1174be3.jpg" alt="Surfing at Bude — lessons and coaching" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s">
+    </div>
+    <div style="padding:32px">
+      <div class="exp-card-tag">Outdoor &bull; Atlantic coast</div>
+      <div class="exp-card-title" style="font-size:22px;margin-top:8px">Surf Experience</div>
+      <div class="exp-card-duration" style="margin:10px 0 16px">Half or full day &bull; Beginners to advanced</div>
+      <p class="exp-card-desc">With two surf-mad children, Andy and Ruth know every surf school in Bude personally. They can advise on one-to-one tuition, adaptive surfing, group lessons or advanced sessions with video feedback. Whatever your ability, they will find the right instructor for you.</p>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk?subject=Surf Experience Enquiry" class="btn-enquire" style="margin-top:20px;display:inline-flex">Enquire &rarr;</a>
+    </div>
+  </div>
+
+  <!-- SEA FISHING -->
+  <div style="background:var(--white);overflow:hidden;grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr">
+    <div style="overflow:hidden">
+      <img src="/images/blog-template/dcf926b3c1174be3.jpg" alt="Sea fishing with Alastair James Charters off the North Cornwall coast" style="width:100%;height:100%;object-fit:cover;display:block;min-height:320px;transition:transform 0.5s">
+    </div>
+    <div style="padding:44px 48px;display:flex;flex-direction:column;justify-content:center">
+      <div class="exp-card-tag">Sea adventure &bull; Alastair James Charters</div>
+      <div class="exp-card-title" style="font-size:26px;margin-top:8px">Sea Fishing</div>
+      <div class="exp-card-duration" style="margin:10px 0 16px">Half day &amp; full day trips &bull; All abilities</div>
+      <p class="exp-card-desc">Embark on an unforgettable sea fishing adventure with Alastair James Charters along the stunning North Devon and Cornwall coastline. Whether you are an experienced angler or a complete beginner, the guided trips offer the thrill of catching bass and mackerel. For a more relaxed day out, join the scenic sightseeing tours — complete with champagne and breathtaking Atlantic views.</p>
+      <div style="display:flex;gap:12px;margin-top:24px;flex-wrap:wrap">
+        <a href="https://www.clovellyfishingtrips.co.uk/" target="_blank" class="btn-enquire">Book with Alastair James &rarr;</a>
+        <a href="mailto:enquiries@woodlandsmanorfarm.co.uk?subject=Sea Fishing Enquiry" class="btn-enquire" style="background:transparent;color:var(--violet);border:1px solid var(--violet)">Ask Andy first</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- HOW IT WORKS -->
+<div style="background:var(--white);padding:72px 72px">
+  <div style="text-align:center;margin-bottom:48px">
+    <p class="section-label">Simple process</p>
+    <h2 class="section-title">How to arrange an <em>experience</em></h2>
+  </div>
+  <div class="how-grid">
+    <div class="how-step">
+      <div class="how-num">01</div>
+      <div class="how-title">Choose your experience</div>
+      <p class="how-body">Browse the experiences above and decide which ones you would like to add to your stay. You can mix and match — or ask Ruth to design something completely bespoke.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-num">02</div>
+      <div class="how-title">Get in touch</div>
+      <p class="how-body">Email or call Ruth and Andy before your arrival. They will confirm availability, answer any questions and make sure everything is ready for when you arrive.</p>
+    </div>
+    <div class="how-step">
+      <div class="how-num">03</div>
+      <div class="how-title">Enjoy your stay</div>
+      <p class="how-body">Arrive, settle in, and let the experiences come to you. Ruth personally leads every animal experience — it is always one of the highlights guests remember most.</p>
+    </div>
+  </div>
+</div>
+
+<!-- BOTTOM CTA -->
+<div class="bottom-cta">
+  <div class="bottom-cta-text">
+    <h2>Ready to plan something special?</h2>
+    <p>Ruth and Andy love hearing what guests would like to do &mdash; every enquiry is welcome.</p>
+  </div>
+  <div class="bottom-cta-actions">
+    <a href="mailto:enquiries@woodlandsmanorfarm.co.uk" class="btn-cta-white">Email an enquiry</a>
+    <div class="cta-contact-line">Or call Andy on <a href="tel:07887677354">07887 677 354</a></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity:0.7">
+      <p>A 17th-century farm in the Coombe Valley offering cottages, yurts, an indoor pool, and the warmest of Cornish welcomes.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm. All rights reserved.</span>
+    <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);
+});
+</script>
+</body>
+</html>

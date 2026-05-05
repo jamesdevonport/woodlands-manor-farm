@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Privacy Policy &middot; Woodlands Manor Farm</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#F7F4EF;--sage:#7f9789;--sage-light:#adbfb9;--violet:#8B7BB5;--violet-hover:#7a6aa4;--dark-sage:#4a6459;--text-dark:#1E2422;--text-mid:#4A5550;--text-light:#8A9990;--white:#FEFEFE;--border:rgba(127,151,137,0.15)}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-dark);font-weight:300;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,20,14,0.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+.nav-logo-img{display:flex;align-items:center;text-decoration:none}
+.nav-logo-png{height:46px;width:auto;display:block;transition:height 0.3s}
+nav.scrolled .nav-logo-png{height:36px}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-book{background:var(--violet);color:#FEFEFE;padding:10px 22px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}
+.nav-book:hover{background:var(--violet-hover)}
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light)}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;border-radius:2px;text-align:center}
+.wmf-drawer-contact a{display:block;color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;margin-bottom:4px}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase}
+/* Page header */
+.page-header{background:var(--dark-sage);padding:140px 72px 64px}
+.page-header-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:14px}
+.page-header-title{font-family:'Playfair Display',serif;font-size:clamp(36px,5vw,60px);color:#F7F4EF;font-weight:400;line-height:1.08;margin-bottom:12px}
+.page-header-title em{font-style:italic;color:var(--sage-light)}
+.page-header-meta{font-size:13px;color:rgba(247,244,239,0.5);font-weight:300}
+/* Doc content */
+.doc-wrap{display:grid;grid-template-columns:240px 1fr;gap:0;align-items:start;max-width:1100px;margin:0 auto;padding:72px}
+.doc-toc{position:sticky;top:93px}
+.doc-toc-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-light);font-weight:400;margin-bottom:16px}
+.doc-toc a{display:block;font-size:13px;color:var(--text-mid);text-decoration:none;padding:7px 0;border-bottom:1px solid rgba(127,151,137,0.08);transition:color 0.2s;line-height:1.4}
+.doc-toc a:hover{color:var(--violet)}
+.doc-toc a.active{color:var(--violet);font-weight:500}
+.doc-body{padding-left:64px;border-left:1px solid var(--border)}
+.doc-section{margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--border)}
+.doc-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.doc-section-title{font-family:'Playfair Display',serif;font-size:22px;color:var(--dark-sage);font-weight:400;margin-bottom:16px}
+.doc-section-subtitle{font-family:'Playfair Display',serif;font-size:17px;color:var(--dark-sage);font-weight:400;margin:24px 0 10px}
+.doc-body p{font-size:14px;color:var(--text-mid);line-height:1.85;font-weight:300;margin-bottom:14px}
+.doc-body ul,.doc-body ol{padding-left:20px;margin-bottom:14px}
+.doc-body li{font-size:14px;color:var(--text-mid);line-height:1.8;font-weight:300;margin-bottom:6px}
+.doc-body strong{font-weight:500;color:var(--text-dark)}
+.doc-body a{color:var(--violet);text-decoration:none}
+.doc-note{background:rgba(139,123,181,0.08);border-left:3px solid var(--violet);padding:14px 18px;border-radius:0 2px 2px 0;margin:16px 0;font-size:13px;color:var(--text-mid);line-height:1.7}
+.doc-warn{background:rgba(201,168,92,0.1);border-left:3px solid var(--gold,#C9A85C);padding:14px 18px;border-radius:0 2px 2px 0;margin:16px 0;font-size:13px;color:var(--text-mid);line-height:1.7}
+/* Updated badge */
+.updated-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(127,151,137,0.12);color:var(--sage);padding:4px 12px;border-radius:20px;font-size:11px;letter-spacing:1px;margin-bottom:24px}
+/* Footer */
+footer{background:#111815;padding:48px 72px 32px}
+.footer-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;gap:48px}
+.footer-brand p{font-size:12px;color:rgba(247,244,239,0.4);line-height:1.8;font-weight:300;margin-top:12px;max-width:280px}
+.footer-contact a{display:block;color:rgba(247,244,239,0.5);text-decoration:none;font-size:12px;font-weight:300;margin-bottom:6px}
+.footer-contact a:hover{color:#F7F4EF}
+.footer-bottom{display:flex;justify-content:space-between;font-size:11px;color:rgba(247,244,239,0.3);padding-top:24px;border-top:1px solid rgba(247,244,239,0.08)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(247,244,239,0.3);text-decoration:none}
+.footer-logo-img{height:34px;width:auto}
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img"><img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png"></a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()">&#215;</button>
+  <div class="wmf-drawer-logo"><div class="wmf-drawer-logo-name">Woodlands Manor Farm</div><div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div></div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+<div class="page-header">
+  <p class="page-header-eyebrow">Woodlands Manor Farm &bull; Legal</p>
+  <h1 class="page-header-title">Privacy <em>policy</em></h1>
+  <p class="page-header-meta">Last updated February 2024 &mdash; Woodlands Manor Farm Ltd</p>
+</div>
+<div class="doc-wrap">
+  <div class="doc-toc">
+    <div class="doc-toc-label">Contents</div>
+    <a href="#cookies">Cookie policy</a><a href="#data-we-collect">Data we collect</a><a href="#why-we-collect">Why we collect it</a><a href="#where-stored">Where it&rsquo;s stored</a><a href="#sharing">Sharing your data</a><a href="#marketing">Marketing</a><a href="#gdpr">GDPR rights</a><a href="#contact-privacy">Contact us</a>
+  </div>
+  <div class="doc-body">
+    
+<div class="updated-badge">&#9679; Last updated February 2024</div>
+
+<div class="doc-section" id="cookies">
+  <h2 class="doc-section-title">Cookie Policy</h2>
+  <p>Our website uses cookies to distinguish you from other users of our website. This helps us to provide you with a good experience when you browse our website and also allows us to improve our site. By continuing to browse the site, you are agreeing to our use of cookies.</p>
+  <p>A cookie is a small file of letters and numbers that we store on your browser or the hard drive of your computer if you agree. Cookies contain information that is transferred to your computer&rsquo;s hard drive.</p>
+  <h3 class="doc-section-subtitle">Types of cookies we use</h3>
+  <ul>
+    <li><strong>Strictly necessary cookies</strong> — required for the operation of our website, including cookies that enable you to log into secure areas and use the booking system.</li>
+    <li><strong>Analytical / performance cookies</strong> — allow us to recognise and count the number of visitors and to see how visitors move around our website. This helps us improve the way our website works.</li>
+    <li><strong>Functionality cookies</strong> — used to recognise you when you return to our website, enabling us to personalise our content and remember your preferences.</li>
+    <li><strong>Targeting cookies</strong> — record your visit to our website and the pages you have visited. We use this information to make our website and the advertising displayed on it more relevant to your interests.</li>
+  </ul>
+  <h3 class="doc-section-subtitle">Third-party cookies</h3>
+  <p>To enable online bookings we use cookies provided by Supercontrol. To monitor usage and the success of our marketing, we use Google Analytics, which uses cookies to collect information in an anonymous form, including the number of visitors, where visitors have come from, and the pages they visited.</p>
+  <div class="doc-note">You can block cookies by activating the setting on your browser that allows you to refuse the setting of all or some cookies. However, if you block all cookies (including essential cookies) you may not be able to access all parts of our site.</div>
+</div>
+
+<div class="doc-section" id="data-we-collect">
+  <h2 class="doc-section-title">Data we collect</h2>
+  <p>Even before you book your holiday, you give us data that we look after carefully.</p>
+  <ul>
+    <li>If you browse our website, certain technical information (including your IP address) is captured by tools such as Google Analytics, along with information about your visit such as pages viewed and time spent on the site.</li>
+    <li>When you contact us by email, using the enquiry form, by phone or through a third-party website, you will usually provide your name, email address and/or phone number.</li>
+    <li>When you book, you will provide additional information including your address and the names of the people staying with you.</li>
+    <li>We also receive information about you from cookies on our website.</li>
+  </ul>
+  <h3 class="doc-section-subtitle">Data we do not collect</h3>
+  <p>If you pay through the online booking engine, all payment information is stored by Supercontrol and their payment gateway partners. We never take credit or debit card details from you. We never ask for anyone&rsquo;s ethnicity, religion, or date of birth.</p>
+</div>
+
+<div class="doc-section" id="why-we-collect">
+  <h2 class="doc-section-title">Why we collect and store the data</h2>
+  <p>We collect this data so that we can help you to enjoy your holiday. That includes communicating with you before your holiday starts, welcoming you to the farm, and staying in touch for a while after you have returned home.</p>
+  <p>Some of the data is needed to fulfil the contract you have with us, and some of it just helps us improve the experience for you, which we only collect with your consent.</p>
+  <p>We also use browser information we collect to understand how people arrive at our website and which parts they look at. We are only interested in overall patterns, not any individual&rsquo;s browsing activity.</p>
+  <p>We might also use the information you have given us to tell you about special offers or other news here at the farm &mdash; but only if you have said it is OK for us to contact you in that way.</p>
+</div>
+
+<div class="doc-section" id="where-stored">
+  <h2 class="doc-section-title">Where we store the data</h2>
+  <p>All the data you give us is stored in properly managed and protected systems. This may include tools like Google Analytics for web browsing information, or Microsoft Outlook or Mailchimp for email. We also use commercial software to manage all our bookings, which is hosted in a professionally managed secure data centre.</p>
+</div>
+
+<div class="doc-section" id="sharing">
+  <h2 class="doc-section-title">Sharing your data</h2>
+  <p>We only share your data in very limited circumstances. The people who manage the software systems we use can typically see the data held in those systems, but the contracts we have with them prohibit them from misusing or passing on that data.</p>
+  <p><strong>We never sell your data to third parties.</strong></p>
+</div>
+
+<div class="doc-section" id="marketing">
+  <h2 class="doc-section-title">Marketing</h2>
+  <p>We would like to keep you up to date with news and offers about Woodlands Manor Farm that we think will be of interest to you. If at any point you wish to opt out of marketing communications, please email us at <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>.</p>
+</div>
+
+<div class="doc-section" id="gdpr">
+  <h2 class="doc-section-title">GDPR &amp; your rights</h2>
+  <p>The General Data Protection Regulation (GDPR) gives residents of the EU more control over their data. At Woodlands Manor Farm we make every reasonable effort to comply with GDPR and provide you with the option to enquire about our data collection policies and opt out of marketing communications.</p>
+  <p>You have the right to request a complete overview of the data we hold about you, to have it corrected, or to request its deletion. Email us at <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a> and we will respond as quickly as we can.</p>
+  <p>We may update this policy from time to time &mdash; check back here if you have any questions.</p>
+</div>
+
+<div class="doc-section" id="contact-privacy">
+  <h2 class="doc-section-title">Contact us</h2>
+  <p>If you have any questions, comments or requests regarding this privacy policy, please contact us:</p>
+  <p><strong>Woodlands Manor Farm</strong><br>
+  Woodford, Bude, Cornwall EX23 9HT<br>
+  <a href="tel:07887677354">07887 677 354</a><br>
+  <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a></p>
+</div>
+  </div>
+</div>
+<footer>
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity:0.7">
+      <p>A 17th-century farm in the Coombe Valley &mdash; cottages, yurts, heated pool and the warmest Cornish welcome.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm. All rights reserved.</span>
+    <div class="footer-links"><a href="woodlands_privacy.html">Privacy</a><a href="woodlands_terms.html">Terms</a><a href="woodlands_contact.html">Contact</a></div>
+  </div>
+</footer>
+<script>
+function wmfToggleMenu(){var d=document.getElementById('wmfDrawer'),o=document.getElementById('wmfOverlay'),b=document.getElementById('wmfHamburger');if(d.classList.contains('wmf-open')){wmfCloseMenu();}else{d.classList.add('wmf-open');o.classList.add('wmf-open');b.classList.add('wmf-open');document.body.style.overflow='hidden';}}
+function wmfCloseMenu(){document.getElementById('wmfDrawer').classList.remove('wmf-open');document.getElementById('wmfOverlay').classList.remove('wmf-open');document.getElementById('wmfHamburger').classList.remove('wmf-open');document.body.style.overflow='';}
+window.addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')wmfCloseMenu();});
+// TOC active state
+var sections=document.querySelectorAll('.doc-section[id]');
+var tocLinks=document.querySelectorAll('.doc-toc a');
+window.addEventListener('scroll',function(){
+  var scrollY=window.scrollY+120;
+  sections.forEach(function(s){
+    if(s.offsetTop<=scrollY&&s.offsetTop+s.offsetHeight>scrollY){
+      tocLinks.forEach(function(l){l.classList.remove('active');});
+      var active=document.querySelector('.doc-toc a[href="#'+s.id+'"]');
+      if(active)active.classList.add('active');
+    }
+  });
+});
+</script>
+</body>
+</html>

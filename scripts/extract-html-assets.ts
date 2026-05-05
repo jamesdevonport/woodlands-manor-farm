@@ -105,46 +105,30 @@ function processFile(filename: string) {
   }
 
   const fullPath = join(SRC_DIR, filename);
-  const html = readFileSync(fullPath, "utf8");
-  const bytesIn = Buffer.byteLength(html);
-  const $ = load(html, { decodeEntities: false });
+  const original = readFileSync(fullPath, "utf8");
+  const bytesIn = Buffer.byteLength(original);
 
   let imageCount = 0;
   const newPathsThisFile = new Set<string>();
   const failures: string[] = [];
 
-  $("img").each((_, el) => {
-    const src = $(el).attr("src");
-    if (!src?.startsWith("data:")) return;
+  // Single regex pass over the raw HTML. Matches every base64 image data URI
+  // — whether it's in <img src>, inline style url(), <script> arrays, etc.
+  // Captures up to the next quote/paren so it works in all common contexts.
+  const DATA_URI_RE = /data:image\/[a-zA-Z+]+;base64,[A-Za-z0-9+/=]+/g;
+  const html = original.replace(DATA_URI_RE, (uri) => {
     imageCount++;
-    const out = decodeAndStore(src, slug);
-    if (out) {
-      $(el).attr("src", out);
-      newPathsThisFile.add(out);
-    } else {
-      failures.push(`img tag: malformed data URI`);
+    const out = decodeAndStore(uri, slug);
+    if (!out) {
+      failures.push(`malformed data URI`);
+      return uri;
     }
-  });
-
-  $("[style]").each((_, el) => {
-    const style = $(el).attr("style");
-    if (!style?.includes("data:image")) return;
-    const rewritten = style.replace(/url\((['"]?)(data:[^)'"]+)\1\)/g, (_match, quote, uri) => {
-      imageCount++;
-      const out = decodeAndStore(uri, slug);
-      if (!out) {
-        failures.push(`inline style data URI`);
-        return `url(${quote}${uri}${quote})`;
-      }
-      newPathsThisFile.add(out);
-      return `url(${quote}${out}${quote})`;
-    });
-    $(el).attr("style", rewritten);
+    newPathsThisFile.add(out);
+    return out;
   });
 
   mkdirSync(OUT_HTML_DIR, { recursive: true });
-  const outHtml = $.html();
-  writeFileSync(join(OUT_HTML_DIR, filename), outHtml);
+  writeFileSync(join(OUT_HTML_DIR, filename), html);
 
   reports.push({
     file: filename,
@@ -152,13 +136,13 @@ function processFile(filename: string) {
     imageCount,
     uniqueCount: newPathsThisFile.size,
     bytesIn,
-    bytesOut: Buffer.byteLength(outHtml),
+    bytesOut: Buffer.byteLength(html),
     failures,
   });
 
   console.log(
     `[ok] ${filename} → ${slug}: ${imageCount} images (${newPathsThisFile.size} unique), ` +
-      `${(bytesIn / 1e6).toFixed(2)} MB → ${(Buffer.byteLength(outHtml) / 1e3).toFixed(0)} KB`,
+      `${(bytesIn / 1e6).toFixed(2)} MB → ${(Buffer.byteLength(html) / 1e3).toFixed(0)} KB`,
   );
 }
 

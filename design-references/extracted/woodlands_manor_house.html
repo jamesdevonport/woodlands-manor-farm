@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Woodlands Manor House — Sleeps 12 · Bude, Cornwall</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #F7F4EF;
+  --deep-green: #7f9789;
+  --sage: #7f9789;
+  --sage-light: #adbfb9;
+  --terracotta: #8B7BB5;
+  --text-dark: #1E2422;
+  --text-mid: #4A5550;
+  --text-light: #8A9990;
+  --white: #FEFEFE;
+  --border: rgba(127,151,137,0.18);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text-dark); font-weight: 300; overflow-x: hidden; }
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,20,14,0.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+.nav-logo-img { display: flex; align-items: center; text-decoration: none; }
+.nav-logo-png { height: 40px; width: auto; display: block; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-back {
+  color: rgba(247,243,238,0.6);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+  transition: color 0.2s;
+  display: flex; align-items: center; gap: 6px;
+}
+.nav-back:hover { color: var(--cream); }
+.nav-book-btn {
+  background: var(--terracotta); color: #FEFEFE;
+  padding: 10px 22px; text-decoration: none;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  font-weight: 500; font-family: 'Jost', sans-serif;
+  border-radius: 2px; transition: background 0.2s; white-space: nowrap;
+}
+.nav-book-btn:hover { background: #7a6aa4; }
+
+/* ── PAGE LAYOUT ── */
+.page-wrap {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  min-height: 100vh;
+  padding-top: 73px; /* nav height */
+}
+
+/* ── LEFT: GALLERY PANEL ── */
+.gallery-panel {
+  position: relative;
+  background: #4a6459;
+}
+
+/* Main image */
+.gallery-main {
+  position: sticky;
+  top: 73px;
+  height: calc(100vh - 73px);
+  overflow: hidden;
+}
+.gallery-main img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: opacity 0.5s ease;
+}
+
+/* Thumbnail strip */
+.gallery-thumbs {
+  position: absolute;
+  bottom: 24px; left: 24px; right: 24px;
+  display: flex; gap: 8px;
+  z-index: 10;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-bottom: 2px;
+}
+.gallery-thumbs::-webkit-scrollbar { display: none; }
+.thumb {
+  width: 64px; height: 48px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.2s, opacity 0.2s;
+  opacity: 0.65;
+}
+.thumb.active {
+  border-color: var(--sage-light);
+  opacity: 1;
+}
+.thumb:hover { opacity: 0.9; }
+.thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+
+/* Image counter */
+.gallery-counter {
+  position: absolute;
+  top: 24px; right: 24px;
+  background: rgba(74,100,89,0.7);
+  backdrop-filter: blur(4px);
+  color: rgba(247,243,238,0.8);
+  font-size: 11px;
+  letter-spacing: 2px;
+  padding: 6px 12px;
+  border-radius: 2px;
+  font-family: 'Jost', sans-serif;
+  z-index: 10;
+}
+
+/* Arrow buttons */
+.gallery-arrow {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  background: rgba(74,100,89,0.55);
+  border: 1px solid rgba(173,191,185,0.3);
+  color: #F7F4EF;
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10;
+  transition: background 0.2s;
+}
+.gallery-arrow:hover { background: rgba(74,100,89,0.85); }
+.gallery-prev { left: 16px; }
+.gallery-next { right: 16px; }
+
+/* Breadcrumb on image */
+.gallery-breadcrumb {
+  position: absolute;
+  top: 24px; left: 24px;
+  z-index: 10;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(247,243,238,0.65);
+  font-family: 'Jost', sans-serif;
+}
+.gallery-breadcrumb a {
+  color: rgba(247,243,238,0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.gallery-breadcrumb a:hover { color: #F7F4EF; }
+.gallery-breadcrumb span { margin: 0 8px; }
+
+/* ── RIGHT: DETAILS PANEL ── */
+.details-panel {
+  background: var(--white);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: calc(100vh - 73px);
+  position: sticky;
+  top: 73px;
+}
+
+.details-inner {
+  padding: 40px 36px;
+  flex: 1;
+}
+
+/* Property type tag */
+.prop-tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+/* Property name */
+.prop-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: var(--deep-green);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+.prop-subtitle {
+  font-size: 13px;
+  color: var(--text-light);
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+/* Quick stats row */
+.quick-stats {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+.qs {
+  background: var(--cream);
+  padding: 14px 10px;
+  text-align: center;
+}
+.qs-icon {
+  font-size: 18px;
+  margin-bottom: 4px;
+  display: block;
+}
+.qs-val {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--deep-green);
+  display: block;
+  font-family: 'Playfair Display', serif;
+}
+.qs-label {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  display: block;
+  margin-top: 2px;
+}
+
+/* Description */
+.prop-desc {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text-mid);
+  margin-bottom: 28px;
+  font-weight: 300;
+}
+
+/* Section headers in panel */
+.panel-section-title {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 500;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Amenities grid */
+.amenities {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+.amenity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-mid);
+}
+.amenity-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--sage);
+  flex-shrink: 0;
+}
+
+/* Room list */
+.room-list {
+  list-style: none;
+  margin-bottom: 28px;
+}
+.room-list li {
+  font-size: 12px;
+  color: var(--text-mid);
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(127,151,137,0.08);
+  line-height: 1.5;
+  font-weight: 300;
+}
+.room-list li:last-child { border-bottom: none; }
+
+/* Pricing / booking box */
+.booking-box {
+  background: var(--deep-green);
+  border-radius: 4px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+.booking-box-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+.booking-box-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #F7F4EF;
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+.booking-widget-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.bw-col {
+  background: rgba(255,255,255,0.06);
+  padding: 12px 14px;
+}
+.bw-col label {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-bottom: 4px;
+  font-weight: 400;
+}
+.bw-col input, .bw-col select {
+  background: none;
+  border: none;
+  color: #F7F4EF;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+}
+.bw-col input::placeholder { color: rgba(247,244,239,0.5); }
+.btn-book-now {
+  display: block;
+  width: 100%;
+  background: var(--terracotta);
+  color: #FEFEFE;
+  border: none;
+  padding: 14px 24px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s;
+  text-decoration: none;
+  text-align: center;
+}
+.btn-book-now:hover { background: #7a6aa4; }
+.booking-note {
+  font-size: 11px;
+  color: rgba(247,244,239,0.45);
+  text-align: center;
+  margin-top: 10px;
+}
+.booking-note a { color: var(--sage-light); }
+
+/* Call strip */
+.call-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+.call-strip-text {
+  font-size: 12px;
+  color: var(--text-mid);
+  font-weight: 300;
+}
+.call-strip-text strong {
+  display: block;
+  font-size: 14px;
+  color: var(--deep-green);
+  font-weight: 500;
+  font-family: 'Jost', sans-serif;
+}
+.call-strip-link {
+  color: var(--terracotta);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(181,101,58,0.35);
+  padding-bottom: 1px;
+  white-space: nowrap;
+}
+
+/* Reviews mini */
+.mini-reviews {
+  margin-bottom: 28px;
+}
+.mini-review {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.mini-review:last-child { border-bottom: none; }
+.mini-review-stars { color: #C9A85C; font-size: 11px; letter-spacing: 2px; margin-bottom: 5px; }
+.mini-review-text {
+  font-size: 12px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+.mini-review-author {
+  font-size: 11px;
+  color: var(--text-light);
+  letter-spacing: 1px;
+}
+
+/* ── BELOW THE FOLD CONTENT ── */
+.content-below {
+  padding: 80px 64px;
+  background: var(--cream);
+  max-width: 900px;
+}
+.content-below.full { max-width: 100%; background: var(--white); padding: 80px 64px; }
+
+.section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+.section-h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px, 3vw, 42px);
+  color: var(--deep-green);
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 32px;
+}
+
+/* Full floor plan / detail grid */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 64px;
+}
+.detail-col h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: var(--deep-green);
+  font-weight: 400;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.detail-col ul {
+  list-style: none;
+}
+.detail-col li {
+  font-size: 13px;
+  color: var(--text-mid);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(127,151,137,0.08);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+  font-weight: 300;
+}
+.detail-col li::before {
+  content: '';
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--sage);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+/* Facilities chips */
+.facility-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  font-size: 12px;
+  color: var(--text-mid);
+  font-weight: 400;
+}
+.chip-icon { font-size: 14px; }
+
+/* Other cottages strip */
+.other-cottages {
+  background: var(--deep-green);
+  padding: 64px;
+}
+.other-cottages-title {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--sage-light);
+  margin-bottom: 32px;
+  font-weight: 400;
+}
+.cottages-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 3px;
+}
+.cottage-thumb {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.cottage-thumb-img {
+  width: 100%;
+  padding-top: 130%;
+  position: relative;
+  overflow: hidden;
+}
+.cottage-thumb-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.cottage-thumb:hover .cottage-thumb-img img { transform: scale(1.06); }
+.cottage-thumb-info {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 16px 14px 14px;
+  background: linear-gradient(transparent, rgba(74,100,89,0.9));
+}
+.cti-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  color: #F7F4EF;
+  font-weight: 400;
+  margin-bottom: 2px;
+}
+.cti-sleeps {
+  font-size: 10px;
+  color: var(--sage-light);
+  letter-spacing: 1px;
+}
+
+/* FOOTER */
+footer { background: #4a6459; padding: 48px 64px 32px; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: rgba(247,244,239,0.3);
+  padding-top: 32px;
+  border-top: 1px solid rgba(247,244,239,0.08);
+}
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { color: rgba(247,244,239,0.3); text-decoration: none; }
+.footer-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  gap: 48px;
+}
+.footer-brand p {
+  font-size: 12px;
+  color: rgba(247,244,239,0.4);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-top: 12px;
+  max-width: 280px;
+}
+.footer-contact a {
+  display: block;
+  color: rgba(247,244,239,0.5);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 300;
+  margin-bottom: 6px;
+  transition: color 0.2s;
+}
+.footer-contact a:hover { color: #F7F4EF; }
+.footer-logo-img { height: 36px; width: auto; }
+
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/the-manor-house/aea56f22e8893d05.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_manor_farm.html" class="nav-back">&#8592; All cottages</a>
+    <a href="#booking" class="nav-book-btn">Book Direct</a>
+  </div>
+</nav>
+
+<!-- MAIN SPLIT LAYOUT -->
+<div class="page-wrap">
+
+  <!-- ── LEFT: STICKY GALLERY ── -->
+  <div class="gallery-panel">
+    <div class="gallery-main" id="galleryMain">
+      <img id="mainImg" src="/images/cottages/812784261e6d52d7.jpg" alt="Woodlands Manor House — stone lounge with beams">
+
+      <!-- Breadcrumb -->
+      <div class="gallery-breadcrumb">
+        <a href="woodlands_manor_farm.html">Home</a>
+        <span>/</span>
+        <a href="woodlands_manor_farm.html#stays">Cottages</a>
+        <span>/</span>
+        Manor House
+      </div>
+
+      <!-- Counter -->
+      <div class="gallery-counter" id="galleryCounter">1 / 8</div>
+
+      <!-- Arrows -->
+      <button class="gallery-arrow gallery-prev" onclick="galleryStep(-1)">&#8592;</button>
+      <button class="gallery-arrow gallery-next" onclick="galleryStep(1)">&#8594;</button>
+
+      <!-- Thumbnails -->
+      <div class="gallery-thumbs" id="galleryThumbs">
+        <div class="thumb active" onclick="galleryGo(0)">
+          <img src="/images/cottages/812784261e6d52d7.jpg" alt="">
+        </div>
+        <div class="thumb" onclick="galleryGo(1)">
+          <img src="/images/the-manor-house/67da4c25a4e4f055.jpg" alt="">
+        </div>
+        <div class="thumb" onclick="galleryGo(2)">
+          <img src="/images/home/ec8c89b6a5ac2c67.jpg" alt="">
+        </div>
+        <div class="thumb" onclick="galleryGo(3)">
+          <img src="/images/the-manor-house/9dd7637b6fc73c5e.jpg" alt="">
+        </div>
+        <div class="thumb" onclick="galleryGo(4)">
+          <img src="/images/the-manor-house/0d83a0c4da301840.jpg" alt="">
+        </div>
+        <div class="thumb" onclick="galleryGo(5)">
+          <img src="/images/the-manor-house/a7809ad1acb99a01.jpg" alt="">
+        </div>
+        <div class="thumb" onclick="galleryGo(6)">
+          <img src="/images/the-manor-house/5f1b71cd596a600d.jpg" alt="">
+        </div>
+        <div class="thumb" onclick="galleryGo(7)">
+          <img src="/images/the-manor-house/44ce64a67274246a.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RIGHT: STICKY DETAILS PANEL ── -->
+  <div class="details-panel" id="detailsPanel">
+    <div class="details-inner">
+
+      <div class="prop-tag">Grade II Listed &middot; 17th Century</div>
+      <h1 class="prop-name">Woodlands<br>Manor House</h1>
+      <div class="prop-subtitle">The flagship property &mdash; sleeps 12 + cots</div>
+
+      <!-- Quick stats -->
+      <div class="quick-stats">
+        <div class="qs">
+          <span class="qs-icon">&#127968;</span>
+          <span class="qs-val">12</span>
+          <span class="qs-label">Guests</span>
+        </div>
+        <div class="qs">
+          <span class="qs-icon">&#128716;</span>
+          <span class="qs-val">6</span>
+          <span class="qs-label">Bedrooms</span>
+        </div>
+        <div class="qs">
+          <span class="qs-icon">&#128705;</span>
+          <span class="qs-val">3</span>
+          <span class="qs-label">Bathrooms</span>
+        </div>
+        <div class="qs">
+          <span class="qs-icon">&#128021;</span>
+          <span class="qs-val">Yes</span>
+          <span class="qs-label">Dogs OK</span>
+        </div>
+      </div>
+
+      <!-- Description -->
+      <p class="prop-desc">
+        A large traditional Grade II-listed farmhouse, listed as 17th Century or earlier, retaining magnificent original features — low lintels, slate floors, and stone fireplaces. Three lounges, a dining room, a four-oven Aga kitchen, conservatory, and six characterful bedrooms make this our most loved and most requested property.
+      </p>
+
+      <!-- Booking box -->
+      <div class="booking-box" id="booking">
+        <div class="booking-box-label">Book direct &mdash; best rate guaranteed</div>
+        <div class="booking-box-title">Check availability</div>
+        <div class="booking-widget-row">
+          <div class="bw-col">
+            <label>Arrival</label>
+            <input type="text" placeholder="Select date" onclick="window.open('https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/','_blank')">
+          </div>
+          <div class="bw-col">
+            <label>Departure</label>
+            <input type="text" placeholder="Select date" onclick="window.open('https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/','_blank')">
+          </div>
+        </div>
+        <a href="https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/" target="_blank" class="btn-book-now">Check Availability &amp; Book</a>
+        <div class="booking-note">No booking fees &middot; <a href="tel:07887677354">Call 07887 677 354</a> for groups</div>
+      </div>
+
+      <!-- Call strip -->
+      <div class="call-strip">
+        <div class="call-strip-text">
+          Group booking or returning guest?
+          <strong>07887 677 354</strong>
+        </div>
+        <a href="tel:07887677354" class="call-strip-link">Call Andy</a>
+      </div>
+
+      <!-- Top amenities -->
+      <div class="panel-section-title">Highlights</div>
+      <div class="amenities">
+        <div class="amenity"><div class="amenity-dot"></div>Four-oven Aga kitchen</div>
+        <div class="amenity"><div class="amenity-dot"></div>Indoor heated pool</div>
+        <div class="amenity"><div class="amenity-dot"></div>Three lounges</div>
+        <div class="amenity"><div class="amenity-dot"></div>Wood burner</div>
+        <div class="amenity"><div class="amenity-dot"></div>Private garden</div>
+        <div class="amenity"><div class="amenity-dot"></div>Games room access</div>
+        <div class="amenity"><div class="amenity-dot"></div>EV charger on site</div>
+        <div class="amenity"><div class="amenity-dot"></div>Super-fast WiFi</div>
+        <div class="amenity"><div class="amenity-dot"></div>Dogs welcome</div>
+        <div class="amenity"><div class="amenity-dot"></div>Short breaks available</div>
+      </div>
+
+      <!-- Mini reviews -->
+      <div class="panel-section-title">What guests say</div>
+      <div class="mini-reviews">
+        <div class="mini-review">
+          <div class="mini-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="mini-review-text">"Really beautiful authentic old Manor House with quirky rooms and period features. Beautiful flat stone floors and huge fireplace. Brilliant place for multiple families with kids."</div>
+          <div class="mini-review-author">Alex K. &mdash; Manor House, 2023</div>
+        </div>
+        <div class="mini-review">
+          <div class="mini-review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="mini-review-text">"Loads of space, the kitchen is really well equipped and bedrooms all really comfy. The indoor pool and games room was a godsend on a pretty wet week &mdash; the kids loved it all."</div>
+          <div class="mini-review-author">Claire P. &mdash; Manor House, 2023</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ── BELOW FOLD: FULL DETAILS ── -->
+<div style="background: var(--cream); padding: 80px 64px;">
+  <div class="section-eyebrow">The property</div>
+  <h2 class="section-h2">Every room, every detail</h2>
+
+  <!-- Facility chips -->
+  <div class="facility-chips">
+    <div class="chip"><span class="chip-icon">&#127944;</span> Heated indoor pool</div>
+    <div class="chip"><span class="chip-icon">&#127918;</span> Games room</div>
+    <div class="chip"><span class="chip-icon">&#128293;</span> Wood burner</div>
+    <div class="chip"><span class="chip-icon">&#127859;</span> Four-oven Aga</div>
+    <div class="chip"><span class="chip-icon">&#9889;</span> EV charger</div>
+    <div class="chip"><span class="chip-icon">&#128246;</span> Super-fast WiFi</div>
+    <div class="chip"><span class="chip-icon">&#128021;</span> Dogs welcome</div>
+    <div class="chip"><span class="chip-icon">&#127775;</span> 5-star rated</div>
+    <div class="chip"><span class="chip-icon">&#127968;</span> Grade II listed</div>
+    <div class="chip"><span class="chip-icon">&#127807;</span> Private garden</div>
+    <div class="chip"><span class="chip-icon">&#128704;</span> Parking</div>
+    <div class="chip"><span class="chip-icon">&#129498;</span> Linen &amp; towels</div>
+  </div>
+
+  <div class="detail-grid">
+    <!-- Ground floor -->
+    <div class="detail-col">
+      <h3>Ground floor</h3>
+      <ul>
+        <li>Porch with coat and boot rack</li>
+        <li>Hall &amp; separate WC with wash basin</li>
+        <li>Dining room — seats 12</li>
+        <li>Sitting room with 55&quot; OLED UHD Smart TV &amp; wood burner</li>
+        <li>Drawing room with UHD Smart TV</li>
+        <li>Snug / reading room off the main lounge</li>
+        <li>Kitchen / breakfast room with four-oven oil-fired Aga, microwave, fridge &amp; dishwasher</li>
+        <li>Conservatory with electric range cooker — sun trap all year</li>
+        <li>Utility room with freezer, washing machine &amp; tumble-dryer</li>
+        <li>Private mature garden &amp; courtyard</li>
+      </ul>
+    </div>
+    <!-- First floor -->
+    <div class="detail-col">
+      <h3>First floor — 6 bedrooms</h3>
+      <ul>
+        <li>Bedroom 1 &mdash; twin beds</li>
+        <li>Bedroom 2 &mdash; twin beds (leading from bedroom 1)</li>
+        <li>Bathroom 1 &mdash; bath, shower cubicle, WC &amp; wash basin</li>
+        <li>Bedroom 3 &mdash; super king-size (6ft) double</li>
+        <li>Bathroom 2 &mdash; bath, shower cubicle, WC &amp; wash basin</li>
+        <li>Bedroom 4 &mdash; super king-size (6ft) double</li>
+        <li>Bedroom 5 &mdash; twin beds</li>
+        <li>Bedroom 6 &mdash; twin beds</li>
+        <li>Bathroom 3 &mdash; bath, WC &amp; wash basin</li>
+        <li>All bedrooms: romantic bedsteads &amp; crisp white linen</li>
+      </ul>
+    </div>
+    <!-- Miscellaneous -->
+    <div class="detail-col">
+      <h3>Good to know</h3>
+      <ul>
+        <li>Ample private parking on site</li>
+        <li>Electric vehicle charger available</li>
+        <li>Short breaks available out of season</li>
+        <li>No smoking throughout</li>
+        <li>Well-behaved dogs welcome — meadow &amp; woodland walks</li>
+        <li>Cot &amp; highchair available on request</li>
+        <li>Welcome basket: tea, coffee, milk, sugar, herbs, salt &amp; pepper</li>
+        <li>Bed linen &amp; towels all included</li>
+        <li>Shop &amp; pub within 2 miles</li>
+      </ul>
+    </div>
+    <!-- Farm facilities -->
+    <div class="detail-col">
+      <h3>Farm facilities included</h3>
+      <ul>
+        <li>Heated indoor swimming pool — 30&deg;C, open 8am&ndash;8pm daily</li>
+        <li>Games room — table tennis, pool, foosball, giant Connect Four, soft play</li>
+        <li>Woodland walk — magical bluebell carpet in April &amp; May</li>
+        <li>Playing field with playground, swings &amp; slide</li>
+        <li>Feed the Animals tour — Sundays &amp; Wednesdays with Ruth</li>
+        <li>Pigs, sheep, alpacas, horses, rabbits, goats &amp; chickens</li>
+        <li>2 miles to Duckpool Beach (National Trust)</li>
+        <li>6 miles to Bude town &amp; sea pool</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- Other cottages -->
+<div class="other-cottages">
+  <div class="other-cottages-title">Also at Woodlands Manor Farm</div>
+  <div class="cottages-strip">
+    <div class="cottage-thumb">
+      <div class="cottage-thumb-img"><img src="/images/cottages/178e79588e66b04a.jpg" alt="The Yurts"></div>
+      <div class="cottage-thumb-info">
+        <div class="cti-name">The Yurts</div>
+        <div class="cti-sleeps">Sleeps 4</div>
+      </div>
+    </div>
+    <div class="cottage-thumb">
+      <div class="cottage-thumb-img"><img src="/images/cottages/32742e1c3f3de7dd.jpg" alt="Rose Cottage"></div>
+      <div class="cottage-thumb-info">
+        <div class="cti-name">Rose Cottage</div>
+        <div class="cti-sleeps">Sleeps 8</div>
+      </div>
+    </div>
+    <div class="cottage-thumb">
+      <div class="cottage-thumb-img"><img src="/images/cottages/b2a31f0f839f8fce.jpg" alt="The Stables"></div>
+      <div class="cottage-thumb-info">
+        <div class="cti-name">The Stables</div>
+        <div class="cti-sleeps">Sleeps 4</div>
+      </div>
+    </div>
+    <div class="cottage-thumb">
+      <div class="cottage-thumb-img"><img src="/images/cottages/7da27dbd79d1c7d5.jpg" alt="Coach House"></div>
+      <div class="cottage-thumb-info">
+        <div class="cti-name">Coach House</div>
+        <div class="cti-sleeps">Sleeps 2</div>
+      </div>
+    </div>
+    <div class="cottage-thumb">
+      <div class="cottage-thumb-img"><img src="/images/the-manor-house/ff80759f73d8921c.jpg" alt="Jasmine Cottage"></div>
+      <div class="cottage-thumb-info">
+        <div class="cti-name">Jasmine Cottage</div>
+        <div class="cti-sleeps">Sleeps 6</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top-row">
+    <div class="footer-brand">
+      <img src="/images/cottages/65b5009a86c4d3c4.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity: 0.75;">
+      <p>A 17th-century farm in the Coombe Valley offering cottages, yurts, an indoor pool, and the warmest of Cornish welcomes.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const galleryImages = [
+  { src: "/images/cottages/812784261e6d52d7.jpg", alt: "Stone lounge with beams and fireplace" },
+  { src: "/images/the-manor-house/67da4c25a4e4f055.jpg", alt: "Manor House conservatory kitchen" },
+  { src: "/images/home/ec8c89b6a5ac2c67.jpg", alt: "Conservatory with summer flowers" },
+  { src: "/images/the-manor-house/9dd7637b6fc73c5e.jpg", alt: "Bluebell bedroom with fireplace" },
+  { src: "/images/the-manor-house/0d83a0c4da301840.jpg", alt: "Front bedroom with original beams" },
+  { src: "/images/the-manor-house/a7809ad1acb99a01.jpg", alt: "Dining room set for twelve" },
+  { src: "/images/the-manor-house/5f1b71cd596a600d.jpg", alt: "Manor House bathroom with roll-top bath" },
+  { src: "/images/the-manor-house/44ce64a67274246a.jpg", alt: "Manor House exterior and garden" },
+];
+
+let current = 0;
+const mainImg = document.getElementById('mainImg');
+const counter = document.getElementById('galleryCounter');
+const thumbs  = document.querySelectorAll('.thumb');
+
+function galleryGo(n) {
+  current = (n + galleryImages.length) % galleryImages.length;
+  mainImg.style.opacity = 0;
+  setTimeout(() => {
+    mainImg.src = galleryImages[current].src;
+    mainImg.alt = galleryImages[current].alt;
+    mainImg.style.opacity = 1;
+  }, 220);
+  counter.textContent = (current + 1) + ' / ' + galleryImages.length;
+  thumbs.forEach((t, i) => t.classList.toggle('active', i === current));
+  thumbs[current].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
+}
+function galleryStep(d) { galleryGo(current + d); }
+</script>
+
+<script>
+function wmfToggleMenu(){
+  var d=document.getElementById('wmfDrawer'),o=document.getElementById('wmfOverlay'),b=document.getElementById('wmfHamburger');
+  if(d.classList.contains('wmf-open')){wmfCloseMenu();}
+  else{d.classList.add('wmf-open');o.classList.add('wmf-open');b.classList.add('wmf-open');document.body.style.overflow='hidden';}
+}
+function wmfCloseMenu(){
+  document.getElementById('wmfDrawer').classList.remove('wmf-open');
+  document.getElementById('wmfOverlay').classList.remove('wmf-open');
+  document.getElementById('wmfHamburger').classList.remove('wmf-open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')wmfCloseMenu();});
+
+window.addEventListener('scroll',function(){document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);});
+</script>
+</body>
+</html>

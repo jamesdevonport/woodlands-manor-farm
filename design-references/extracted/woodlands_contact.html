@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Woodlands Manor Farm, Bude Cornwall</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EF;--sage:#7f9789;--sage-light:#adbfb9;
+  --violet:#8B7BB5;--violet-hover:#7a6aa4;
+  --dark-sage:#4a6459;--mid-sage:#6a8478;
+  --text-dark:#1E2422;--text-mid:#4A5550;--text-light:#8A9990;
+  --white:#FEFEFE;--border:rgba(127,151,137,0.15);--gold:#C9A85C;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-dark);font-weight:300;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+.nav-logo-img{display:flex;align-items:center;text-decoration:none}
+.nav-logo-png{height:46px;width:auto;display:block;transition:height 0.3s}
+nav.scrolled .nav-logo-png{height:36px}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-back{color:rgba(247,243,238,0.85);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:color 0.2s}
+.nav-back:hover{color:#F7F4EF}
+.nav-book{background:var(--violet);color:#FEFEFE;padding:10px 22px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}
+.nav-book:hover{background:var(--violet-hover)}
+
+/* HERO */
+.hero{position:relative;height:65vh;min-height:480px;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,20,14,0.72) 0%,rgba(10,20,14,0.15) 18%,rgba(10,20,14,0) 38%,rgba(10,20,14,0) 52%,rgba(10,20,14,0.65) 100%)}
+.hero-content{position:absolute;bottom:0;left:0;right:0;padding:0 72px 60px}
+.hero-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:14px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(44px,5.5vw,72px);color:#F7F4EF;font-weight:400;line-height:1.06;margin-bottom:14px}
+.hero-title em{font-style:italic;color:var(--sage-light)}
+.hero-desc{font-size:15px;color:rgba(247,244,239,0.72);font-weight:300;max-width:520px;line-height:1.8}
+
+/* QUICK CONTACT STRIP */
+.contact-strip{background:var(--dark-sage);display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid rgba(173,191,185,0.1)}
+.cs-item{padding:28px 24px;display:flex;align-items:center;gap:16px;border-right:1px solid rgba(173,191,185,0.1);text-decoration:none;transition:background 0.2s}
+.cs-item:last-child{border-right:none}
+.cs-item:hover{background:rgba(255,255,255,0.05)}
+.cs-icon{font-size:22px;flex-shrink:0}
+.cs-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);font-weight:400;display:block;margin-bottom:3px}
+.cs-value{font-size:14px;color:#F7F4EF;font-weight:400}
+
+/* MAIN CONTENT GRID */
+.main-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:700px}
+
+/* CONTACT FORM */
+.form-panel{background:var(--white);padding:72px 64px}
+.panel-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:12px}
+.panel-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);color:var(--dark-sage);font-weight:400;line-height:1.15;margin-bottom:10px}
+.panel-title em{font-style:italic;color:var(--sage)}
+.panel-body{font-size:14px;color:var(--text-mid);line-height:1.8;font-weight:300;margin-bottom:36px}
+
+.contact-form{display:flex;flex-direction:column;gap:18px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-group label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-light);font-weight:400}
+.form-group input,
+.form-group select,
+.form-group textarea{background:var(--cream);border:1px solid var(--border);border-radius:2px;padding:13px 16px;color:var(--text-dark);font-family:'Jost',sans-serif;font-size:14px;font-weight:300;outline:none;transition:border-color 0.2s;width:100%}
+.form-group input::placeholder,
+.form-group textarea::placeholder{color:var(--text-light)}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{border-color:var(--sage);background:var(--white)}
+.form-group textarea{resize:vertical;min-height:120px;line-height:1.6}
+.form-group select{cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238A9990' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+
+/* Checkbox */
+.check-group{display:flex;align-items:flex-start;gap:12px;cursor:pointer}
+.check-group input[type="checkbox"]{width:18px;height:18px;accent-color:var(--violet);flex-shrink:0;margin-top:2px;cursor:pointer}
+.check-group span{font-size:13px;color:var(--text-mid);line-height:1.6;font-weight:300}
+.check-group a{color:var(--violet);text-decoration:none}
+
+.btn-send{background:var(--violet);color:#FEFEFE;border:none;padding:15px 32px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;transition:background 0.2s;align-self:flex-start}
+.btn-send:hover{background:var(--violet-hover)}
+
+.form-success{display:none;background:#eef6f0;border:1px solid rgba(127,151,137,0.3);border-radius:2px;padding:20px 24px;font-size:14px;color:var(--dark-sage);line-height:1.6}
+.form-success strong{display:block;font-size:16px;margin-bottom:4px;font-family:'Playfair Display',serif;font-weight:400}
+
+/* INFO PANEL */
+.info-panel{background:var(--dark-sage);padding:72px 56px;display:flex;flex-direction:column;gap:0}
+
+.info-block{margin-bottom:44px}
+.info-block:last-child{margin-bottom:0}
+.info-eyebrow{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:12px}
+.info-title{font-family:'Playfair Display',serif;font-size:20px;color:#F7F4EF;font-weight:400;margin-bottom:14px}
+.info-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.info-list li{display:flex;align-items:flex-start;gap:12px;font-size:13px;color:rgba(247,244,239,0.72);line-height:1.6;font-weight:300}
+.info-list li a{color:rgba(247,244,239,0.72);text-decoration:none;transition:color 0.2s}
+.info-list li a:hover{color:#F7F4EF}
+.info-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+
+.info-divider{width:100%;height:1px;background:rgba(173,191,185,0.12);margin-bottom:44px}
+
+/* Response times */
+.response-card{background:rgba(255,255,255,0.06);border:1px solid rgba(173,191,185,0.12);border-radius:2px;padding:20px;margin-top:24px}
+.rc-title{font-size:12px;font-weight:500;color:#F7F4EF;margin-bottom:10px;letter-spacing:0.5px}
+.rc-rows{display:flex;flex-direction:column;gap:8px}
+.rc-row{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(247,244,239,0.6)}
+.rc-time{color:var(--sage-light);font-weight:400}
+
+/* MAP SECTION */
+.map-section{background:var(--cream);padding:72px}
+.map-inner{max-width:1100px;margin:0 auto}
+.map-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:32px;gap:32px}
+.map-header-left .me{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:10px}
+.map-header-left h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,38px);color:var(--dark-sage);font-weight:400}
+.map-header-left h2 em{font-style:italic;color:var(--sage)}
+.map-directions{display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.btn-directions{background:var(--violet);color:#FEFEFE;padding:12px 22px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}
+.btn-directions:hover{background:var(--violet-hover)}
+.map-note{font-size:11px;color:var(--text-light);text-align:right}
+.map-wrap{border-radius:4px;overflow:hidden;border:1px solid var(--border)}
+.map-wrap iframe{width:100%;height:460px;display:block;border:none}
+.map-placeholder{background:var(--white);height:460px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.mp-icon{font-size:48px;opacity:0.3}
+.mp-title{font-family:'Playfair Display',serif;font-size:20px;color:var(--dark-sage);font-weight:400}
+.mp-body{font-size:13px;color:var(--text-light);text-align:center;max-width:400px;line-height:1.6}
+.mp-addr{font-size:14px;color:var(--dark-sage);font-weight:400;text-align:center}
+
+/* DIRECTIONS CARDS */
+.directions-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:24px}
+.dir-card{background:var(--white);padding:24px 20px}
+.dir-icon{font-size:22px;margin-bottom:10px;display:block}
+.dir-from{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:4px}
+.dir-time{font-family:'Playfair Display',serif;font-size:18px;color:var(--dark-sage);font-weight:400;margin-bottom:4px}
+.dir-detail{font-size:12px;color:var(--text-light);line-height:1.5;font-weight:300}
+
+/* NEWSLETTER */
+.newsletter-section{background:var(--dark-sage);padding:80px 72px}
+.nl-inner{max-width:900px;margin:0 auto}
+.nl-top{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:40px}
+.nl-left .nl-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:12px}
+.nl-left h2{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);color:#F7F4EF;font-weight:400;line-height:1.15;margin-bottom:12px}
+.nl-left h2 em{font-style:italic;color:var(--sage-light)}
+.nl-left p{font-size:14px;color:rgba(247,244,239,0.62);line-height:1.8;font-weight:300}
+.nl-right{display:flex;flex-direction:column;gap:14px}
+.nl-what{display:flex;align-items:flex-start;gap:12px}
+.nlw-icon{font-size:20px;flex-shrink:0}
+.nlw-text strong{display:block;font-size:13px;color:#F7F4EF;font-weight:500;margin-bottom:2px}
+.nlw-text span{font-size:12px;color:rgba(247,244,239,0.55);font-weight:300;line-height:1.5}
+
+.nl-form{background:rgba(255,255,255,0.06);border:1px solid rgba(173,191,185,0.15);border-radius:4px;padding:32px}
+.nl-form-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end;margin-bottom:14px}
+.nl-field{display:flex;flex-direction:column;gap:5px}
+.nl-field label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.nl-field input{background:rgba(255,255,255,0.1);border:1px solid rgba(173,191,185,0.2);border-radius:2px;padding:12px 14px;color:#F7F4EF;font-family:'Jost',sans-serif;font-size:13px;font-weight:300;outline:none;transition:border-color 0.2s;width:100%}
+.nl-field input::placeholder{color:rgba(247,244,239,0.35)}
+.nl-field input:focus{border-color:rgba(173,191,185,0.5);background:rgba(255,255,255,0.14)}
+.btn-nl-signup{background:var(--violet);color:#FEFEFE;border:none;padding:12px 22px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;transition:background 0.2s;white-space:nowrap;align-self:end}
+.btn-nl-signup:hover{background:var(--violet-hover)}
+.nl-consent{display:flex;align-items:flex-start;gap:10px}
+.nl-consent input[type="checkbox"]{width:16px;height:16px;accent-color:var(--violet);flex-shrink:0;margin-top:2px;cursor:pointer}
+.nl-consent span{font-size:11px;color:rgba(247,244,239,0.45);line-height:1.6}
+.nl-success{display:none;text-align:center;padding:16px;background:rgba(127,151,137,0.2);border:1px solid rgba(173,191,185,0.25);border-radius:2px;font-size:14px;color:#F7F4EF}
+.nl-success strong{display:block;font-family:'Playfair Display',serif;font-size:18px;margin-bottom:4px;font-weight:400}
+
+/* SOCIAL STRIP */
+.social-strip{background:var(--white);padding:40px 72px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.ss-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--text-light);font-weight:400}
+.ss-links{display:flex;gap:16px}
+.ss-link{display:flex;align-items:center;gap:10px;padding:11px 20px;border:1px solid var(--border);border-radius:2px;text-decoration:none;color:var(--text-mid);font-size:13px;font-weight:400;transition:all 0.2s}
+.ss-link:hover{background:var(--dark-sage);color:#F7F4EF;border-color:var(--dark-sage)}
+.ss-link-icon{font-size:18px}
+
+/* FOOTER */
+footer{background:#111815;padding:48px 72px 32px}
+.footer-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;gap:48px}
+.footer-brand p{font-size:12px;color:rgba(247,244,239,0.4);line-height:1.8;font-weight:300;margin-top:12px;max-width:280px}
+.footer-contact a{display:block;color:rgba(247,244,239,0.5);text-decoration:none;font-size:12px;font-weight:300;margin-bottom:6px;transition:color 0.2s}
+.footer-contact a:hover{color:#F7F4EF}
+.footer-bottom{display:flex;justify-content:space-between;font-size:11px;color:rgba(247,244,239,0.3);padding-top:24px;border-top:1px solid rgba(247,244,239,0.08)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(247,244,239,0.3);text-decoration:none}
+.footer-logo-img{height:34px;width:auto}
+
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()">&#215;</button>
+  <div class="wmf-drawer-logo">
+    <div class="wmf-drawer-logo-name">Woodlands Manor Farm</div>
+    <div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="/images/book-direct/ef583bcb3234cb40.jpg" alt="Woodlands Manor Farm — contact Andy and Ruth">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Woodlands Manor Farm &bull; Bude, Cornwall</p>
+    <h1 class="hero-title">Get in <em>touch</em></h1>
+    <p class="hero-desc">Andy and Ruth are always happy to hear from you — whether you have a question about the farm, want to arrange an experience, or just need a little help choosing the right cottage.</p>
+  </div>
+</div>
+
+<!-- QUICK CONTACT STRIP -->
+<div class="contact-strip">
+  <a href="tel:07887677354" class="cs-item">
+    <span class="cs-icon">&#128222;</span>
+    <div><span class="cs-label">Call us</span><span class="cs-value">07887 677 354</span></div>
+  </a>
+  <a href="mailto:enquiries@woodlandsmanorfarm.co.uk" class="cs-item">
+    <span class="cs-icon">&#128140;</span>
+    <div><span class="cs-label">Email us</span><span class="cs-value">enquiries@woodlandsmanorfarm.co.uk</span></div>
+  </a>
+  <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank" class="cs-item">
+    <span class="cs-icon">&#128205;</span>
+    <div><span class="cs-label">Find us</span><span class="cs-value">Woodford, Bude EX23 9HT</span></div>
+  </a>
+  <a href="#newsletter" class="cs-item">
+    <span class="cs-icon">&#128140;</span>
+    <div><span class="cs-label">Stay in touch</span><span class="cs-value">Sign up for offers &amp; news</span></div>
+  </a>
+</div>
+
+<!-- MAIN GRID: FORM + INFO -->
+<div class="main-grid">
+
+  <!-- CONTACT FORM -->
+  <div class="form-panel">
+    <p class="panel-eyebrow">Send us a message</p>
+    <h2 class="panel-title">We&rsquo;d love to <em>hear from you</em></h2>
+    <p class="panel-body">Fill in the form and Andy or Ruth will get back to you personally — usually within a few hours. For the quickest response, give us a call.</p>
+
+    <form class="contact-form" id="contactForm" onsubmit="handleContactForm(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cf-first">First name *</label>
+          <input type="text" id="cf-first" placeholder="Your first name" required>
+        </div>
+        <div class="form-group">
+          <label for="cf-last">Last name *</label>
+          <input type="text" id="cf-last" placeholder="Your last name" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cf-email">Email address *</label>
+        <input type="email" id="cf-email" placeholder="you@email.com" required>
+      </div>
+      <div class="form-group">
+        <label for="cf-phone">Phone number</label>
+        <input type="tel" id="cf-phone" placeholder="Optional — handy for a quick call back">
+      </div>
+      <div class="form-group">
+        <label for="cf-enquiry">What is your enquiry about? *</label>
+        <select id="cf-enquiry" required>
+          <option value="" disabled selected>Please select&hellip;</option>
+          <option>Availability &amp; booking</option>
+          <option>Group booking (2+ cottages)</option>
+          <option>Pony experience</option>
+          <option>Alpaca experience</option>
+          <option>Pygmy goat experience</option>
+          <option>Bespoke animal experience</option>
+          <option>Weddings &amp; celebrations</option>
+          <option>Surf experience</option>
+          <option>Sea fishing</option>
+          <option>Art experience</option>
+          <option>General question about the farm</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cf-message">Your message *</label>
+        <textarea id="cf-message" placeholder="Tell us what you have in mind — dates, number of guests, any questions&hellip;" required></textarea>
+      </div>
+      <label class="check-group">
+        <input type="checkbox" id="cf-newsletter">
+        <span>Sign me up for the Woodlands Manor Farm newsletter — occasional offers, farm news and last-minute availability. You can unsubscribe at any time.</span>
+      </label>
+      <label class="check-group">
+        <input type="checkbox" id="cf-consent" required>
+        <span>I agree that Woodlands Manor Farm may use my details to respond to this enquiry. We will never share your details with third parties. <a href="woodlands_privacy.html">Privacy policy</a>. *</span>
+      </label>
+      <button type="submit" class="btn-send">Send message &rarr;</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <strong>Thank you &mdash; message sent!</strong>
+      Andy or Ruth will get back to you personally, usually within a few hours. If your query is urgent, please call <a href="tel:07887677354" style="color:var(--violet)">07887 677 354</a>.
+    </div>
+  </div>
+
+  <!-- INFO PANEL -->
+  <div class="info-panel">
+    <div class="info-block">
+      <div class="info-eyebrow">Call or email</div>
+      <div class="info-title">Andy &amp; Ruth Peters</div>
+      <ul class="info-list">
+        <li><span class="info-icon">&#128222;</span><div><a href="tel:07887677354">07887 677 354</a><div style="font-size:11px;color:rgba(247,244,239,0.45);margin-top:2px">Best for urgent queries &amp; group bookings</div></div></li>
+        <li><span class="info-icon">&#128140;</span><div><a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a><div style="font-size:11px;color:rgba(247,244,239,0.45);margin-top:2px">We reply personally to every email</div></div></li>
+      </ul>
+      <div class="response-card">
+        <div class="rc-title">Typical response times</div>
+        <div class="rc-rows">
+          <div class="rc-row"><span>Phone call</span><span class="rc-time">Immediate</span></div>
+          <div class="rc-row"><span>Email / contact form</span><span class="rc-time">Within a few hours</span></div>
+          <div class="rc-row"><span>Booking enquiry</span><span class="rc-time">Same day</span></div>
+          <div class="rc-row"><span>Experience enquiry</span><span class="rc-time">Within 24 hours</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-divider"></div>
+
+    <div class="info-block">
+      <div class="info-eyebrow">Address &amp; location</div>
+      <div class="info-title">Finding the farm</div>
+      <ul class="info-list">
+        <li><span class="info-icon">&#128205;</span><div>Woodlands Manor Farm<br>Woodford, Bude<br>Cornwall, EX23 9HT</div></li>
+        <li><span class="info-icon">&#128663;</span><div>2 miles from Duckpool Beach<br>6 miles from Bude town centre</div></li>
+        <li><span class="info-icon">&#9888;&#65039;</span><div style="font-size:12px">Satnav can be unreliable in this area — use the What3Words address or Google Maps link below for accurate directions.</div></li>
+        <li><span class="info-icon">&#128246;</span><div>What3Words: <strong style="color:rgba(247,244,239,0.85)">///valid.camps.entry</strong></div></li>
+      </ul>
+    </div>
+
+    <div class="info-divider"></div>
+
+    <div class="info-block">
+      <div class="info-eyebrow">Arrival &amp; check-out</div>
+      <div class="info-title">Good to know</div>
+      <ul class="info-list">
+        <li><span class="info-icon">&#128336;</span><div>Check-in from 4pm &mdash; check-out by 10am</div></li>
+        <li><span class="info-icon">&#128021;</span><div>Well-behaved dogs very welcome in all cottages &amp; yurts</div></li>
+        <li><span class="info-icon">&#128697;</span><div>EV charging point available on site</div></li>
+        <li><span class="info-icon">&#128246;</span><div>Super-fast WiFi throughout the farm</div></li>
+        <li><span class="info-icon">&#129749;</span><div>Sainsbury&rsquo;s grocery delivery direct to your door is a popular option</div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- MAP SECTION -->
+<div class="map-section" id="find-us">
+  <div class="map-inner">
+    <div class="map-header">
+      <div class="map-header-left">
+        <p class="me">How to find us</p>
+        <h2>Woodlands Manor Farm,<br><em>Bude, Cornwall</em></h2>
+      </div>
+      <div class="map-directions">
+        <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank" class="btn-directions">Open in Google Maps</a>
+        <p class="map-note">Woodford, Bude, Cornwall EX23 9HT</p>
+      </div>
+    </div>
+    <div class="map-wrap">
+      <!-- Google Maps embed — replace src with your embed URL from Google Maps > Share > Embed a map -->
+      <div class="map-placeholder">
+        <span class="mp-icon">&#128205;</span>
+        <div class="mp-title">Interactive map</div>
+        <p class="mp-body">Paste your Google Maps embed iframe code here. Go to Google Maps &rarr; search &ldquo;Woodlands Manor Farm Bude&rdquo; &rarr; Share &rarr; Embed a map &rarr; copy the iframe code.</p>
+        <p class="mp-addr">Woodlands Manor Farm &mdash; Woodford, Bude, Cornwall EX23 9HT</p>
+      </div>
+    </div>
+    <div class="directions-grid">
+      <div class="dir-card">
+        <span class="dir-icon">&#128663;</span>
+        <div class="dir-from">From Bude</div>
+        <div class="dir-time">10 minutes</div>
+        <div class="dir-detail">Head north on the A39 then follow signs to Coombe Valley. Note: satnav can be unreliable — use Google Maps link above.</div>
+      </div>
+      <div class="dir-card">
+        <span class="dir-icon">&#128663;</span>
+        <div class="dir-from">From Exeter</div>
+        <div class="dir-time">1 hr 30 min</div>
+        <div class="dir-detail">A30 west to Launceston, then A395 and A39 to Bude. Follow signs to Coombe Valley from the A39.</div>
+      </div>
+      <div class="dir-card">
+        <span class="dir-icon">&#128663;</span>
+        <div class="dir-from">From Bristol</div>
+        <div class="dir-time">2 hrs 30 min</div>
+        <div class="dir-detail">M5 south to Taunton, then A361 to Barnstaple and A39 coastal road to Bude. Scenic and well-signed.</div>
+      </div>
+      <div class="dir-card">
+        <span class="dir-icon">&#128664;</span>
+        <div class="dir-from">Nearest station</div>
+        <div class="dir-time">Bodmin Parkway</div>
+        <div class="dir-detail">40 miles. Taxi or car hire available from the station. We are happy to recommend local taxi firms on request.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER SIGN-UP -->
+<div class="newsletter-section" id="newsletter">
+  <div class="nl-inner">
+    <div class="nl-top">
+      <div class="nl-left">
+        <p class="nl-eyebrow">Stay in the loop</p>
+        <h2>Sign up for<br><em>news &amp; offers</em></h2>
+        <p>We send occasional emails when something is worth sharing — last-minute availability, seasonal special offers, farm news, local events and the odd competition. No spam. Just genuine updates from Andy and Ruth when they have something to say.</p>
+      </div>
+      <div class="nl-right">
+        <div class="nl-what">
+          <span class="nlw-icon">&#127381;</span>
+          <div class="nlw-text"><strong>Special offers &amp; last-minute deals</strong><span>The first to know when a short break or last-minute date opens up</span></div>
+        </div>
+        <div class="nl-what">
+          <span class="nlw-icon">&#128004;</span>
+          <div class="nlw-text"><strong>Farm news &amp; animal updates</strong><span>Lambing season, new arrivals, what&rsquo;s happening on the farm</span></div>
+        </div>
+        <div class="nl-what">
+          <span class="nlw-icon">&#127758;</span>
+          <div class="nlw-text"><strong>Local events &amp; things to do</strong><span>Bude Literary Festival, surf competitions, food festivals and more</span></div>
+        </div>
+        <div class="nl-what">
+          <span class="nlw-icon">&#127942;</span>
+          <div class="nlw-text"><strong>Competitions &amp; giveaways</strong><span>We run occasional prize draws for past and future guests</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nl-form" id="nl-form-wrap">
+      <form onsubmit="handleNewsletter(event)">
+        <div class="nl-form-row">
+          <div class="nl-field">
+            <label for="nl-first">First name *</label>
+            <input type="text" id="nl-first" placeholder="Ruth" required>
+          </div>
+          <div class="nl-field">
+            <label for="nl-last">Last name *</label>
+            <input type="text" id="nl-last" placeholder="Peters" required>
+          </div>
+          <div class="nl-field">
+            <label for="nl-email">Email address *</label>
+            <input type="email" id="nl-email" placeholder="you@email.com" required>
+          </div>
+          <button type="submit" class="btn-nl-signup">Sign up</button>
+        </div>
+        <div class="nl-consent">
+          <input type="checkbox" id="nl-consent" required>
+          <span>I agree to receive occasional emails from Woodlands Manor Farm. I can unsubscribe at any time. We will never share your details. See our <a href="woodlands_privacy.html" style="color:var(--sage-light)">privacy policy</a>.</span>
+        </div>
+      </form>
+      <div class="nl-success" id="nlSuccess">
+        <strong>You&rsquo;re on the list!</strong>
+        Thanks for signing up. We&rsquo;ll be in touch when we have something worth sharing.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL STRIP -->
+<div class="social-strip">
+  <span class="ss-label">Follow us</span>
+  <div class="ss-links">
+    <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank" class="ss-link">
+      <span class="ss-link-icon">&#128172;</span>Facebook
+    </a>
+    <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank" class="ss-link">
+      <span class="ss-link-icon">&#128247;</span>Instagram
+    </a>
+    <a href="https://www.google.com/maps/search/woodlandsmanorfarm.co.uk+bude" target="_blank" class="ss-link">
+      <span class="ss-link-icon">&#11088;</span>Leave a review
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity:0.7">
+      <p>A 17th-century farm in the Coombe Valley offering cottages, yurts, an indoor pool, and the warmest of Cornish welcomes.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm. All rights reserved.</span>
+    <div class="footer-links"><a href="woodlands_privacy.html">Privacy</a><a href="woodlands_terms.html">Terms</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60)
+);
+
+function handleContactForm(e) {
+  e.preventDefault();
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+  // In production: POST form data to your email handler or Formspree/Netlify Forms
+  // e.g. fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(e.target) })
+}
+
+function handleNewsletter(e) {
+  e.preventDefault();
+  document.getElementById('nl-form-wrap').querySelector('form').style.display = 'none';
+  document.getElementById('nlSuccess').style.display = 'block';
+  // In production: POST to Mailchimp API or your newsletter handler
+}
+</script>
+</body>
+</html>

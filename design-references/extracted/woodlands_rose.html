@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Rose Cottage — Sleeps 8 + cots · Woodlands Manor Farm, Bude</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#F7F4EF;--sage:#7f9789;--sage-light:#adbfb9;--violet:#8B7BB5;--violet-hover:#7a6aa4;--dark-sage:#4a6459;--text-dark:#1E2422;--text-mid:#4A5550;--text-light:#8A9990;--white:#FEFEFE;--border:rgba(127,151,137,0.15)}
+html{scroll-behavior:smooth}body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-dark);font-weight:300;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,20,14,0.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+.nav-logo-img{display:flex;align-items:center;text-decoration:none}.nav-logo-png{height:44px;width:auto;display:block;transition:height 0.3s}nav.scrolled .nav-logo-png{height:36px}
+.nav-right{display:flex;align-items:center;gap:16px}.nav-back{color:rgba(247,243,238,0.75);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:color 0.2s}.nav-back:hover{color:#F7F4EF}
+.nav-book{background:var(--violet);color:#FEFEFE;padding:10px 22px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}.nav-book:hover{background:var(--violet-hover)}
+.page-wrap{display:grid;grid-template-columns:1fr 440px;min-height:100vh;padding-top:73px}
+.gallery-panel{position:relative;background:#0f1a12}.gallery-main{position:sticky;top:73px;height:calc(100vh - 73px);overflow:hidden}
+.gallery-main img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity 0.4s ease}
+.gallery-thumbs{position:absolute;bottom:24px;left:24px;right:24px;display:flex;gap:8px;z-index:10;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}.gallery-thumbs::-webkit-scrollbar{display:none}
+.thumb{width:64px;height:48px;flex-shrink:0;overflow:hidden;border-radius:2px;cursor:pointer;border:2px solid transparent;transition:border-color 0.2s,opacity 0.2s;opacity:0.6}.thumb.active{border-color:var(--sage-light);opacity:1}.thumb:hover{opacity:0.9}.thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.gallery-counter{position:absolute;top:88px;right:20px;background:rgba(10,20,12,0.65);backdrop-filter:blur(4px);color:rgba(247,243,238,0.8);font-size:10px;letter-spacing:2px;padding:5px 10px;border-radius:2px;font-family:'Jost',sans-serif;z-index:10}
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(10,20,12,0.5);border:1px solid rgba(173,191,185,0.3);color:#F7F4EF;width:40px;height:40px;border-radius:50%;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:background 0.2s}.gallery-arrow:hover{background:rgba(10,20,12,0.8)}.gallery-prev{left:16px}.gallery-next{right:16px}
+.gallery-breadcrumb{position:absolute;top:24px;left:24px;z-index:10;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(247,243,238,0.6);font-family:'Jost',sans-serif}.gallery-breadcrumb a{color:rgba(247,243,238,0.6);text-decoration:none}.gallery-breadcrumb a:hover{color:#F7F4EF}.gallery-breadcrumb span{margin:0 6px}
+.details-panel{background:var(--white);border-left:1px solid var(--border);display:flex;flex-direction:column;overflow-y:auto;max-height:calc(100vh - 73px);position:sticky;top:73px}
+.details-inner{padding:36px 32px;flex:1}
+.prop-tag{display:inline-block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:10px}
+.prop-name{font-family:'Playfair Display',serif;font-size:30px;color:var(--dark-sage);font-weight:400;line-height:1.15;margin-bottom:4px}
+.prop-subtitle{font-size:12px;color:var(--text-light);letter-spacing:0.5px;margin-bottom:22px}
+.quick-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;margin-bottom:24px}
+.qs{background:var(--cream);padding:12px 8px;text-align:center}.qs-icon{font-size:16px;margin-bottom:3px;display:block}.qs-val{font-size:13px;font-weight:500;color:var(--dark-sage);display:block;font-family:'Playfair Display',serif}.qs-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-light);display:block;margin-top:1px}
+.prop-desc{font-size:13px;line-height:1.85;color:var(--text-mid);margin-bottom:24px;font-weight:300}
+.panel-section-title{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage);font-weight:500;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.amenities{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px}.amenity{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--text-mid)}.amenity-dot{width:4px;height:4px;border-radius:50%;background:var(--sage);flex-shrink:0}
+.booking-box{background:var(--dark-sage);border-radius:4px;padding:20px;margin-bottom:14px}
+.booking-box-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);margin-bottom:5px;font-weight:400}
+.booking-box-title{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;margin-bottom:14px;font-weight:400}
+.bw-row{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;margin-bottom:10px}
+.bw-col{background:rgba(255,255,255,0.06);padding:10px 12px}.bw-col label{display:block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);margin-bottom:3px;font-weight:400}.bw-col input{background:none;border:none;color:#F7F4EF;font-family:'Jost',sans-serif;font-size:12px;width:100%;outline:none;cursor:pointer}.bw-col input::placeholder{color:rgba(247,244,239,0.45)}
+.btn-book{display:block;width:100%;background:var(--violet);color:#FEFEFE;border:none;padding:13px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500;cursor:pointer;border-radius:2px;transition:background 0.2s;text-decoration:none;text-align:center}.btn-book:hover{background:var(--violet-hover)}
+.booking-note{font-size:10px;color:rgba(247,244,239,0.4);text-align:center;margin-top:8px}.booking-note a{color:var(--sage-light)}
+.call-strip{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border:1px solid var(--border);border-radius:2px;margin-bottom:24px}
+.call-strip-text{font-size:11px;color:var(--text-mid);font-weight:300}.call-strip-text strong{display:block;font-size:13px;color:var(--dark-sage);font-weight:500}
+.call-strip-link{color:var(--violet);text-decoration:none;font-size:10px;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid rgba(139,123,181,0.35);padding-bottom:1px;white-space:nowrap}
+.below-fold{background:var(--cream);padding:72px 64px}
+.detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:40px}
+.detail-col h3{font-family:'Playfair Display',serif;font-size:17px;color:var(--dark-sage);font-weight:400;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.detail-col ul{list-style:none}.detail-col li{font-size:13px;color:var(--text-mid);padding:7px 0;border-bottom:1px solid rgba(127,151,137,0.07);display:flex;align-items:flex-start;gap:8px;line-height:1.55;font-weight:300}.detail-col li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:6px}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}.chip{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;background:var(--white);border:1px solid var(--border);border-radius:2px;font-size:12px;color:var(--text-mid)}
+.other-section{background:var(--dark-sage);padding:56px 64px}
+.other-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-light);margin-bottom:28px;font-weight:400}
+.cottages-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.cthumb{position:relative;overflow:hidden;cursor:pointer;text-decoration:none}.cthumb-img{width:100%;padding-top:130%;position:relative;overflow:hidden}.cthumb-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 0.5s}.cthumb:hover .cthumb-img img{transform:scale(1.06)}
+.cthumb-info{position:absolute;bottom:0;left:0;right:0;padding:14px 12px;background:linear-gradient(transparent,rgba(10,20,12,0.9))}.cti-name{font-family:'Playfair Display',serif;font-size:13px;color:#F7F4EF;font-weight:400;margin-bottom:2px}.cti-sleeps{font-size:10px;color:var(--sage-light);letter-spacing:1px}
+.book-cta{background:var(--sage);padding:52px 64px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.book-cta h2{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,34px);color:#F7F4EF;font-weight:400;margin-bottom:6px}.book-cta p{font-size:14px;color:rgba(247,244,239,0.7);font-weight:300}
+.btn-cta-white{background:#F7F4EF;color:var(--dark-sage);padding:14px 28px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;white-space:nowrap;flex-shrink:0}
+footer{background:#111815;padding:48px 64px 32px}
+.footer-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;gap:48px}
+.footer-brand p{font-size:12px;color:rgba(247,244,239,0.4);line-height:1.8;font-weight:300;margin-top:12px;max-width:280px}
+.footer-contact a{display:block;color:rgba(247,244,239,0.5);text-decoration:none;font-size:12px;font-weight:300;margin-bottom:6px;transition:color 0.2s}.footer-contact a:hover{color:#F7F4EF}
+.footer-bottom{display:flex;justify-content:space-between;font-size:11px;color:rgba(247,244,239,0.3);padding-top:24px;border-top:1px solid rgba(247,244,239,0.08)}
+.footer-links{display:flex;gap:24px}.footer-links a{color:rgba(247,244,239,0.3);text-decoration:none}
+.footer-logo-img{height:34px;width:auto}
+
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()">&#215;</button>
+  <div class="wmf-drawer-logo">
+    <div class="wmf-drawer-logo-name">Woodlands Manor Farm</div>
+    <div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrap">
+  <!-- GALLERY -->
+  <div class="gallery-panel">
+    <div class="gallery-main">
+      <img id="mainImg" src="/images/the-coach-house/ef538d16f0008242.jpg" alt="Rose Cottage lounge with stone fireplace">
+      <div class="gallery-breadcrumb">
+        <a href="woodlands_manor_farm.html">Home</a><span>/</span>
+        <a href="woodlands_cottages.html">Cottages</a><span>/</span>Rose Cottage
+      </div>
+      <div class="gallery-counter" id="galleryCounter">1 / 6</div>
+      <button class="gallery-arrow gallery-prev" onclick="galleryStep(-1)">&#8592;</button>
+      <button class="gallery-arrow gallery-next" onclick="galleryStep(1)">&#8594;</button>
+      <div class="gallery-thumbs"><div class="thumb active" onclick="galleryGo(0)"><img src="/images/the-coach-house/ef538d16f0008242.jpg" alt=""></div><div class="thumb" onclick="galleryGo(1)"><img src="/images/book-direct/ef583bcb3234cb40.jpg" alt=""></div><div class="thumb" onclick="galleryGo(2)"><img src="/images/about/f768b622b6cab139.jpg" alt=""></div><div class="thumb" onclick="galleryGo(3)"><img src="/images/budhyn-yurt/413fc9c154a95c8e.jpg" alt=""></div><div class="thumb" onclick="galleryGo(4)"><img src="/images/blog-template/6acc248ff59e6e43.jpg" alt=""></div><div class="thumb" onclick="galleryGo(5)"><img src="/images/blog-template/50732616e754d9b7.jpg" alt=""></div></div>
+    </div>
+  </div>
+
+  <!-- DETAILS -->
+  <div class="details-panel">
+    <div class="details-inner">
+      <div class="prop-tag">Barn conversion · Sleeps 8 + cots</div>
+      <h1 class="prop-name">Rose Cottage</h1>
+      <div class="prop-subtitle">Converted hay barn with two lounges & four-poster bedroom</div>
+      <div class="quick-stats">
+        <div class="qs"><span class="qs-icon">&#127968;</span><span class="qs-val">8</span><span class="qs-label">Guests</span></div>
+        <div class="qs"><span class="qs-icon">&#128716;</span><span class="qs-val">4</span><span class="qs-label">Bedrooms</span></div>
+        <div class="qs"><span class="qs-icon">&#128705;</span><span class="qs-val">2</span><span class="qs-label">Bathrooms</span></div>
+        <div class="qs"><span class="qs-icon">&#128021;</span><span class="qs-val">Yes</span><span class="qs-label">Dogs</span></div>
+      </div>
+      <p class="prop-desc">A large stone barn conversion sleeping eight across four bedrooms. On the ground floor a generous open-plan kitchen and a cosy lounge wrap around a stone fireplace with a wood-burner. A 10-seat farmhouse dining table makes it perfect for big family meals. Upstairs a spectacular first-floor sitting room with valley views leads to three further bedrooms, including one with a stunning wrought-iron four-poster king-size bed.</p>
+      <div class="booking-box" id="booking">
+        <div class="booking-box-label">Best price guaranteed &mdash; book direct</div>
+        <div class="booking-box-title">Check availability</div>
+        <div class="bw-row">
+          <div class="bw-col"><label>Arrival</label><input type="text" placeholder="Select date" onclick="window.open('https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/','_blank')"></div>
+          <div class="bw-col"><label>Departure</label><input type="text" placeholder="Select date" onclick="window.open('https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/','_blank')"></div>
+        </div>
+        <a href="https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/" target="_blank" class="btn-book">Check Availability &amp; Book</a>
+        <div class="booking-note">No booking fees &middot; <a href="tel:07887677354">Call 07887 677 354</a> for groups</div>
+      </div>
+      <div class="call-strip">
+        <div class="call-strip-text">Group booking or returning guest?<strong>07887 677 354</strong></div>
+        <a href="tel:07887677354" class="call-strip-link">Call Andy</a>
+      </div>
+      <div class="panel-section-title">Highlights</div>
+      <div class="amenities"><div class="amenity"><div class="amenity-dot"></div>Stone fireplace & wood-burner</div><div class="amenity"><div class="amenity-dot"></div>Two separate lounges</div><div class="amenity"><div class="amenity-dot"></div>10-seat farmhouse dining table</div><div class="amenity"><div class="amenity-dot"></div>Four-poster king bedroom (1st floor)</div><div class="amenity"><div class="amenity-dot"></div>Ground floor bedroom & shower room</div><div class="amenity"><div class="amenity-dot"></div>Walled orchard & private garden</div><div class="amenity"><div class="amenity-dot"></div>Private picnic benches & loungers</div><div class="amenity"><div class="amenity-dot"></div>Super-fast WiFi & UHD Smart TVs</div><div class="amenity"><div class="amenity-dot"></div>EV charger on site</div><div class="amenity"><div class="amenity-dot"></div>Dogs welcome</div><div class="amenity"><div class="amenity-dot"></div>Short breaks (out of season)</div><div class="amenity"><div class="amenity-dot"></div>Cot & highchair available</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- BELOW FOLD -->
+<div class="below-fold">
+  <p style="font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:10px">The property in full</p>
+  <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);color:var(--dark-sage);font-weight:400;margin-bottom:32px">Every room, <em style="font-style:italic;color:var(--sage)">every detail</em></h2>
+  <div class="chip-row"><div class="chip"><span>&#128293;</span>Wood-burner</div><div class="chip"><span>&#127968;</span>Two lounges</div><div class="chip"><span>&#127995;</span>Four-poster bed</div><div class="chip"><span>&#127944;</span>Heated pool</div><div class="chip"><span>&#127918;</span>Games room</div><div class="chip"><span>&#9889;</span>EV charger</div><div class="chip"><span>&#128021;</span>Dogs welcome</div><div class="chip"><span>&#127807;</span>Private garden</div></div>
+  <div class="detail-grid">
+    <div class="detail-col"><h3>Living areas</h3><ul><li>Hall with cupboard, stairs to first floor</li><li>Open-plan lounge with stone fireplace & wood-burner</li><li>10-seat farmhouse dining table</li><li>Fully equipped kitchen: fan-assisted oven, ceramic hob, microwave, fridge, dishwasher</li><li>UHD Smart TV & Blu-ray</li><li>Ground floor king-size bedroom (5ft)</li><li>Ground floor shower room with heated towel rail, WC & wash basin</li><li>Shared laundry: washing machine & tumble dryer</li></ul></div>
+    <div class="detail-col"><h3>Bedrooms &amp; bathrooms</h3><ul><li>First floor sitting room with valley views — Smart TV & Blu-ray</li><li>Bedroom 2 — twin single beds</li><li>Bedroom 3 — twin single beds</li><li>Bedroom 4 — four-poster king-size double (5ft)</li><li>Family bathroom: shower over bath, WC & wash basin</li></ul></div>
+    <div class="detail-col"><h3>Good to know</h3><ul><li>Ample private parking</li><li>Walled orchard & private patio with picnic tables</li><li>EV charger on site · Laundry on site</li><li>Shop 2 miles · Pub 2 miles · Sea 2.5 miles</li><li>No smoking · Short breaks available out of season</li><li>Towels, duvets, cot & highchair included</li><li>Welcome basket: tea, coffee, milk, sugar, herbs, salt & pepper</li></ul></div>
+    <div class="detail-col"><h3>Farm facilities included</h3><ul><li>Heated indoor pool — 30°C year-round, 8am–8pm daily</li><li>Games room — table tennis, pool, foosball, giant Connect Four, soft play</li><li>Bluebell woodland walk — magical in April & May</li><li>Playing field with playground, swings & slide</li><li>Feed the Animals with Ruth — Sundays & Wednesdays</li><li>Duckpool Beach (National Trust) — 2 miles</li><li>Bude town & sea pool — 6 miles</li></ul></div>
+  </div>
+</div>
+
+<!-- OTHER COTTAGES -->
+<div class="other-section">
+  <div class="other-label">Also at Woodlands Manor Farm</div>
+  <div class="cottages-strip"><a href="woodlands_manor_house.html" class="cthumb"><div class="cthumb-img"><img src="/images/book-direct/981e46492d801dd1.jpg" alt="Manor House"></div><div class="cthumb-info"><div class="cti-name">Manor House</div><div class="cti-sleeps">Sleeps 12</div></div></a><a href="woodlands_jasmine.html" class="cthumb"><div class="cthumb-img"><img src="/images/the-coach-house/c37579d9656f4a47.jpg" alt="Jasmine Cottage"></div><div class="cthumb-info"><div class="cti-name">Jasmine Cottage</div><div class="cti-sleeps">Sleeps 6</div></div></a><a href="woodlands_lavender.html" class="cthumb"><div class="cthumb-img"><img src="/images/the-coach-house/aac208ec0cdf465f.jpg" alt="Lavender Cottage"></div><div class="cthumb-info"><div class="cti-name">Lavender Cottage</div><div class="cti-sleeps">Sleeps 4</div></div></a><a href="woodlands_stables.html" class="cthumb"><div class="cthumb-img"><img src="/images/the-coach-house/edfaafc55db5e90c.jpg" alt="The Stables"></div><div class="cthumb-info"><div class="cti-name">The Stables</div><div class="cti-sleeps">Sleeps 4</div></div></a><a href="woodlands_honeysuckle.html" class="cthumb"><div class="cthumb-img"><img src="/images/cottages/7275ce59f132f14c.jpg" alt="Honeysuckle"></div><div class="cthumb-info"><div class="cti-name">Honeysuckle</div><div class="cti-sleeps">Sleeps 2</div></div></a></div>
+</div>
+
+<!-- BOOK CTA -->
+<div class="book-cta">
+  <div>
+    <h2>Ready to book Rose Cottage?</h2>
+    <p>Best price guaranteed when you book direct &mdash; no booking fees.</p>
+  </div>
+  <a href="https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/" target="_blank" class="btn-cta-white">Check Availability</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity:0.7">
+      <p>A 17th-century farm in the Coombe Valley &mdash; cottages, yurts, heated pool and the warmest Cornish welcome.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm.</span>
+    <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a></div>
+  </div>
+</footer>
+
+<script>
+const G=[{s:"/images/the-coach-house/ef538d16f0008242.jpg",a:"Rose Cottage lounge with stone fireplace"},{s:"/images/book-direct/ef583bcb3234cb40.jpg",a:"Rose Cottage sunny outdoor dining terrace"},{s:"/images/about/f768b622b6cab139.jpg",a:"Woodlands Manor Farm courtyard"},{s:"/images/budhyn-yurt/413fc9c154a95c8e.jpg",a:"Heated indoor swimming pool"},{s:"/images/blog-template/6acc248ff59e6e43.jpg",a:"Bluebell woodland walk"},{s:"/images/blog-template/50732616e754d9b7.jpg",a:"Playing field with kite flying"}];
+let cur=0;
+const mImg=document.getElementById('mainImg');
+const ctr=document.getElementById('galleryCounter');
+const thumbs=document.querySelectorAll('.thumb');
+function galleryGo(n){
+  cur=(n+G.length)%G.length;
+  mImg.style.opacity=0;
+  setTimeout(()=>{mImg.src=G[cur].s;mImg.alt=G[cur].a;mImg.style.opacity=1;},200);
+  ctr.textContent=(cur+1)+' / '+G.length;
+  thumbs.forEach((t,i)=>t.classList.toggle('active',i===cur));
+  thumbs[cur].scrollIntoView({behavior:'smooth',block:'nearest',inline:'nearest'});
+}
+function galleryStep(d){galleryGo(cur+d);}
+</script>
+</body>
+</html>

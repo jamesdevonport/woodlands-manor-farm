@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cottages &amp; Yurts — Woodlands Manor Farm, Bude Cornwall</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #F7F4EF;
+  --deep-green: #7f9789;
+  --sage: #7f9789;
+  --sage-light: #adbfb9;
+  --terracotta: #8B7BB5;
+  --text-dark: #1E2422;
+  --text-mid: #4A5550;
+  --text-light: #8A9990;
+  --white: #FEFEFE;
+  --border: rgba(127,151,137,0.15);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text-dark); font-weight: 300; overflow-x: hidden; }
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+.nav-logo-img { display: flex; align-items: center; text-decoration: none; }
+.nav-logo-png { height: 44px; width: auto; display: block; transition: height 0.3s; }
+nav.scrolled .nav-logo-png { height: 36px; }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-back { color: rgba(247,243,238,0.7); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-family: 'Jost', sans-serif; transition: color 0.2s; }
+.nav-back:hover { color: #F7F4EF; }
+.nav-book-btn { background: var(--terracotta); color: #FEFEFE; padding: 10px 22px; text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; font-family: 'Jost', sans-serif; border-radius: 2px; transition: background 0.2s; white-space: nowrap; }
+.nav-book-btn:hover { background: #7a6aa4; }
+.hamburger { width: 40px; height: 40px; background: rgba(255,255,255,0.08); border: 1px solid rgba(247,243,238,0.25); border-radius: 2px; cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; padding: 0; }
+.hamburger span { display: block; width: 18px; height: 1.5px; background: #F7F4EF; border-radius: 1px; }
+
+/* ── HERO ── */
+.hero { position: relative; height: 62vh; min-height: 480px; overflow: hidden; }
+.hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 55%; display: block; }
+.hero-overlay { position: absolute; inset: 0; background:linear-gradient(to bottom,rgba(10,20,14,0.72) 0%,rgba(10,20,14,0.15) 18%,rgba(10,20,14,0) 38%,rgba(10,20,14,0) 52%,rgba(10,20,14,0.58) 100%); }
+.hero-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 0 64px 52px; }
+.hero-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--sage-light); font-weight: 400; margin-bottom: 12px; }
+.hero-title { font-family: 'Playfair Display', serif; font-size: clamp(40px, 5vw, 64px); color: #F7F4EF; font-weight: 400; line-height: 1.1; margin-bottom: 16px; }
+.hero-title em { font-style: italic; color: var(--sage-light); }
+.hero-desc { font-size: 15px; color: rgba(247,244,239,0.75); font-weight: 300; max-width: 560px; line-height: 1.75; }
+
+/* ── FILTER BAR ── */
+.filter-bar { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 64px; display: flex; align-items: center; gap: 0; position: sticky; top: 73px; z-index: 100; }
+.filter-label { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--text-light); font-weight: 400; padding: 20px 24px 20px 0; border-right: 1px solid var(--border); margin-right: 8px; white-space: nowrap; }
+.filter-btn { padding: 20px 20px; font-size: 12px; color: var(--text-mid); background: none; border: none; cursor: pointer; font-family: 'Jost', sans-serif; font-weight: 400; letter-spacing: 0.5px; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; white-space: nowrap; }
+.filter-btn:hover { color: var(--deep-green); }
+.filter-btn.active { color: var(--deep-green); border-bottom-color: var(--terracotta); font-weight: 500; }
+.filter-spacer { flex: 1; }
+.filter-group-btn { display: flex; align-items: center; gap: 8px; padding: 10px 18px; border: 1px solid var(--border); border-radius: 2px; font-size: 11px; color: var(--text-mid); background: var(--cream); font-family: 'Jost', sans-serif; cursor: pointer; letter-spacing: 1px; text-decoration: none; transition: background 0.2s, color 0.2s; }
+.filter-group-btn:hover { background: var(--deep-green); color: #F7F4EF; }
+
+/* ── MAIN GRID ── */
+.page-main { padding: 56px 64px 96px; }
+.grid-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 40px; }
+.grid-count { font-size: 12px; color: var(--text-light); letter-spacing: 1px; }
+.section-divider { margin: 64px 0 40px; display: flex; align-items: center; gap: 24px; }
+.section-divider h2 { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--deep-green); font-weight: 400; white-space: nowrap; }
+.section-divider-line { flex: 1; height: 1px; background: var(--border); }
+
+/* ── PROPERTY CARDS ── */
+.cottages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
+.cottages-grid.two-col { grid-template-columns: repeat(2, 1fr); }
+
+/* Featured card — spans 2 cols */
+.prop-card { background: var(--white); overflow: hidden; display: flex; flex-direction: column; transition: box-shadow 0.3s; cursor: pointer; text-decoration: none; color: inherit; }
+.prop-card:hover { box-shadow: 0 8px 40px rgba(127,151,137,0.12); z-index: 2; position: relative; }
+.prop-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; }
+.prop-card.featured .card-img-wrap { padding-top: 0; height: 100%; }
+
+.card-img-wrap { position: relative; overflow: hidden; padding-top: 68%; flex-shrink: 0; }
+.prop-card.featured .card-img-wrap { padding-top: 100%; }
+.card-img-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.prop-card:hover .card-img-wrap img { transform: scale(1.04); }
+
+/* Tags on image */
+.card-tags { position: absolute; top: 16px; left: 16px; display: flex; gap: 6px; z-index: 2; }
+.card-tag { background: rgba(74,100,89,0.72); backdrop-filter: blur(4px); color: rgba(247,244,239,0.9); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 5px 10px; border-radius: 1px; font-family: 'Jost', sans-serif; font-weight: 400; }
+.card-tag.featured-tag { background: var(--terracotta); }
+
+/* Card body */
+.card-body { padding: 24px 24px 20px; flex: 1; display: flex; flex-direction: column; }
+.prop-card.featured .card-body { padding: 36px 36px 32px; justify-content: center; }
+.card-name { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--deep-green); font-weight: 400; margin-bottom: 6px; line-height: 1.2; }
+.prop-card.featured .card-name { font-size: 28px; margin-bottom: 10px; }
+.card-desc { font-size: 13px; color: var(--text-mid); line-height: 1.75; font-weight: 300; margin-bottom: 20px; flex: 1; }
+.prop-card.featured .card-desc { font-size: 14px; }
+
+/* Card stats row */
+.card-stats { display: flex; gap: 0; border-top: 1px solid var(--border); padding-top: 16px; margin-top: auto; }
+.cs { flex: 1; text-align: center; }
+.cs:not(:last-child) { border-right: 1px solid var(--border); }
+.cs-val { display: block; font-family: 'Playfair Display', serif; font-size: 16px; color: var(--deep-green); font-weight: 400; line-height: 1; margin-bottom: 3px; }
+.cs-label { display: block; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+
+/* Card CTA */
+.card-cta { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border); }
+.card-cta-link { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--terracotta); font-weight: 500; text-decoration: none; }
+.card-cta-arrow { font-size: 16px; color: var(--sage); }
+.prop-card.featured .card-cta { margin-top: 28px; padding-top: 20px; }
+
+/* ── GROUP BOOKING BANNER ── */
+.group-banner { background: var(--deep-green); padding: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 0; }
+.group-banner-left .eyebrow { font-size: 10px; letter-spacing: 4px; text-transform: uppercase; color: var(--sage-light); font-weight: 400; margin-bottom: 14px; }
+.group-banner-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 42px); color: #F7F4EF; font-weight: 400; line-height: 1.2; margin-bottom: 20px; }
+.group-banner-left h2 em { font-style: italic; color: var(--sage-light); }
+.group-banner-left p { font-size: 14px; color: rgba(247,244,239,0.65); line-height: 1.85; font-weight: 300; }
+.group-capacity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+.gc-tile { background: rgba(255,255,255,0.06); padding: 24px 20px; }
+.gc-num { font-family: 'Playfair Display', serif; font-size: 36px; color: #F7F4EF; line-height: 1; margin-bottom: 4px; }
+.gc-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage-light); font-weight: 400; }
+.gc-desc { font-size: 12px; color: rgba(247,244,239,0.45); margin-top: 6px; font-weight: 300; line-height: 1.5; }
+.group-ctas { display: flex; gap: 12px; margin-top: 32px; }
+.btn-primary { background: var(--terracotta); color: #FEFEFE; padding: 14px 28px; text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; font-family: 'Jost', sans-serif; border-radius: 2px; transition: background 0.2s; }
+.btn-primary:hover { background: #7a6aa4; }
+.btn-outline { color: #F7F4EF; text-decoration: none; font-size: 12px; letter-spacing: 1px; border-bottom: 1px solid rgba(247,244,239,0.3); padding-bottom: 2px; display: flex; align-items: center; }
+
+/* ── FACILITIES STRIP ── */
+.facilities-strip { background: var(--white); padding: 48px 64px; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.facilities-strip-inner { display: grid; grid-template-columns: repeat(5,1fr); gap: 32px; align-items: start; }
+.facility-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; }
+.facility-icon { font-size: 28px; }
+.facility-name { font-size: 12px; color: var(--deep-green); font-weight: 500; }
+.facility-note { font-size: 11px; color: var(--text-light); font-weight: 300; }
+
+/* ── FOOTER ── */
+footer { background: #4a6459; padding: 48px 64px 32px; }
+.footer-top-row { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; gap: 48px; }
+.footer-brand p { font-size: 12px; color: rgba(247,244,239,0.4); line-height: 1.8; font-weight: 300; margin-top: 12px; max-width: 280px; }
+.footer-contact a { display: block; color: rgba(247,244,239,0.5); text-decoration: none; font-size: 12px; font-weight: 300; margin-bottom: 6px; }
+.footer-contact a:hover { color: #F7F4EF; }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: rgba(247,244,239,0.3); padding-top: 24px; border-top: 1px solid rgba(247,244,239,0.08); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { color: rgba(247,244,239,0.3); text-decoration: none; }
+.footer-logo-img { height: 34px; width: auto; }
+
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()">&#215;</button>
+  <div class="wmf-drawer-logo">
+    <div class="wmf-drawer-logo-name">Woodlands Manor Farm</div>
+    <div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <img src="/images/cottages/9792dd1b5f66d139.jpg" alt="Woodlands Manor Farm courtyard — Bude, Cornwall">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Woodlands Manor Farm &bull; Bude, Cornwall</p>
+      <h1 class="hero-title">Cottages &amp; <em>yurts</em></h1>
+      <p class="hero-desc">Seven characterful cottages and two Mongolian glamping yurts, sleeping 2 to 12. All with access to the heated indoor pool, games room, farm animals and two miles of Cornish coastline.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar" id="filterBar">
+  <span class="filter-label">Filter by</span>
+  <button class="filter-btn active" onclick="filterCards('all', this)">All (9)</button>
+  <button class="filter-btn" onclick="filterCards('couples', this)">Couples (2)</button>
+  <button class="filter-btn" onclick="filterCards('small', this)">Small groups (4&ndash;6)</button>
+  <button class="filter-btn" onclick="filterCards('large', this)">Large groups (8+)</button>
+  <button class="filter-btn" onclick="filterCards('glamping', this)">Glamping</button>
+  <button class="filter-btn" onclick="filterCards('dogs', this)">Dog friendly</button>
+  <div class="filter-spacer"></div>
+  <a href="tel:07887677354" class="filter-group-btn">&#128222; Group enquiry</a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="page-main">
+
+  <div class="grid-header">
+    <span class="grid-count" id="gridCount">Showing 9 properties</span>
+  </div>
+
+  <!-- COTTAGES GRID -->
+  <div class="cottages-grid" id="propertyGrid">
+
+    <!-- 1. Manor House — FEATURED (spans 2 cols) -->
+    <a href="woodlands_manor_house.html" class="prop-card featured" data-cats="large dogs">
+      <div class="card-img-wrap">
+        <img src="/images/cottages/812784261e6d52d7.jpg" alt="Woodlands Manor House — stone lounge with beams">
+        <div class="card-tags">
+          <span class="card-tag featured-tag">Flagship property</span>
+          <span class="card-tag">Grade II Listed</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Woodlands Manor House</div>
+        <p class="card-desc">Our historic 17th-century farmhouse — a magnificent mix of original beams, slate floors, stone fireplaces and every modern comfort. Three lounges, a four-oven Aga, six bedrooms with romantic bedsteads, and a private mature garden. The one guests return to again and again.</p>
+        <div class="card-stats">
+          <div class="cs"><span class="cs-val">12</span><span class="cs-label">Guests</span></div>
+          <div class="cs"><span class="cs-val">6</span><span class="cs-label">Bedrooms</span></div>
+          <div class="cs"><span class="cs-val">3</span><span class="cs-label">Bathrooms</span></div>
+          <div class="cs"><span class="cs-val">&#128021;</span><span class="cs-label">Dogs OK</span></div>
+        </div>
+        <div class="card-cta">
+          <span class="card-cta-link">View &amp; book</span>
+          <span class="card-cta-arrow">&#8594;</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- 2. Rose Cottage -->
+    <a href="#" class="prop-card" data-cats="large dogs">
+      <div class="card-img-wrap">
+        <img src="/images/cottages/32742e1c3f3de7dd.jpg" alt="Rose Cottage — stone fireplace and beamed lounge">
+        <div class="card-tags"><span class="card-tag">Sleeps 8</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Rose Cottage</div>
+        <p class="card-desc">A large converted hay barn with two lounges and a glowing log burner. Perfect for family groups who need space to spread out, with bedroom and bathroom on the ground floor.</p>
+        <div class="card-stats">
+          <div class="cs"><span class="cs-val">8</span><span class="cs-label">Guests</span></div>
+          <div class="cs"><span class="cs-val">4</span><span class="cs-label">Bedrooms</span></div>
+          <div class="cs"><span class="cs-val">2</span><span class="cs-label">Bathrooms</span></div>
+          <div class="cs"><span class="cs-val">&#128021;</span><span class="cs-label">Dogs OK</span></div>
+        </div>
+        <div class="card-cta"><span class="card-cta-link">View &amp; book</span><span class="card-cta-arrow">&#8594;</span></div>
+      </div>
+    </a>
+
+    <!-- 3. Jasmine -->
+    <a href="#" class="prop-card" data-cats="small dogs">
+      <div class="card-img-wrap">
+        <img src="/images/cottages/4e9d92fa8d3c1e84.jpg" alt="Jasmine Cottage kitchen dining">
+        <div class="card-tags"><span class="card-tag">Sleeps 6</span><span class="card-tag">Secret door</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Jasmine Cottage</div>
+        <p class="card-desc">A spacious barn conversion with a secret bookcase door connecting to Lavender — combine them for 10 guests. Three doubles, a stunning farm table and a stone wood burner.</p>
+        <div class="card-stats">
+          <div class="cs"><span class="cs-val">6</span><span class="cs-label">Guests</span></div>
+          <div class="cs"><span class="cs-val">3</span><span class="cs-label">Bedrooms</span></div>
+          <div class="cs"><span class="cs-val">2</span><span class="cs-label">Bathrooms</span></div>
+          <div class="cs"><span class="cs-val">&#128021;</span><span class="cs-label">Dogs OK</span></div>
+        </div>
+        <div class="card-cta"><span class="card-cta-link">View &amp; book</span><span class="card-cta-arrow">&#8594;</span></div>
+      </div>
+    </a>
+
+    <!-- 4. The Stables -->
+    <a href="#" class="prop-card" data-cats="small dogs">
+      <div class="card-img-wrap">
+        <img src="/images/cottages/b2a31f0f839f8fce.jpg" alt="The Stables — light open-plan lounge">
+        <div class="card-tags"><span class="card-tag">Sleeps 4</span><span class="card-tag">Valley view</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">The Stables</div>
+        <p class="card-desc">Characterful and luxurious — open-plan living with a breathtaking valley view from the stone patio. Two bedrooms each with ensuite, and a freestanding bath in the master.</p>
+        <div class="card-stats">
+          <div class="cs"><span class="cs-val">4</span><span class="cs-label">Guests</span></div>
+          <div class="cs"><span class="cs-val">2</span><span class="cs-label">Bedrooms</span></div>
+          <div class="cs"><span class="cs-val">2</span><span class="cs-label">Ensuites</span></div>
+          <div class="cs"><span class="cs-val">&#128021;</span><span class="cs-label">Dogs OK</span></div>
+        </div>
+        <div class="card-cta"><span class="card-cta-link">View &amp; book</span><span class="card-cta-arrow">&#8594;</span></div>
+      </div>
+    </a>
+
+    <!-- 5. Lavender -->
+    <a href="#" class="prop-card" data-cats="small dogs">
+      <div class="card-img-wrap">
+        <img src="/images/cottages/69d76075f1839b61.jpg" alt="Lavender Cottage lounge">
+        <div class="card-tags"><span class="card-tag">Sleeps 4</span><span class="card-tag">Single level</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Lavender Cottage</div>
+        <p class="card-desc">Entirely on one level — perfect for families with young children or those who prefer to avoid steps. Connects to Jasmine via a secret door for larger group stays.</p>
+        <div class="card-stats">
+          <div class="cs"><span class="cs-val">4</span><span class="cs-label">Guests</span></div>
+          <div class="cs"><span class="cs-val">2</span><span class="cs-label">Bedrooms</span></div>
+          <div class="cs"><span class="cs-val">2</span><span class="cs-label">Bathrooms</span></div>
+          <div class="cs"><span class="cs-val">&#128021;</span><span class="cs-label">Dogs OK</span></div>
+        </div>
+        <div class="card-cta"><span class="card-cta-link">View &amp; book</span><span class="card-cta-arrow">&#8594;</span></div>
+      </div>
+    </a>
+
+    <!-- 6. Coach House -->
+    <a href="#" class="prop-card" data-cats="couples dogs">
+      <div class="card-img-wrap">
+        <img src="/images/cottages/7da27dbd79d1c7d5.jpg" alt="Coach House — ivy-clad stone cottage">
+        <div class="card-tags"><span class="card-tag">Sleeps 2</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">The Coach House</div>
+        <p class="card-desc">Intimate and full of charm — a beautiful vaulted ceiling bedroom, super king bed, and stone-floored kitchen lounge. The perfect romantic retreat for two.</p>
+        <div class="card-stats">
+          <div class="cs"><span class="cs-val">2</span><span class="cs-label">Guests</span></div>
+          <div class="cs"><span class="cs-val">1</span><span class="cs-label">Bedroom</span></div>
+          <div class="cs"><span class="cs-val">1</span><span class="cs-label">Bathroom</span></div>
+          <div class="cs"><span class="cs-val">&#128021;</span><span class="cs-label">Dogs OK</span></div>
+        </div>
+        <div class="card-cta"><span class="card-cta-link">View &amp; book</span><span class="card-cta-arrow">&#8594;</span></div>
+      </div>
+    </a>
+
+    <!-- 7. Honeysuckle -->
+    <a href="#" class="prop-card" data-cats="couples dogs">
+      <div class="card-img-wrap">
+        <img src="/images/cottages/7275ce59f132f14c.jpg" alt="Honeysuckle Cottage kitchen lounge">
+        <div class="card-tags"><span class="card-tag">Sleeps 2</span><span class="card-tag">Single level</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Honeysuckle Cottage</div>
+        <p class="card-desc">Ground floor and open plan — brilliant for couples or young families with small children. Peaceful, cosy, and with everything you need for a perfect break.</p>
+        <div class="card-stats">
+          <div class="cs"><span class="cs-val">2</span><span class="cs-label">Guests</span></div>
+          <div class="cs"><span class="cs-val">1</span><span class="cs-label">Bedroom</span></div>
+          <div class="cs"><span class="cs-val">1</span><span class="cs-label">Bathroom</span></div>
+          <div class="cs"><span class="cs-val">&#128021;</span><span class="cs-label">Dogs OK</span></div>
+        </div>
+        <div class="card-cta"><span class="card-cta-link">View &amp; book</span><span class="card-cta-arrow">&#8594;</span></div>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- YURTS SECTION DIVIDER -->
+  <div class="section-divider" id="yurts">
+    <h2>The Yurts</h2>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="cottages-grid two-col" id="yurtGrid">
+
+    <!-- 8. Budhyn Yurt -->
+    <a href="#" class="prop-card" data-cats="glamping small dogs">
+      <div class="card-img-wrap">
+        <img src="/images/cottages/178e79588e66b04a.jpg" alt="Inside the Budhyn Yurt" style="object-position: center 40%">
+        <div class="card-tags"><span class="card-tag featured-tag">Glamping</span><span class="card-tag">Sleeps 4</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Budhyn Yurt</div>
+        <p class="card-desc">Authentic Mongolian glamping with a high-end Nordpeis wood-burner at its heart. Super king bed, two singles, your own private kitchen, bathroom and a picnic table with valley views.</p>
+        <div class="card-stats">
+          <div class="cs"><span class="cs-val">4</span><span class="cs-label">Guests</span></div>
+          <div class="cs"><span class="cs-val">3</span><span class="cs-label">Beds</span></div>
+          <div class="cs"><span class="cs-val">1</span><span class="cs-label">Bathroom</span></div>
+          <div class="cs"><span class="cs-val">&#128021;</span><span class="cs-label">Dogs OK</span></div>
+        </div>
+        <div class="card-cta"><span class="card-cta-link">View &amp; book</span><span class="card-cta-arrow">&#8594;</span></div>
+      </div>
+    </a>
+
+    <!-- 9. Fenton Yurt -->
+    <a href="#" class="prop-card" data-cats="glamping small dogs">
+      <div class="card-img-wrap">
+        <img src="/images/cottages/ee96ea80e53b6e33.jpg" alt="Fenton Yurt — valley setting">
+        <div class="card-tags"><span class="card-tag featured-tag">Glamping</span><span class="card-tag">Sleeps 4</span></div>
+      </div>
+      <div class="card-body">
+        <div class="card-name">Fenton Yurt</div>
+        <p class="card-desc">Identical in luxury to Budhyn — nestled beside it in the valley with the same wood-burner warmth, private bathroom and kitchen. Book both yurts together for a group of eight.</p>
+        <div class="card-stats">
+          <div class="cs"><span class="cs-val">4</span><span class="cs-label">Guests</span></div>
+          <div class="cs"><span class="cs-val">3</span><span class="cs-label">Beds</span></div>
+          <div class="cs"><span class="cs-val">1</span><span class="cs-label">Bathroom</span></div>
+          <div class="cs"><span class="cs-val">&#128021;</span><span class="cs-label">Dogs OK</span></div>
+        </div>
+        <div class="card-cta"><span class="card-cta-link">View &amp; book</span><span class="card-cta-arrow">&#8594;</span></div>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- FACILITIES STRIP -->
+<div class="facilities-strip">
+  <div class="facilities-strip-inner">
+    <div class="facility-item">
+      <div class="facility-icon">&#127944;</div>
+      <div class="facility-name">Heated indoor pool</div>
+      <div class="facility-note">30&deg;C &middot; open 8am&ndash;8pm</div>
+    </div>
+    <div class="facility-item">
+      <div class="facility-icon">&#127918;</div>
+      <div class="facility-name">Games room</div>
+      <div class="facility-note">Pool, ping pong, soft play &amp; more</div>
+    </div>
+    <div class="facility-item">
+      <div class="facility-icon">&#128004;</div>
+      <div class="facility-name">Feed the animals</div>
+      <div class="facility-note">Sun &amp; Wed with Ruth</div>
+    </div>
+    <div class="facility-item">
+      <div class="facility-icon">&#127807;</div>
+      <div class="facility-name">Woodland walk</div>
+      <div class="facility-note">Bluebells in spring</div>
+    </div>
+    <div class="facility-item">
+      <div class="facility-icon">&#127940;</div>
+      <div class="facility-name">2 miles to beach</div>
+      <div class="facility-note">Duckpool &middot; National Trust</div>
+    </div>
+  </div>
+</div>
+
+<!-- GROUP BOOKING BANNER -->
+<div class="group-banner">
+  <div class="group-banner-left">
+    <div class="eyebrow">Exclusive use &amp; group bookings</div>
+    <h2>Take over the <em>whole farm</em></h2>
+    <p>Book multiple cottages together for reunions, milestone birthdays, hen parties or family holidays. All nine properties sleeping up to 44 guests can be reserved exclusively — with the pool, games room and farm all to yourselves.</p>
+    <div class="group-ctas">
+      <a href="tel:07887677354" class="btn-primary">Call Andy &mdash; 07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk" class="btn-outline">Email us</a>
+    </div>
+  </div>
+  <div class="group-capacity-grid">
+    <div class="gc-tile">
+      <div class="gc-num">44</div>
+      <div class="gc-label">Max guests</div>
+      <div class="gc-desc">All nine properties combined</div>
+    </div>
+    <div class="gc-tile">
+      <div class="gc-num">9</div>
+      <div class="gc-label">Properties</div>
+      <div class="gc-desc">7 cottages + 2 yurts</div>
+    </div>
+    <div class="gc-tile">
+      <div class="gc-num">1</div>
+      <div class="gc-label">Private pool</div>
+      <div class="gc-desc">Exclusively yours</div>
+    </div>
+    <div class="gc-tile">
+      <div class="gc-num">10%</div>
+      <div class="gc-label">Direct discount</div>
+      <div class="gc-desc">Book direct &amp; save</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top-row">
+    <div class="footer-brand">
+      <img src="/images/cottages/65b5009a86c4d3c4.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity: 0.75;">
+      <p>A 17th-century farm in the Coombe Valley offering cottages, yurts, an indoor pool, and the warmest of Cornish welcomes.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var nav = document.getElementById('mainNav');
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+function filterCards(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  var cards = document.querySelectorAll('.prop-card');
+  var visible = 0;
+  cards.forEach(function(card) {
+    var cats = card.dataset.cats || '';
+    var show = cat === 'all' || cats.includes(cat);
+    card.style.display = show ? '' : 'none';
+    if (show) visible++;
+  });
+
+  // Handle featured card spanning — reset when filtering
+  var featured = document.querySelector('.prop-card.featured');
+  if (cat !== 'all' && featured && featured.style.display !== 'none') {
+    featured.style.gridColumn = '';
+  } else if (cat === 'all' && featured) {
+    featured.style.gridColumn = 'span 2';
+  }
+
+  document.getElementById('gridCount').textContent =
+    'Showing ' + visible + ' propert' + (visible === 1 ? 'y' : 'ies');
+}
+</script>
+
+</body>
+</html>

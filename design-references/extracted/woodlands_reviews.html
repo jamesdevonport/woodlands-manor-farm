@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reviews — Woodlands Manor Farm, Bude Cornwall · 4.9 Stars</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F4EF;--sage:#7f9789;--sage-light:#adbfb9;
+  --violet:#8B7BB5;--violet-hover:#7a6aa4;
+  --dark-sage:#4a6459;--mid-sage:#6a8478;
+  --text-dark:#1E2422;--text-mid:#4A5550;--text-light:#8A9990;
+  --white:#FEFEFE;--border:rgba(127,151,137,0.15);--gold:#C9A85C;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-dark);font-weight:300;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+.nav-logo-img{display:flex;align-items:center;text-decoration:none}
+.nav-logo-png{height:44px;width:auto;display:block;transition:height 0.3s}
+nav.scrolled .nav-logo-png{height:36px}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-back{color:rgba(247,243,238,0.75);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:color 0.2s}
+.nav-back:hover{color:#F7F4EF}
+.nav-book{background:var(--violet);color:#FEFEFE;padding:10px 22px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}
+.nav-book:hover{background:var(--violet-hover)}
+
+/* HERO */
+.hero{position:relative;height:70vh;min-height:500px;overflow:hidden}
+.hero img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,20,14,0.72) 0%,rgba(10,20,14,0.15) 18%,rgba(10,20,14,0) 38%,rgba(10,20,14,0) 52%,rgba(10,20,14,0.58) 100%);bottom:0;left:0;right:0;padding:0 72px 60px}
+.hero-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:14px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(46px,6vw,80px);color:#F7F4EF;font-weight:400;line-height:1.05;margin-bottom:16px}
+.hero-title em{font-style:italic;color:var(--sage-light)}
+.hero-stars{display:flex;align-items:center;gap:12px}
+.hero-star-icons{color:var(--gold);font-size:22px;letter-spacing:3px}
+.hero-star-text{font-size:14px;color:rgba(247,244,239,0.75);font-weight:300}
+
+/* SCORE STRIP */
+.score-strip{background:var(--dark-sage);padding:0 72px;display:grid;grid-template-columns:auto 1px 1fr 1px auto;gap:0;align-items:stretch}
+.score-main{padding:40px 48px 40px 0;display:flex;align-items:center;gap:32px}
+.score-big{font-family:'Playfair Display',serif;font-size:72px;color:#F7F4EF;font-weight:400;line-height:1}
+.score-detail{display:flex;flex-direction:column;gap:6px}
+.score-stars{color:var(--gold);font-size:20px;letter-spacing:2px}
+.score-label{font-size:12px;color:rgba(247,244,239,0.65);font-weight:300}
+.score-divider{background:rgba(173,191,185,0.15);width:1px}
+.score-platforms{padding:32px 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;align-items:center}
+.platform-item{display:flex;flex-direction:column;align-items:center;gap:6px;padding:0 20px;border-right:1px solid rgba(173,191,185,0.12)}
+.platform-item:last-child{border-right:none}
+.platform-name{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.platform-score{font-family:'Playfair Display',serif;font-size:24px;color:#F7F4EF;font-weight:400}
+.platform-reviews{font-size:11px;color:rgba(247,244,239,0.45);font-weight:300}
+.score-cta{padding:40px 0 40px 48px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.btn-review{background:var(--violet);color:#FEFEFE;padding:13px 24px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap;text-align:center}
+.btn-review:hover{background:var(--violet-hover)}
+.review-note{font-size:11px;color:rgba(247,244,239,0.4);text-align:center}
+
+/* FEATURED REVIEWS - large pull quotes */
+.featured-section{background:var(--white);padding:80px 72px}
+.section-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,46px);color:var(--dark-sage);font-weight:400;margin-bottom:48px}
+.section-title em{font-style:italic;color:var(--sage)}
+.featured-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:3px}
+
+/* Pull quote card */
+.pq-card{background:var(--cream);padding:40px 36px;position:relative;overflow:hidden}
+.pq-card.dark{background:var(--dark-sage)}
+.pq-mark{font-family:'Playfair Display',serif;font-size:96px;color:rgba(127,151,137,0.15);position:absolute;top:0;left:20px;line-height:1}
+.pq-card.dark .pq-mark{color:rgba(173,191,185,0.12)}
+.pq-stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:14px}
+.pq-text{font-family:'Playfair Display',serif;font-size:18px;color:var(--dark-sage);font-weight:400;line-height:1.6;margin-bottom:20px;font-style:italic;padding-top:16px}
+.pq-card.dark .pq-text{color:#F7F4EF}
+.pq-author{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid var(--border)}
+.pq-card.dark .pq-author{border-top-color:rgba(173,191,185,0.15)}
+.pq-avatar{width:38px;height:38px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-size:13px;color:#F7F4EF;font-weight:500;flex-shrink:0}
+.pq-card.dark .pq-avatar{background:rgba(255,255,255,0.15)}
+.pq-name{font-size:13px;font-weight:500;color:var(--dark-sage)}
+.pq-card.dark .pq-name{color:#F7F4EF}
+.pq-property{font-size:11px;color:var(--text-light);margin-top:2px}
+.pq-card.dark .pq-property{color:var(--sage-light)}
+.pq-platform{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--sage);margin-top:2px}
+.pq-card.dark .pq-platform{color:rgba(173,191,185,0.6)}
+
+/* Featured wide card */
+.pq-card.wide{grid-column:span 2;display:grid;grid-template-columns:1fr 1fr;gap:0}
+.pq-card.wide .pq-img{overflow:hidden}
+.pq-card.wide .pq-img img{width:100%;height:100%;object-fit:cover;display:block}
+.pq-card.wide .pq-body{padding:48px 44px;display:flex;flex-direction:column;justify-content:center}
+
+/* MAIN REVIEWS GRID */
+.reviews-section{background:var(--cream);padding:80px 72px}
+.reviews-filter{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:40px}
+.filter-pill{padding:9px 18px;border:1px solid var(--border);border-radius:20px;font-size:12px;color:var(--text-mid);background:var(--white);cursor:pointer;transition:all 0.2s;font-family:'Jost',sans-serif}
+.filter-pill:hover,.filter-pill.active{background:var(--dark-sage);color:#F7F4EF;border-color:var(--dark-sage)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.review-card{background:var(--white);padding:28px;position:relative;overflow:hidden;transition:box-shadow 0.3s}
+.review-card:hover{box-shadow:0 6px 24px rgba(74,100,89,0.1);z-index:2;position:relative}
+.rc-quote-mark{font-family:'Playfair Display',serif;font-size:56px;color:rgba(127,151,137,0.12);position:absolute;top:4px;left:18px;line-height:1}
+.rc-stars{color:var(--gold);font-size:12px;letter-spacing:2px;margin-bottom:10px}
+.rc-text{font-size:13px;color:var(--text-mid);line-height:1.8;font-weight:300;margin-bottom:16px;padding-top:12px}
+.rc-meta{display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid var(--border)}
+.rc-avatar{width:32px;height:32px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-size:11px;color:#F7F4EF;font-weight:500;flex-shrink:0}
+.rc-name{font-size:12px;font-weight:500;color:var(--dark-sage)}
+.rc-detail{font-size:11px;color:var(--text-light);margin-top:1px}
+.rc-platform-badge{display:inline-block;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:20px;margin-left:auto;flex-shrink:0}
+.badge-google{background:rgba(66,133,244,0.1);color:#4285F4}
+.badge-tripadvisor{background:rgba(52,189,0,0.1);color:#34BD00}
+.badge-booking{background:rgba(0,115,230,0.1);color:#0073E6}
+.badge-airbnb{background:rgba(255,90,95,0.1);color:#FF5A5F}
+
+/* AWARDS SECTION */
+.awards-section{background:var(--white);padding:64px 72px;border-top:1px solid var(--border)}
+.awards-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin-top:40px}
+.award-card{background:var(--cream);padding:32px 24px;text-align:center}
+.award-icon{font-size:36px;margin-bottom:12px;display:block}
+.award-name{font-family:'Playfair Display',serif;font-size:16px;color:var(--dark-sage);font-weight:400;margin-bottom:6px}
+.award-detail{font-size:12px;color:var(--text-light);line-height:1.5;font-weight:300}
+
+/* LEAVE A REVIEW CTA */
+.leave-review{background:var(--dark-sage);padding:64px 72px;display:flex;align-items:center;justify-content:space-between;gap:48px}
+.lr-text .lr-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:10px}
+.lr-text h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,38px);color:#F7F4EF;font-weight:400;margin-bottom:10px}
+.lr-text p{font-size:14px;color:rgba(247,244,239,0.65);font-weight:300;line-height:1.7;max-width:480px}
+.lr-buttons{display:flex;flex-direction:column;gap:10px;flex-shrink:0}
+.lr-btn{display:block;padding:12px 24px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;text-align:center;white-space:nowrap}
+.lr-btn-google{background:#4285F4;color:#fff}
+.lr-btn-ta{background:#34BD00;color:#fff}
+.lr-btn-bdc{background:#0073E6;color:#fff}
+
+/* BOOK CTA */
+.book-cta{background:var(--sage);padding:60px 72px;display:flex;align-items:center;justify-content:space-between;gap:48px}
+.book-cta-text h2{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,34px);color:#F7F4EF;font-weight:400;margin-bottom:8px}
+.book-cta-text p{font-size:14px;color:rgba(247,244,239,0.72);font-weight:300}
+.btn-white{background:#F7F4EF;color:var(--dark-sage);padding:14px 28px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}
+
+/* FOOTER */
+footer{background:#111815;padding:48px 72px 32px}
+.footer-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;gap:48px}
+.footer-brand p{font-size:12px;color:rgba(247,244,239,0.4);line-height:1.8;font-weight:300;margin-top:12px;max-width:280px}
+.footer-contact a{display:block;color:rgba(247,244,239,0.5);text-decoration:none;font-size:12px;font-weight:300;margin-bottom:6px;transition:color 0.2s}
+.footer-contact a:hover{color:#F7F4EF}
+.footer-bottom{display:flex;justify-content:space-between;font-size:11px;color:rgba(247,244,239,0.3);padding-top:24px;border-top:1px solid rgba(247,244,239,0.08)}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(247,244,239,0.3);text-decoration:none}
+.footer-logo-img{height:34px;width:auto}
+
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()">&#215;</button>
+  <div class="wmf-drawer-logo">
+    <div class="wmf-drawer-logo-name">Woodlands Manor Farm</div>
+    <div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <img src="/images/about/f768b622b6cab139.jpg" alt="Woodlands Manor Farm — 4.9 stars across 100+ reviews">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Woodlands Manor Farm &bull; Bude, Cornwall</p>
+    <h1 class="hero-title">What our guests<br><em>say</em></h1>
+    <div class="hero-stars">
+      <span class="hero-star-icons">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span class="hero-star-text">4.9 out of 5 &mdash; based on 106+ Google reviews</span>
+    </div>
+  </div>
+</div>
+
+<!-- SCORE STRIP -->
+<div class="score-strip">
+  <div class="score-main">
+    <div class="score-big">4.9</div>
+    <div class="score-detail">
+      <div class="score-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="score-label">Overall rating</div>
+      <div class="score-label">Based on 106 Google reviews</div>
+    </div>
+  </div>
+  <div class="score-divider"></div>
+  <div class="score-platforms">
+    <div class="platform-item">
+      <span class="platform-name">Google</span>
+      <span class="platform-score">4.9</span>
+      <span class="platform-reviews">106 reviews</span>
+    </div>
+    <div class="platform-item">
+      <span class="platform-name">TripAdvisor</span>
+      <span class="platform-score">5.0</span>
+      <span class="platform-reviews">Travellers&rsquo; Choice 2026</span>
+    </div>
+    <div class="platform-item">
+      <span class="platform-name">Booking.com</span>
+      <span class="platform-score">9.4</span>
+      <span class="platform-reviews">6 Awards 2026</span>
+    </div>
+    <div class="platform-item">
+      <span class="platform-name">Airbnb</span>
+      <span class="platform-score">&#11088;</span>
+      <span class="platform-reviews">Superhost</span>
+    </div>
+  </div>
+  <div class="score-divider"></div>
+  <div class="score-cta">
+    <a href="https://www.google.com/maps/search/woodlandsmanorfarm.co.uk+bude" target="_blank" class="btn-review">Read all Google reviews</a>
+    <div class="review-note">Stayed with us? Leave a review below</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     LIVE GOOGLE REVIEWS WIDGET — AUTO-SYNCED
+     This section houses the embedded live reviews widget.
+     In Webflow: paste your EmbedSocial / Elfsight / 
+     Trustindex embed code inside .widget-embed-inner
+════════════════════════════════════════════════════════ -->
+<div class="widget-section" id="live-reviews">
+  <div class="widget-section-inner">
+
+    <div class="widget-header">
+      <div class="widget-header-left">
+        <p class="widget-eyebrow">Live from Google, TripAdvisor &amp; Booking.com</p>
+        <h2 class="widget-title">Our latest <em>reviews</em></h2>
+        <p class="widget-subtitle">Automatically updated — every new review appears here within 24 hours</p>
+      </div>
+      <div class="widget-header-right">
+        <div class="widget-score-badge">
+          <div class="wsb-num">4.9</div>
+          <div class="wsb-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="wsb-label">106 Google reviews</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WIDGET EMBED AREA -->
+    <div class="widget-embed-wrap">
+      <!--
+      ════════════════════════════════════════════════════
+      PASTE YOUR REVIEWS WIDGET EMBED CODE HERE
+      ════════════════════════════════════════════════════
+      
+      RECOMMENDED OPTIONS FOR WEBFLOW:
+      
+      1. ELFSIGHT (easiest for Webflow)
+         → elfsight.com → Google Reviews widget
+         → Copy embed script → paste below
+         → Works natively in Webflow Embed element
+      
+      2. EMBEDSOCIAL
+         → embedsocial.com → Google Reviews
+         → Free plan available
+         → Paste script tag below
+      
+      3. TRUSTINDEX
+         → trustindex.io → Google Reviews widget
+         → Paste shortcode/script below
+      
+      4. YOUR EXISTING WORDPRESS WIDGET
+         → If you use Widgets for Google Reviews (Trustindex)
+           on the current site, log into Trustindex.io
+           and get the HTML embed version of your widget
+           (works outside WordPress too)
+      
+      Remove the placeholder below when your widget is live.
+      ════════════════════════════════════════════════════
+      -->
+      <div class="widget-embed-inner" id="reviewsWidget">
+
+        <!-- PLACEHOLDER — remove when widget is live -->
+        <div class="widget-placeholder">
+          <div class="wp-icon-row">
+            <span class="wp-platform-icon" style="background:#4285F4">G</span>
+            <span class="wp-platform-icon" style="background:#34BD00">TA</span>
+            <span class="wp-platform-icon" style="background:#0073E6">B</span>
+            <span class="wp-platform-icon" style="background:#FF5A5F">AB</span>
+          </div>
+          <div class="wp-title">Live reviews widget</div>
+          <p class="wp-body">Your auto-syncing Google, TripAdvisor, Booking.com and Airbnb reviews widget will appear here. Paste your embed code from EmbedSocial, Elfsight or Trustindex inside the <code>div#reviewsWidget</code> above to activate.</p>
+          <div class="wp-steps">
+            <div class="wp-step"><span class="wp-step-num">1</span><span>Sign up at <strong>elfsight.com</strong> or <strong>embedsocial.com</strong></span></div>
+            <div class="wp-step"><span class="wp-step-num">2</span><span>Connect your Google Business Profile for Woodlands Manor Farm</span></div>
+            <div class="wp-step"><span class="wp-step-num">3</span><span>Copy the generated embed code (JavaScript snippet)</span></div>
+            <div class="wp-step"><span class="wp-step-num">4</span><span>Paste it inside <code>div#reviewsWidget</code> in this file</span></div>
+          </div>
+          <a href="https://elfsight.com/google-reviews-widget/" target="_blank" class="wp-cta">Get your widget from Elfsight &rarr;</a>
+        </div>
+        <!-- END PLACEHOLDER -->
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<style>
+.widget-section {
+  background: var(--white);
+  padding: 72px 72px 80px;
+  border-top: 1px solid var(--border);
+}
+.widget-section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.widget-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  gap: 48px;
+}
+.widget-eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--violet);
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+.widget-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(28px,3.5vw,44px);
+  color: var(--dark-sage);
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.widget-title em { font-style: italic; color: var(--sage); }
+.widget-subtitle {
+  font-size: 13px;
+  color: var(--text-light);
+  font-weight: 300;
+}
+.widget-score-badge {
+  background: var(--dark-sage);
+  border-radius: 4px;
+  padding: 20px 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.wsb-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  color: #F7F4EF;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.wsb-stars { color: var(--gold); font-size: 16px; letter-spacing: 2px; margin-bottom: 4px; }
+.wsb-label { font-size: 11px; color: var(--sage-light); letter-spacing: 1px; }
+
+.widget-embed-wrap {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 400px;
+}
+.widget-embed-inner {
+  width: 100%;
+  min-height: 400px;
+}
+
+/* Placeholder styling */
+.widget-placeholder {
+  padding: 56px 48px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.wp-icon-row { display: flex; gap: 8px; justify-content: center; }
+.wp-platform-icon {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Jost', sans-serif;
+  opacity: 0.7;
+}
+.wp-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: var(--dark-sage);
+  font-weight: 400;
+}
+.wp-body {
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.75;
+  font-weight: 300;
+  max-width: 500px;
+}
+.wp-body code {
+  background: rgba(74,100,89,0.1);
+  color: var(--dark-sage);
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+.wp-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  max-width: 480px;
+  width: 100%;
+}
+.wp-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-mid);
+}
+.wp-step-num {
+  background: var(--sage);
+  color: #fff;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  font-weight: 500;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.wp-cta {
+  background: var(--violet);
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'Jost', sans-serif;
+  border-radius: 2px;
+  transition: background 0.2s;
+  margin-top: 4px;
+}
+.wp-cta:hover { background: var(--violet-hover); }
+</style>
+
+<!-- FEATURED PULL QUOTES -->
+<div class="featured-section">
+  <p class="section-eyebrow">Guests in their own words</p>
+  <h2 class="section-title">What they <em>remember most</em></h2>
+
+  <div class="featured-grid">
+
+    <!-- Featured wide - Mark Davis, Coach House -->
+    <div class="pq-card wide dark">
+      <div class="pq-img">
+        <img src="/images/book-direct/985fe867d0049680.jpg" alt="Woodlands Manor Farm — guests share their memories">
+      </div>
+      <div class="pq-body">
+        <div class="pq-mark">&ldquo;</div>
+        <div class="pq-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="pq-text" style="font-size:20px">"A fantastic stay with our 10 month old twins and golden retriever in the Coach House. Every comfort and convenience catered for. The first floor bedroom is HUGE and so full of authentic character. The swimming pool — warm clear water with sun beaming through the windows. Marvellous! Don&rsquo;t hesitate, just BOOK IT!"</div>
+        <div class="pq-author">
+          <div class="pq-avatar">MD</div>
+          <div>
+            <div class="pq-name" style="color:#F7F4EF;font-size:14px">Mark Davis</div>
+            <div class="pq-property" style="color:var(--sage-light)">Coach House &middot; Google review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pq-card">
+      <div class="pq-mark">&ldquo;</div>
+      <div class="pq-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="pq-text">"The site is immaculate, accommodation picture perfect, warm and like home from home comforts. The site has something for everyone, in a picture postcard setting."</div>
+      <div class="pq-author">
+        <div class="pq-avatar">SL</div>
+        <div>
+          <div class="pq-name">suelB126NX</div>
+          <div class="pq-property">TripAdvisor review</div>
+          <div class="pq-platform">TripAdvisor</div>
+        </div>
+        <span class="rc-platform-badge badge-tripadvisor" style="margin-left:auto">TA</span>
+      </div>
+    </div>
+
+    <div class="pq-card">
+      <div class="pq-mark">&ldquo;</div>
+      <div class="pq-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="pq-text">"This by far has been the best farmstay we have had, and we have stayed in a few. The wonderful views over the surrounding countryside also adds to the ambience of this magnificent farmstead. Thank you Ruth and Andy."</div>
+      <div class="pq-author">
+        <div class="pq-avatar">SD</div>
+        <div>
+          <div class="pq-name">SteaminDemon</div>
+          <div class="pq-property">Coach House &middot; TripAdvisor</div>
+        </div>
+        <span class="rc-platform-badge badge-tripadvisor" style="margin-left:auto">TA</span>
+      </div>
+    </div>
+
+    <div class="pq-card">
+      <div class="pq-mark">&ldquo;</div>
+      <div class="pq-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="pq-text">"A truly wonderful stay. The accommodation and facilities were first-class, and the warm welcome from Andy and his family was delightful. My son and daughter especially loved the animals and the large heated pool."</div>
+      <div class="pq-author">
+        <div class="pq-avatar">KC</div>
+        <div>
+          <div class="pq-name">Kate Cz</div>
+          <div class="pq-property">Google review</div>
+        </div>
+        <span class="rc-platform-badge badge-google" style="margin-left:auto">G</span>
+      </div>
+    </div>
+
+    <div class="pq-card dark">
+      <div class="pq-mark">&ldquo;</div>
+      <div class="pq-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <div class="pq-text">"We absolutely loved our stay in one of the beautiful yurts. Andrew has really thought about everything you might possibly need. We are already looking at staying again! Highly recommend!"</div>
+      <div class="pq-author">
+        <div class="pq-avatar">JP</div>
+        <div>
+          <div class="pq-name" style="color:#F7F4EF">John &amp; Pippa</div>
+          <div class="pq-property">Yurt &middot; Google review</div>
+        </div>
+        <span class="rc-platform-badge badge-google" style="margin-left:auto">G</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ALL REVIEWS GRID -->
+<div class="reviews-section" id="all-reviews">
+  <p class="section-eyebrow">All properties &bull; All platforms</p>
+  <h2 class="section-title" style="margin-bottom:28px">Every <em>review</em></h2>
+
+  <div class="reviews-filter">
+    <button class="filter-pill active" onclick="filterReviews('all',this)">All reviews</button>
+    <button class="filter-pill" onclick="filterReviews('manor',this)">Manor House</button>
+    <button class="filter-pill" onclick="filterReviews('rose',this)">Rose Cottage</button>
+    <button class="filter-pill" onclick="filterReviews('stables',this)">The Stables</button>
+    <button class="filter-pill" onclick="filterReviews('yurt',this)">Yurts</button>
+    <button class="filter-pill" onclick="filterReviews('coach',this)">Coach House</button>
+    <button class="filter-pill" onclick="filterReviews('honeysuckle',this)">Honeysuckle</button>
+    <button class="filter-pill" onclick="filterReviews('lavender',this)">Lavender</button>
+    <button class="filter-pill" onclick="filterReviews('jasmine',this)">Jasmine</button>
+  </div>
+
+  <div class="reviews-grid" id="reviewsGrid">
+
+    <div class="review-card" data-prop="manor">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">Really beautiful authentic old Manor House with quirky rooms and period features. Beautiful flat stone floors and huge fireplace. Brilliant place for multiple families with kids. Highly recommend.</p>
+      <div class="rc-meta"><div class="rc-avatar">AK</div><div><div class="rc-name">Alex K.</div><div class="rc-detail">Manor House &middot; 2023</div></div><span class="rc-platform-badge badge-google">G</span></div>
+    </div>
+
+    <div class="review-card" data-prop="manor">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">We spent a family weekend here — the views and walks were beautiful, the manor was much bigger than expected, each room with comfy beds, kitchen had everything we needed to feed a family of 10, the pool was big and warm, the children loved feeding the animals with Ruth.</p>
+      <div class="rc-meta"><div class="rc-avatar">EM</div><div><div class="rc-name">emmahR4855LJ</div><div class="rc-detail">Manor House &middot; 2 months ago</div></div><span class="rc-platform-badge badge-tripadvisor">TA</span></div>
+    </div>
+
+    <div class="review-card" data-prop="manor">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">Stayed here from Thursday to Sunday. Big spacious area. Kitchens are kitted out and good smart TVs. Great for large bookings and socials. The games room is fantastic too. The owners are great and accommodating. Had a great time as always.</p>
+      <div class="rc-meta"><div class="rc-avatar">NM</div><div><div class="rc-name">Nicholas Meadowcroft</div><div class="rc-detail">Manor House &middot; 1 day ago</div></div><span class="rc-platform-badge badge-google">G</span></div>
+    </div>
+
+    <div class="review-card" data-prop="rose">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">We had an amazing stay at the farm! We stayed in Rose Cottage and it was a great stay despite the weather&rsquo;s best efforts — the swimming pool is such a hit for this, as is the indoor games room. We also did both farm feedings which is such an added extra.</p>
+      <div class="rc-meta"><div class="rc-avatar">CB</div><div><div class="rc-name">C9918GEellieb</div><div class="rc-detail">Rose Cottage &middot; 6 months ago</div></div><span class="rc-platform-badge badge-tripadvisor">TA</span></div>
+    </div>
+
+    <div class="review-card" data-prop="rose">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">A truly beautiful idyllic location with fantastic facilities and breathtaking views. We&rsquo;ve never holidayed in the same place twice but having stayed at Woodlands Manor Farm last Easter, we didn&rsquo;t hesitate booking again — and somehow this year&rsquo;s stay was even better!</p>
+      <div class="rc-meta"><div class="rc-avatar">SR</div><div><div class="rc-name">Sandy</div><div class="rc-detail">Rose Cottage &middot; 2024</div></div><span class="rc-platform-badge badge-booking">BDC</span></div>
+    </div>
+
+    <div class="review-card" data-prop="stables">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">The Stables was exactly as described with everything we needed for a comfortable stay. Waking up to that view every morning was a real treat! There was a large field for our dog, and our daughter loved the heated pool and games room. We helped feed the animals — a great experience.</p>
+      <div class="rc-meta"><div class="rc-avatar">EM</div><div><div class="rc-name">Emma</div><div class="rc-detail">The Stables &middot; 2024</div></div><span class="rc-platform-badge badge-booking">BDC</span></div>
+    </div>
+
+    <div class="review-card" data-prop="yurt">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">Stayed in the Yurt. Absolutely no criticism. We have had a relaxing, cosy stay, despite the wet weather. Everything on hand that we need. Will definitely return and absolutely recommend without a doubt!</p>
+      <div class="rc-meta"><div class="rc-avatar">PW</div><div><div class="rc-name">pwV9225XF</div><div class="rc-detail">Yurt &middot; 4 months ago</div></div><span class="rc-platform-badge badge-tripadvisor">TA</span></div>
+    </div>
+
+    <div class="review-card" data-prop="yurt">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">Stayed in the Yurt &#9978;, was a lovely experience. Toilet/Shower and kitchen were super clean. Heated pool and games room on-site were amazing. Great location for star gazing &#127756; too!</p>
+      <div class="rc-meta"><div class="rc-avatar">TJ</div><div><div class="rc-name">Tej Jethwa</div><div class="rc-detail">Yurt &middot; 6 months ago</div></div><span class="rc-platform-badge badge-google">G</span></div>
+    </div>
+
+    <div class="review-card" data-prop="yurt">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">My family and I stayed here for my wedding week. The location is lovely and quiet. Andy and Ruth were kind enough to leave a card and bottle of Prosecco on the morning of my wedding which was a lovely touch.</p>
+      <div class="rc-meta"><div class="rc-avatar">ER</div><div><div class="rc-name">Ellie Russell</div><div class="rc-detail">Yurt &middot; 10 months ago</div></div><span class="rc-platform-badge badge-google">G</span></div>
+    </div>
+
+    <div class="review-card" data-prop="coach">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">Just back from a lovely 4 days in the Coach House. Lovely spacious upstairs bedroom and massive very comfortable super king bed. Sandymouth beach — as good a beach as we&rsquo;ve seen if you can time the walk when the tide is out. We will be back.</p>
+      <div class="rc-meta"><div class="rc-avatar">NC</div><div><div class="rc-name">Nigel</div><div class="rc-detail">Coach House &middot; 2024</div></div><span class="rc-platform-badge badge-booking">BDC</span></div>
+    </div>
+
+    <div class="review-card" data-prop="honeysuckle">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">Just perfect! Beautifully restored and executed cottages. We stayed in Honeysuckle Cottage, which was super cosy and warm. Highly recommend this accommodation for families and couples wanting the perfect Cornish experience.</p>
+      <div class="rc-meta"><div class="rc-avatar">SA</div><div><div class="rc-name">Susan Allison Lane</div><div class="rc-detail">Honeysuckle &middot; 4 months ago</div></div><span class="rc-platform-badge badge-google">G</span></div>
+    </div>
+
+    <div class="review-card" data-prop="honeysuckle">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">Stayed at many cottages in Cornwall over the years, but this one is the best. Honeysuckle cottage is very big, with everything you need and more. There is also a lovely indoor swimming pool and a games room. Very peaceful.</p>
+      <div class="rc-meta"><div class="rc-avatar">SC</div><div><div class="rc-name">Sandra</div><div class="rc-detail">Honeysuckle &middot; 2024</div></div><span class="rc-platform-badge badge-booking">BDC</span></div>
+    </div>
+
+    <div class="review-card" data-prop="lavender">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">Mel and I found the cottage to be a little gem, close to the beaches we love with our two dogs. Crooklets and Sandymouth are excellent beaches and great for rockpools. The cottage was warm and very clean, homely and very peaceful. Lavender Cottage won&rsquo;t disappoint.</p>
+      <div class="rc-meta"><div class="rc-avatar">28</div><div><div class="rc-name">286melt</div><div class="rc-detail">Lavender Cottage &middot; 4 months ago</div></div><span class="rc-platform-badge badge-tripadvisor">TA</span></div>
+    </div>
+
+    <div class="review-card" data-prop="lavender">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">Such a beautiful spot! Everything kitted out with the guest in mind. Andrew was very helpful and friendly, happy to help and go above and beyond at a moment&rsquo;s notice. We are looking to book again with friends!</p>
+      <div class="rc-meta"><div class="rc-avatar">MR</div><div><div class="rc-name">Mark</div><div class="rc-detail">Lavender Cottage &middot; 2024</div></div><span class="rc-platform-badge badge-booking">BDC</span></div>
+    </div>
+
+    <div class="review-card" data-prop="jasmine">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">Better than the pictures! We had a wonderful stay at Jasmine Cottage. The cottage had everything me and my young family needed. Very clean, warm, cozy cottage. Felt right at home. Andy was a very nice and hospitable host. Can&rsquo;t recommend enough.</p>
+      <div class="rc-meta"><div class="rc-avatar">HB</div><div><div class="rc-name">Heba</div><div class="rc-detail">Jasmine Cottage &middot; 2024</div></div><span class="rc-platform-badge badge-booking">BDC</span></div>
+    </div>
+
+    <div class="review-card" data-prop="manor">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">Absolutely love this place. The cottage was cosy, spotless and had all the amenities you need. The indoor swimming pool was used by us on most days. Stunning views from our accommodation. This would be an ideal holiday for a family with children.</p>
+      <div class="rc-meta"><div class="rc-avatar">BD</div><div><div class="rc-name">Brenda Davis-Bates</div><div class="rc-detail">4 months ago</div></div><span class="rc-platform-badge badge-google">G</span></div>
+    </div>
+
+    <div class="review-card" data-prop="rose">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">We are regular visitors to WMF and have recommended this lovely holiday destination to many of our friends and family. Andy and Ruth run a very friendly lovely farm cottage experience in a great area of North Cornwall.</p>
+      <div class="rc-meta"><div class="rc-avatar">TJ</div><div><div class="rc-name">T7263IDjohnw</div><div class="rc-detail">3 months ago</div></div><span class="rc-platform-badge badge-tripadvisor">TA</span></div>
+    </div>
+
+    <div class="review-card" data-prop="stables">
+      <div class="rc-quote-mark">&ldquo;</div>
+      <div class="rc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="rc-text">We loved this place. The cottage has 3 spacious and comfortable bedrooms. There are many things to do with children — heated indoor pool, games room and an option to help Ruth and Andy feed the farm animals. Our kids loved it all.</p>
+      <div class="rc-meta"><div class="rc-avatar">HB</div><div><div class="rc-name">Jess</div><div class="rc-detail">3 months ago</div></div><span class="rc-platform-badge badge-google">G</span></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- AWARDS -->
+<div class="awards-section">
+  <p class="section-eyebrow">Recognised by the best</p>
+  <h2 class="section-title" style="margin-bottom:0">Our <em>awards</em></h2>
+  <div class="awards-grid">
+    <div class="award-card">
+      <span class="award-icon">&#127942;</span>
+      <div class="award-name">TripAdvisor Travellers&rsquo; Choice</div>
+      <div class="award-detail">2026 Award Winner &mdash; consistently in the top tier of UK holiday accommodation</div>
+    </div>
+    <div class="award-card">
+      <span class="award-icon">&#127775;</span>
+      <div class="award-name">Booking.com 6 Awards</div>
+      <div class="award-detail">Six Traveller Review Awards in 2026 &mdash; across multiple properties</div>
+    </div>
+    <div class="award-card">
+      <span class="award-icon">&#11088;</span>
+      <div class="award-name">Google &mdash; 4.9 Stars</div>
+      <div class="award-detail">4.9 out of 5 based on 106 independent Google reviews</div>
+    </div>
+    <div class="award-card">
+      <span class="award-icon">&#127968;</span>
+      <div class="award-name">Airbnb Superhost</div>
+      <div class="award-detail">Consistently maintained Superhost status &mdash; awarded to the top-rated hosts</div>
+    </div>
+  </div>
+</div>
+
+<!-- LEAVE A REVIEW -->
+<div class="leave-review">
+  <div class="lr-text">
+    <p class="lr-eyebrow">Stayed with us?</p>
+    <h2>We&rsquo;d love to hear from you</h2>
+    <p>Reviews help other families find Woodlands Manor Farm and know what to expect. If you&rsquo;ve stayed with us, it means the world to Andy and Ruth to hear what you think &mdash; good or bad. Thank you.</p>
+  </div>
+  <div class="lr-buttons">
+    <a href="https://www.google.com/maps/search/woodlandsmanorfarm.co.uk+bude" target="_blank" class="lr-btn lr-btn-google">Leave a Google review</a>
+    <a href="https://www.tripadvisor.co.uk/Hotel_Review-g190804-d1676332-Reviews-Woodlands_Manor_Farm-Bude_Bude_Stratton_Cornwall_England.html" target="_blank" class="lr-btn lr-btn-ta">Leave a TripAdvisor review</a>
+    <a href="https://www.booking.com/hotel/gb/woodlands-manor-farm.html" target="_blank" class="lr-btn lr-btn-bdc">Leave a Booking.com review</a>
+  </div>
+</div>
+
+<!-- BOOK CTA -->
+<div class="book-cta">
+  <div class="book-cta-text">
+    <h2>Ready to make your own memories?</h2>
+    <p>Join the 106+ families who gave Woodlands Manor Farm five stars.</p>
+  </div>
+  <a href="woodlands_book_direct.html" class="btn-white">Book direct now</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity:0.7">
+      <p>A 17th-century farm in the Coombe Valley offering cottages, yurts, an indoor pool, and the warmest of Cornish welcomes.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm. All rights reserved.</span>
+    <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+function filterReviews(prop, btn) {
+  document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.review-card').forEach(card => {
+    card.style.display = (prop === 'all' || card.dataset.prop === prop) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>

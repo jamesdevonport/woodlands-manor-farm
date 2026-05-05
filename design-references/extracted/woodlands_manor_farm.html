@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Woodlands Manor Farm — Bude, Cornwall</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F7F3EE; --deep-green: #7f9789; --mid-green: #6a8478;
+    --warm-stone: #adbfb9; --terracotta: #8B7BB5;
+    --text-dark: #1E2422; --text-mid: #4A5550; --text-light: #8A9990; --white: #FEFEFE;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text-dark); font-weight: 300; overflow-x: hidden; }
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--cream); letter-spacing: 0.5px; line-height: 1.2; text-decoration: none; }
+  .nav-logo span { display: block; font-size: 10px; font-family: 'Jost', sans-serif; font-weight: 400; letter-spacing: 3px; text-transform: uppercase; color: var(--warm-stone); margin-top: 2px; }
+  .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+  .nav-links a { color: rgba(247,243,238,0.75); text-decoration: none; font-size: 12px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--cream); }
+  .nav-book { background: var(--terracotta) !important; color: var(--white) !important; padding: 10px 22px; border-radius: 2px; }
+
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; position: relative; overflow: hidden; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 120px 64px 100px; position: relative; z-index: 2; background: var(--deep-green); }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--warm-stone); margin-bottom: 28px; font-weight: 400; }
+  .hero-headline { font-family: 'Playfair Display', serif; font-size: clamp(46px, 5vw, 70px); color: var(--cream); line-height: 1.1; margin-bottom: 28px; font-weight: 400; }
+  .hero-headline em { font-style: italic; color: var(--warm-stone); }
+  .hero-body { font-size: 16px; color: rgba(247,243,238,0.7); line-height: 1.8; max-width: 420px; margin-bottom: 48px; font-weight: 300; }
+  .hero-ctas { display: flex; gap: 16px; align-items: center; margin-bottom: 64px; }
+  .btn-primary { background: var(--terracotta); color: var(--white); padding: 16px 36px; text-decoration: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; font-family: 'Jost', sans-serif; border-radius: 2px; transition: background 0.2s; }
+  .btn-primary:hover { background: #7a6aa4; }
+  .btn-secondary { color: var(--cream); text-decoration: none; font-size: 13px; letter-spacing: 1px; border-bottom: 1px solid rgba(247,243,238,0.4); padding-bottom: 2px; font-weight: 400; }
+  .hero-stats { display: flex; gap: 40px; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--cream); line-height: 1; margin-bottom: 4px; }
+  .stat-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--warm-stone); font-weight: 400; }
+  .hero-right { position: relative; overflow: hidden; }
+  .hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+  .hero-right::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(127,151,137,0.25), transparent); pointer-events: none; }
+
+  .booking-widget-section { background: var(--white); padding: 72px 64px; }
+  .booking-widget-inner { max-width: 1100px; margin: 0 auto; }
+  .booking-widget-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 32px; }
+  .booking-widget-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 38px); color: var(--deep-green); font-weight: 400; }
+  .booking-widget-header h2 span { display: block; font-size: 11px; font-family: 'Jost', sans-serif; letter-spacing: 4px; text-transform: uppercase; color: var(--terracotta); font-weight: 400; margin-bottom: 8px; }
+  .best-rate-badge { display: flex; align-items: center; gap: 8px; background: #edf2f0; border: 1px solid rgba(90,122,110,0.2); border-radius: 4px; padding: 10px 16px; font-size: 12px; color: var(--deep-green); font-weight: 500; white-space: nowrap; }
+  .best-rate-badge::before { content: '✓'; color: #6a8478; font-weight: 700; }
+  .widget-bar { display: grid; grid-template-columns: 1fr 1fr 1fr 200px; background: rgba(127,151,137,0.08); gap: 1px; border-radius: 4px; overflow: hidden; }
+  .widget-col { background: var(--white); padding: 18px 20px; }
+  .widget-col label { display: block; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-light); margin-bottom: 6px; font-weight: 400; }
+  .widget-col select, .widget-col input { font-family: 'Jost', sans-serif; font-size: 15px; color: var(--text-dark); font-weight: 400; border: none; background: none; width: 100%; outline: none; cursor: pointer; appearance: none; }
+  .widget-search-btn { background: var(--terracotta); color: var(--white); border: none; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; cursor: pointer; width: 100%; transition: background 0.2s; }
+  .widget-search-btn:hover { background: #7a6aa4; }
+  .widget-links { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 12px; }
+  .widget-link { display: flex; align-items: center; justify-content: space-between; padding: 13px 18px; border: 1px solid rgba(127,151,137,0.1); text-decoration: none; background: var(--cream); border-radius: 2px; }
+  .widget-link-label { font-size: 13px; color: var(--text-dark); font-weight: 400; }
+  .widget-link-action { font-size: 11px; color: var(--terracotta); letter-spacing: 1px; }
+  .widget-note { font-size: 12px; color: var(--text-light); margin-top: 12px; }
+  .widget-note a { color: var(--terracotta); text-decoration: none; border-bottom: 1px solid rgba(181,101,58,0.3); }
+
+  .intro-strip { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1px; background: var(--warm-stone); }
+  .intro-tile { background: var(--white); overflow: hidden; }
+  .intro-tile-img-wrap { overflow: hidden; height: 200px; }
+  .intro-tile-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .intro-tile:hover .intro-tile-img { transform: scale(1.04); }
+  .intro-tile-body { padding: 24px 24px 28px; }
+  .intro-tile h3 { font-family: 'Playfair Display', serif; font-size: 17px; margin-bottom: 8px; color: var(--deep-green); font-weight: 400; }
+  .intro-tile p { font-size: 13px; color: var(--text-mid); line-height: 1.7; font-weight: 300; }
+
+  .stays-section { padding: 96px 64px; background: var(--cream); }
+  .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 52px; }
+  .section-label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--terracotta); margin-bottom: 12px; font-weight: 400; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 50px); color: var(--deep-green); line-height: 1.15; font-weight: 400; }
+  .section-link { color: var(--text-mid); text-decoration: none; font-size: 13px; letter-spacing: 1px; border-bottom: 1px solid var(--text-light); padding-bottom: 2px; white-space: nowrap; }
+  .stays-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 3px; height: 700px; }
+  .stay-card { position: relative; overflow: hidden; cursor: pointer; height: 100%; }
+  .stay-card:first-child { grid-row: 1 / 3; }
+  .stay-visual { width: 100%; height: 100%; position: relative; overflow: hidden; }
+  .stay-card:first-child .stay-visual { height: 100%; }
+  .stay-bg { position: absolute; inset: 0; }
+  .stay-bg img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; display: block; }
+  .stay-card:hover .stay-bg img { transform: scale(1.05); }
+  .stay-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px 24px 22px; background: linear-gradient(transparent, rgba(74,100,89,0.92)); }
+  .stay-type { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--warm-stone); margin-bottom: 5px; font-weight: 400; }
+  .stay-name { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--cream); margin-bottom: 5px; font-weight: 400; }
+  .stay-card:first-child .stay-name { font-size: 28px; }
+  .stay-sleeps { font-size: 12px; color: rgba(247,243,238,0.65); }
+
+  .experience-section { background: var(--deep-green); padding: 96px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+  .experience-left h2 { font-family: 'Playfair Display', serif; font-size: clamp(34px, 4vw, 54px); color: var(--cream); line-height: 1.15; margin-bottom: 28px; font-weight: 400; }
+  .experience-left h2 em { color: var(--warm-stone); font-style: italic; }
+  .experience-left p { font-size: 15px; color: rgba(247,243,238,0.7); line-height: 1.85; margin-bottom: 36px; font-weight: 300; }
+  .experience-list { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .experience-list li { display: flex; align-items: center; gap: 10px; font-size: 13px; color: rgba(247,243,238,0.8); }
+  .experience-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--warm-stone); flex-shrink: 0; }
+  .experience-right { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+  .exp-tile { position: relative; overflow: hidden; }
+  .exp-tile img { width: 100%; height: 220px; object-fit: cover; display: block; transition: transform 0.5s; }
+  .exp-tile:hover img { transform: scale(1.04); }
+  .exp-tile-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 18px 16px; background: linear-gradient(transparent, rgba(74,100,89,0.88)); }
+  .exp-tile-label h4 { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--cream); font-weight: 400; margin-bottom: 3px; }
+  .exp-tile-label p { font-size: 12px; color: rgba(247,243,238,0.6); font-weight: 300; }
+
+  .video-section { background: var(--deep-green); padding: 0 64px 96px; }
+  .video-header { text-align: center; padding-bottom: 48px; }
+  .video-header .section-label { color: var(--warm-stone); }
+  .video-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 4vw, 48px); color: var(--cream); font-weight: 400; line-height: 1.15; }
+  .video-header p { font-size: 15px; color: rgba(247,243,238,0.6); margin-top: 14px; font-weight: 300; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+  .video-frame-wrap { position: relative; padding-top: 56.25%; border-radius: 4px; overflow: hidden; background: #4a6459; box-shadow: 0 32px 80px rgba(0,0,0,0.5); max-width: 1100px; margin: 0 auto; }
+  .video-frame-wrap iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+  .video-placeholder { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px; }
+  .video-placeholder-bg { position: absolute; inset: 0; }
+  .video-placeholder-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; display: block; }
+  .video-placeholder-bg::after { content: ''; position: absolute; inset: 0; background: rgba(10,25,15,0.5); }
+  .play-btn { position: relative; z-index: 1; width: 80px; height: 80px; border-radius: 50%; background: rgba(181,101,58,0.92); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.2s, background 0.2s; border: none; }
+  .play-btn:hover { transform: scale(1.08); background: var(--terracotta); }
+  .play-icon { width: 0; height: 0; border-style: solid; border-width: 14px 0 14px 26px; border-color: transparent transparent transparent white; margin-left: 5px; }
+  .video-placeholder-text { position: relative; z-index: 1; text-align: center; }
+  .video-placeholder-text h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--cream); font-weight: 400; margin-bottom: 8px; }
+  .video-placeholder-text p { font-size: 13px; color: rgba(247,243,238,0.5); letter-spacing: 1px; }
+
+  .proof-section { background: var(--white); padding: 96px 64px; }
+  .proof-header { text-align: center; margin-bottom: 64px; }
+  .stars { color: #C9A85C; font-size: 18px; letter-spacing: 3px; margin-bottom: 16px; }
+  .proof-header h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 3vw, 40px); color: var(--deep-green); font-weight: 400; }
+  .reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 64px; }
+  .review-card { border: 1px solid rgba(127,151,137,0.1); padding: 32px; background: var(--cream); position: relative; }
+  .review-card::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 80px; color: rgba(173,191,185,0.3); position: absolute; top: 8px; left: 24px; line-height: 1; }
+  .review-text { font-size: 14px; line-height: 1.8; color: var(--text-mid); margin-bottom: 20px; padding-top: 20px; font-weight: 300; }
+  .review-author { display: flex; align-items: center; gap: 12px; }
+  .review-avatar { width: 36px; height: 36px; border-radius: 50%; background: #6a8478; display: flex; align-items: center; justify-content: center; font-size: 13px; color: var(--cream); font-weight: 500; flex-shrink: 0; }
+  .review-name { font-size: 13px; font-weight: 500; color: var(--deep-green); }
+  .review-unit { font-size: 12px; color: var(--text-light); margin-top: 2px; }
+  .awards-row { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; padding-top: 48px; border-top: 1px solid rgba(127,151,137,0.1); }
+  .award-badge { text-align: center; }
+  .award-icon { font-size: 24px; margin-bottom: 6px; }
+  .award-name { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #7f9789; font-weight: 400; }
+
+  .location-section { background: var(--cream); padding: 96px 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; }
+  .location-map { border-radius: 4px; overflow: hidden; }
+  .location-map img { width: 100%; display: block; object-fit: cover; border-radius: 4px; }
+  .location-right p { font-size: 15px; line-height: 1.85; color: var(--text-mid); margin-bottom: 32px; font-weight: 300; }
+  .nearby-list { list-style: none; border-top: 1px solid rgba(127,151,137,0.1); }
+  .nearby-item { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid rgba(127,151,137,0.1); font-size: 14px; }
+  .nearby-item span:first-child { color: var(--text-dark); }
+  .nearby-item span:last-child { color: var(--terracotta); font-size: 12px; letter-spacing: 1px; font-weight: 500; }
+
+  .blog-section { background: var(--cream); padding: 96px 64px; border-top: 1px solid rgba(127,151,137,0.08); }
+  .blog-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3px; margin-top: 52px; }
+  .blog-card { background: var(--white); overflow: hidden; cursor: pointer; display: flex; flex-direction: column; }
+  .blog-thumb { position: relative; overflow: hidden; flex-shrink: 0; }
+  .blog-thumb img { width: 100%; display: block; transition: transform 0.5s ease; }
+  .blog-card:first-child .blog-thumb img { height: 280px; object-fit: cover; }
+  .blog-card:not(:first-child) .blog-thumb img { height: 180px; object-fit: cover; }
+  .blog-card:hover .blog-thumb img { transform: scale(1.04); }
+  .blog-body { padding: 24px 24px 20px; flex: 1; display: flex; flex-direction: column; }
+  .blog-card:not(:first-child) .blog-body { padding: 18px 20px 16px; }
+  .blog-tag { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--terracotta); margin-bottom: 10px; font-weight: 400; }
+  .blog-title { font-family: 'Playfair Display', serif; color: var(--deep-green); font-weight: 400; line-height: 1.3; margin-bottom: 10px; }
+  .blog-card:first-child .blog-title { font-size: 22px; }
+  .blog-card:not(:first-child) .blog-title { font-size: 16px; }
+  .blog-excerpt { font-size: 13px; color: var(--text-mid); line-height: 1.75; font-weight: 300; flex: 1; }
+  .blog-card:not(:first-child) .blog-excerpt { display: none; }
+  .blog-meta { display: flex; align-items: center; justify-content: space-between; margin-top: 18px; padding-top: 14px; border-top: 1px solid rgba(127,151,137,0.08); }
+  .blog-date { font-size: 11px; color: var(--text-light); letter-spacing: 1px; }
+  .blog-read-more { font-size: 12px; color: var(--terracotta); text-decoration: none; }
+
+  .booking-strip { background: var(--terracotta); padding: 72px 64px; display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+  .booking-text h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: var(--white); font-weight: 400; margin-bottom: 10px; }
+  .booking-text p { font-size: 15px; color: rgba(255,254,254,0.75); font-weight: 300; }
+  .booking-actions { display: flex; gap: 16px; align-items: center; flex-shrink: 0; }
+  .btn-white { background: var(--white); color: var(--terracotta); padding: 16px 36px; text-decoration: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; font-family: 'Jost', sans-serif; border-radius: 2px; }
+  .btn-outline-white { color: var(--white); text-decoration: none; font-size: 13px; letter-spacing: 1px; border-bottom: 1px solid rgba(255,254,254,0.5); padding-bottom: 2px; font-weight: 400; }
+
+  footer { background: #4a6459; padding: 64px 64px 40px; }
+  .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; padding-bottom: 48px; border-bottom: 1px solid rgba(247,243,238,0.1); }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--cream); display: block; margin-bottom: 16px; text-decoration: none; }
+  .footer-logo span { display: block; font-size: 10px; font-family: 'Jost', sans-serif; font-weight: 400; letter-spacing: 3px; text-transform: uppercase; color: var(--warm-stone); margin-top: 2px; }
+  .footer-brand p { font-size: 13px; color: rgba(247,243,238,0.45); line-height: 1.8; font-weight: 300; margin-bottom: 24px; }
+  .footer-social { display: flex; gap: 12px; }
+  .social-link { width: 36px; height: 36px; border: 1px solid rgba(247,243,238,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(247,243,238,0.6); text-decoration: none; font-size: 12px; }
+  .footer-col h4 { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--warm-stone); margin-bottom: 20px; font-weight: 400; }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 10px; }
+  .footer-col a { color: rgba(247,243,238,0.5); text-decoration: none; font-size: 13px; font-weight: 300; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--cream); }
+  .footer-bottom { display: flex; justify-content: space-between; font-size: 12px; color: rgba(247,243,238,0.3); }
+
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()">&#215;</button>
+  <div class="wmf-drawer-logo">
+    <div class="wmf-drawer-logo-name">Woodlands Manor Farm</div>
+    <div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE-OUT MENU -->
+<div class="menu-overlay" id="menuOverlay" onclick="closeMenu()"></div>
+<div class="menu-drawer" id="menuDrawer">
+  <button class="menu-close" onclick="closeMenu()" aria-label="Close menu">&#215;</button>
+
+  <div class="menu-logo">
+    <img src="/images/home/7f721336c6dc9536.png" alt="Woodlands Manor Farm" class="menu-logo-img">
+    <div class="menu-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+
+  <nav class="menu-links">
+    <a href="#stays" onclick="closeMenu()">
+      <span class="menu-link-num">01</span>Cottages
+    </a>
+    <a href="#stays" onclick="closeMenu()">
+      <span class="menu-link-num">02</span>Yurts
+    </a>
+    <a href="#experience" onclick="closeMenu()">
+      <span class="menu-link-num">03</span>Experiences
+    </a>
+    <a href="#video" onclick="closeMenu()">
+      <span class="menu-link-num">04</span>Farm Tour
+    </a>
+    <a href="#reviews" onclick="closeMenu()">
+      <span class="menu-link-num">05</span>Reviews
+    </a>
+    <a href="#location" onclick="closeMenu()">
+      <span class="menu-link-num">06</span>Find Us
+    </a>
+    <a href="#blog" onclick="closeMenu()">
+      <span class="menu-link-num">07</span>Blog
+    </a>
+  </nav>
+
+  <div class="menu-footer">
+    <a href="#booking-widget" class="menu-book-btn" onclick="closeMenu()">Check Availability</a>
+    <div class="menu-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="/cdn-cgi/l/email-protection#94f1fae5e1fde6fdf1e7d4e3fbfbf0f8f5faf0e7f9f5fafbe6f2f5e6f9baf7fbbae1ff"><span class="__cf_email__" data-cfemail="0a6f647b7f6378636f794a7d65656e666b646e79676b6465786c6b7867246965247f61">[email&#160;protected]</span></a>
+    </div>
+    <div class="menu-social">
+      <a href="http://facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<style>
+nav#mainNav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  padding: 20px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s, padding 0.3s, box-shadow 0.3s;
+}
+nav#mainNav.scrolled {
+  background: rgba(74,100,89,0.96);
+  backdrop-filter: blur(12px);
+  padding: 12px 48px;
+  box-shadow: 0 1px 0 rgba(173,191,185,0.15);
+}
+
+.nav-logo-img { display: flex; align-items: center; text-decoration: none; }
+.nav-logo-png {
+  height: 48px;
+  width: auto;
+  display: block;
+  transition: height 0.3s;
+  filter: none;
+}
+nav#mainNav.scrolled .nav-logo-png { height: 40px; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.nav-book-btn {
+  background: #8B7BB5;
+  color: #FEFEFE;
+  padding: 10px 24px;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'Jost', sans-serif;
+  border-radius: 2px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+.nav-book-btn:hover { background: #7a6aa4; }
+
+.hamburger {
+  width: 42px; height: 42px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(247,243,238,0.25);
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.hamburger:hover {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(247,243,238,0.5);
+}
+.hamburger span {
+  display: block;
+  width: 18px; height: 1.5px;
+  background: #F7F3EE;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+.menu-overlay {
+  position: fixed; inset: 0;
+  background: rgba(61,85,73,0.65);
+  z-index: 300;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  backdrop-filter: blur(3px);
+}
+.menu-overlay.open { opacity: 1; pointer-events: all; }
+
+.menu-drawer {
+  position: fixed;
+  top: 0; right: 0;
+  width: 400px;
+  height: 100vh;
+  background: #4a6459;
+  z-index: 400;
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  border-left: 1px solid rgba(173,191,185,0.12);
+}
+.menu-drawer.open { transform: translateX(0); }
+
+.menu-close {
+  position: absolute;
+  top: 22px; right: 28px;
+  background: none; border: none;
+  color: rgba(247,243,238,0.35);
+  font-size: 30px;
+  cursor: pointer; line-height: 1; padding: 4px;
+  transition: color 0.2s;
+}
+.menu-close:hover { color: #F7F3EE; }
+
+.menu-logo {
+  padding: 48px 44px 32px;
+  border-bottom: 1px solid rgba(247,243,238,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.menu-logo-img {
+  width: 200px;
+  height: auto;
+  display: block;
+}
+.menu-logo-sub {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #adbfb9;
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+}
+
+.menu-links {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+.menu-links a {
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  padding: 17px 44px;
+  color: rgba(247,243,238,0.65);
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 400;
+  border-bottom: 1px solid rgba(247,243,238,0.05);
+  transition: color 0.2s, padding-left 0.25s ease;
+  letter-spacing: 0.3px;
+}
+.menu-links a:hover {
+  color: #F7F3EE;
+  padding-left: 52px;
+}
+.menu-link-num {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #8B7BB5;
+  font-weight: 400;
+  flex-shrink: 0;
+  min-width: 22px;
+}
+
+.menu-footer {
+  padding: 28px 44px 44px;
+  border-top: 1px solid rgba(247,243,238,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.menu-book-btn {
+  display: block;
+  background: #8B7BB5;
+  color: #FEFEFE;
+  padding: 15px 24px;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: 'Jost', sans-serif;
+  border-radius: 2px;
+  text-align: center;
+  transition: background 0.2s;
+}
+.menu-book-btn:hover { background: #7a6aa4; }
+.menu-contact { display: flex; flex-direction: column; gap: 7px; }
+.menu-contact a {
+  color: rgba(247,243,238,0.4);
+  text-decoration: none;
+  font-size: 13px;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  transition: color 0.2s;
+}
+.menu-contact a:hover { color: #F7F3EE; }
+.menu-social { display: flex; gap: 20px; }
+.menu-social a {
+  color: rgba(247,243,238,0.3);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  transition: color 0.2s;
+}
+.menu-social a:hover { color: #adbfb9; }
+</style>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleMenu() {
+  var drawer = document.getElementById('menuDrawer');
+  var overlay = document.getElementById('menuOverlay');
+  var burger = document.getElementById('hamburger');
+  if (drawer.classList.contains('open')) {
+    closeMenu();
+  } else {
+    drawer.classList.add('open');
+    overlay.classList.add('open');
+    burger.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeMenu() {
+  document.getElementById('menuDrawer').classList.remove('open');
+  document.getElementById('menuOverlay').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+  document.body.style.overflow = '';
+}
+  var nav = document.getElementById('mainNav');
+  if (window.scrollY > 60) { nav.classList.add('scrolled'); }
+  else { nav.classList.remove('scrolled'); }
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeMenu();
+});
+</script>
+
+<!-- HERO FULL BLEED CAROUSEL -->
+<section class="hero-fullbleed">
+
+  <!-- Slides -->
+  <div class="fb-slide active">
+    <img src="/images/cottages/9792dd1b5f66d139.jpg" alt="Woodlands Manor Farm courtyard and cottages, Bude Cornwall">
+    <div class="fb-slide-overlay"></div>
+  </div>
+  <div class="fb-slide">
+    <img src="/images/cottages/ee96ea80e53b6e33.jpg" alt="Children flying kites in the meadow with Cornish hills beyond">
+    <div class="fb-slide-overlay"></div>
+  </div>
+  <div class="fb-slide">
+    <img src="/images/home/c2909c0800e4042d.jpg" alt="Heated indoor swimming pool at Woodlands Manor Farm">
+    <div class="fb-slide-overlay"></div>
+  </div>
+
+  <!-- Overlay content -->
+  <div class="fb-content">
+    <p class="fb-eyebrow">A 17th-century farm &bull; Coombe Valley &bull; Near Bude</p>
+    <h1 class="fb-headline">Slow down.<br>Breathe in <em>Cornwall.</em></h1>
+    <p class="fb-body">Seven characterful cottages, two Mongolian yurts, an indoor heated pool, and animals that know your name by day two.</p>
+    <div class="fb-ctas">
+      <a href="#booking-widget" class="btn-primary">Check Availability</a>
+      <a href="#video" class="fb-btn-secondary">Watch the farm tour &rarr;</a>
+    </div>
+  </div>
+  <!-- Stats bar -->
+  <div class="fb-stats-bar">
+    <div class="fb-stat"><div class="fb-stat-num">17<sup style="font-size:14px">th</sup></div><div class="fb-stat-label">Century Manor</div></div>
+    <div class="fb-stat-divider"></div>
+    <div class="fb-stat"><div class="fb-stat-num">9</div><div class="fb-stat-label">Places to Stay</div></div>
+    <div class="fb-stat-divider"></div>
+    <div class="fb-stat"><div class="fb-stat-num">5&#9733;</div><div class="fb-stat-label">Rated Farm</div></div>
+    <div class="fb-stat-divider"></div>
+    <div class="fb-stat"><div class="fb-stat-num">2mi</div><div class="fb-stat-label">To the Beach</div></div>
+    <div class="fb-stat-divider"></div>
+    <div class="fb-stat-book">
+      <a href="#booking-widget" class="fb-book-link">Check dates &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Carousel controls -->
+  <div class="fb-dots">
+    <button class="fb-dot active" onclick="fbGoTo(0)"></button>
+    <button class="fb-dot" onclick="fbGoTo(1)"></button>
+    <button class="fb-dot" onclick="fbGoTo(2)"></button>
+  </div>
+  <button class="fb-arrow fb-prev" onclick="fbStep(-1)">&#8592;</button>
+  <button class="fb-arrow fb-next" onclick="fbStep(1)">&#8594;</button>
+
+  <!-- Slide captions -->
+  <div class="fb-captions">
+    <span class="fb-cap active">The farm courtyard &mdash; Woodlands Manor Farm</span>
+    <span class="fb-cap">The playing field &mdash; space for the whole family</span>
+    <span class="fb-cap">Heated indoor pool &mdash; warm 30&deg;C all year</span>
+  </div>
+
+</section>
+
+<style>
+.hero-fullbleed {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fb-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  z-index: 0;
+}
+.fb-slide.active { opacity: 1; z-index: 1; }
+.fb-slide img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  display: block;
+}
+.fb-slide-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(74,100,89,0.55) 0%,
+    rgba(74,100,89,0.1) 18%,
+    rgba(74,100,89,0) 35%,
+    rgba(74,100,89,0) 60%,
+    rgba(74,100,89,0.15) 80%,
+    rgba(74,100,89,0.25) 100%
+  ),
+  linear-gradient(
+    to right,
+    rgba(74,100,89,0.65) 0%,
+    rgba(74,100,89,0.45) 35%,
+    rgba(74,100,89,0.1) 65%,
+    rgba(74,100,89,0) 100%
+  );
+}
+
+.fb-content {
+  position: relative;
+  z-index: 10;
+  padding: 0 80px;
+  max-width: 720px;
+  margin-top: -40px;
+}
+
+.fb-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--warm-stone);
+  margin-bottom: 24px;
+  font-weight: 400;
+  font-family: 'Jost', sans-serif;
+}
+
+.fb-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(52px, 6vw, 86px);
+  color: var(--cream);
+  line-height: 1.05;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+.fb-headline em {
+  font-style: italic;
+  color: var(--warm-stone);
+}
+
+.fb-body {
+  font-size: 17px;
+  color: rgba(247,243,238,0.75);
+  line-height: 1.8;
+  max-width: 480px;
+  margin-bottom: 40px;
+  font-weight: 300;
+  font-family: 'Jost', sans-serif;
+}
+
+.fb-ctas {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.fb-btn-secondary {
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(247,243,238,0.4);
+  padding-bottom: 2px;
+  font-weight: 400;
+  font-family: 'Jost', sans-serif;
+  transition: border-color 0.2s;
+}
+.fb-btn-secondary:hover { border-color: var(--cream); }
+
+.fb-book-link:hover { color: var(--cream); border-color: var(--cream); }
+
+
+.fb-stats-bar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 10;
+  background: rgba(74,100,89,0.92);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid rgba(173,191,185,0.2);
+  display: flex;
+  align-items: center;
+  padding: 0 80px;
+  height: 80px;
+  gap: 0;
+}
+.fb-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  gap: 3px;
+}
+.fb-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: var(--cream);
+  line-height: 1;
+}
+.fb-stat-label {
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #adbfb9;
+  font-weight: 400;
+  font-family: 'Jost', sans-serif;
+}
+.fb-stat-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(173,191,185,0.2);
+  flex-shrink: 0;
+}
+.fb-stat-book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+.fb-book-link {
+  color: #adbfb9;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-family: 'Jost', sans-serif;
+  border-bottom: 1px solid rgba(173,191,185,0.35);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.fb-book-link:hover { color: var(--cream); border-color: var(--cream); }
+
+.fb-dots {
+  position: absolute;
+  right: 80px;
+  bottom: 100px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.fb-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(247,243,238,0.3);
+  border: 1px solid rgba(247,243,238,0.5);
+  cursor: pointer; padding: 0;
+  transition: background 0.3s, width 0.3s;
+}
+.fb-dot.active {
+  background: var(--warm-stone);
+  border-color: var(--warm-stone);
+  width: 22px;
+  border-radius: 3px;
+}
+
+.fb-arrow {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(74,100,89,0.45);
+  border: 1px solid rgba(173,191,185,0.3);
+  color: var(--cream);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  font-size: 17px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  margin-top: -40px;
+}
+.fb-arrow:hover { background: rgba(74,100,89,0.85); border-color: rgba(173,191,185,0.6); }
+.fb-prev { left: 80px; }
+.fb-next { right: 80px; }
+
+
+
+
+
+.fb-istat-num sup { font-size: 13px; }
+
+
+
+.fb-captions {
+  position: absolute;
+  left: 80px;
+  bottom: 94px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.fb-cap {
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(247,243,238,0.45);
+  display: none;
+}
+.fb-cap.active { display: block; }
+</style>
+
+<script>
+(function() {
+  var fbCurrent = 0;
+  var fbSlides = document.querySelectorAll('.fb-slide');
+  var fbDots = document.querySelectorAll('.fb-dot');
+  var fbCaps = document.querySelectorAll('.fb-cap');
+  var fbTotal = fbSlides.length;
+  var fbTimer;
+
+  function fbShow(n) {
+    fbSlides[fbCurrent].classList.remove('active');
+    fbDots[fbCurrent].classList.remove('active');
+    fbCaps[fbCurrent].classList.remove('active');
+    fbCurrent = (n + fbTotal) % fbTotal;
+    fbSlides[fbCurrent].classList.add('active');
+    fbDots[fbCurrent].classList.add('active');
+    fbCaps[fbCurrent].classList.add('active');
+  }
+
+  window.fbGoTo = function(n) { fbShow(n); fbReset(); };
+  window.fbStep = function(d) { fbShow(fbCurrent + d); fbReset(); };
+
+  function fbReset() {
+    clearInterval(fbTimer);
+    fbTimer = setInterval(function() { fbShow(fbCurrent + 1); }, 6000);
+  }
+
+  fbReset();
+})();
+</script>
+
+
+
+<!-- BOOKING WIDGET -->
+<section id="booking-widget" class="booking-widget-section">
+  <div class="booking-widget-inner">
+    <div class="booking-widget-header">
+      <h2><span>Book direct</span>Check availability &amp; reserve your stay</h2>
+      <div class="best-rate-badge">Best price guaranteed &mdash; no booking fees</div>
+    </div>
+    <div class="widget-bar">
+      <div class="widget-col">
+        <label>Arrival date</label>
+        <input type="text" placeholder="Choose a date" onclick="window.open('https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/','_blank')">
+      </div>
+      <div class="widget-col">
+        <label>Departure date</label>
+        <input type="text" placeholder="Choose a date" onclick="window.open('https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/','_blank')">
+      </div>
+      <div class="widget-col">
+        <label>Property</label>
+        <select onchange="if(this.value)window.open(this.value,'_blank')">
+          <option value="">All cottages &amp; yurts</option>
+          <option value="https://woodlandsmanorfarm.co.uk/the-manor-house/">Manor House &mdash; sleeps 12</option>
+          <option value="https://woodlandsmanorfarm.co.uk/rose-cottage/">Rose Cottage &mdash; sleeps 8</option>
+          <option value="https://woodlandsmanorfarm.co.uk/jasmine-cottage/">Jasmine Cottage &mdash; sleeps 6</option>
+          <option value="https://woodlandsmanorfarm.co.uk/lavender-cottage/">Lavender Cottage &mdash; sleeps 4</option>
+          <option value="https://woodlandsmanorfarm.co.uk/the-stables/">The Stables &mdash; sleeps 4</option>
+          <option value="https://woodlandsmanorfarm.co.uk/honeysuckle-cottage/">Honeysuckle &mdash; sleeps 2</option>
+          <option value="https://woodlandsmanorfarm.co.uk/the-coach-house/">Coach House &mdash; sleeps 2</option>
+          <option value="https://woodlandsmanorfarm.co.uk/budhyn-yurt/">Budhyn Yurt</option>
+          <option value="https://woodlandsmanorfarm.co.uk/fenton-yurt/">Fenton Yurt</option>
+        </select>
+      </div>
+      <button class="widget-search-btn" onclick="window.open('https://woodlandsmanorfarm.co.uk/holiday-cottage-direct-booking-woodlands-cornwall/','_blank')">Check Availability</button>
+    </div>
+    <div class="widget-links">
+      <a href="https://woodlandsmanorfarm.co.uk/bude-holiday-cottages/" target="_blank" class="widget-link"><span class="widget-link-label">Cottages &mdash; 2 to 12 guests</span><span class="widget-link-action">View all &rarr;</span></a>
+      <a href="https://woodlandsmanorfarm.co.uk/yurts/" target="_blank" class="widget-link"><span class="widget-link-label">Yurts &mdash; Budhyn &amp; Fenton</span><span class="widget-link-action">View yurts &rarr;</span></a>
+      <a href="tel:07887677354" class="widget-link"><span class="widget-link-label">Group bookings &mdash; call us direct</span><span class="widget-link-action">07887 677 354</span></a>
+    </div>
+    <p class="widget-note">Returning guest? Use your departure discount code &mdash; or <a href="tel:07887677354">call Andy on 07887 677 354</a></p>
+  </div>
+</section>
+
+<!-- INTRO STRIP -->
+<div class="intro-strip">
+  <div class="intro-tile">
+    <div class="intro-tile-img-wrap"><img class="intro-tile-img" src="/images/home/cc82e0f15a7b2058.jpg" alt="Heated indoor swimming pool at Woodlands Manor Farm"></div>
+    <div class="intro-tile-body"><h3>Heated Indoor Pool</h3><p>Swim whatever the weather, kept at a warm 30&deg;C all year &mdash; a firm family favourite</p></div>
+  </div>
+  <div class="intro-tile">
+    <div class="intro-tile-img-wrap"><img class="intro-tile-img" src="/images/home/b2879a790a48a11e.jpg" alt="Feeding the goats at Woodlands Manor Farm" style="object-position: center 30%"></div>
+    <div class="intro-tile-body"><h3>Feed the Animals</h3><p>Get hands-on with our farm animals &mdash; a magical moment for children of all ages</p></div>
+  </div>
+  <div class="intro-tile">
+    <div class="intro-tile-img-wrap"><img class="intro-tile-img" src="/images/home/e76061d989fd39c9.jpg" alt="Child on the outdoor playground at Woodlands Manor Farm" style="object-position: center 20%"></div>
+    <div class="intro-tile-body"><h3>Outdoor Play</h3><p>Playground, playing field and five-a-side goals &mdash; space to run free</p></div>
+  </div>
+  <div class="intro-tile">
+    <div class="intro-tile-img-wrap"><img class="intro-tile-img" src="/images/home/ec8c89b6a5ac2c67.jpg" alt="Manor House conservatory with summer flowers"></div>
+    <div class="intro-tile-body"><h3>5-Star Interiors</h3><p>TripAdvisor Travellers&rsquo; Choice &amp; Booking.com awards &mdash; beautifully appointed throughout</p></div>
+  </div>
+</div>
+
+<!-- STAYS -->
+<section id="stays" class="stays-section">
+  <div class="section-header">
+    <div><p class="section-label">Where you&rsquo;ll sleep</p><h2 class="section-title">Choose your<br><em style="font-style:italic;">perfect escape</em></h2></div>
+    <a href="https://woodlandsmanorfarm.co.uk/bude-holiday-cottages/" target="_blank" class="section-link">View all accommodation &rarr;</a>
+  </div>
+  <div class="stays-grid">
+
+    <!-- Manor House — stone lounge with beams, deeply characterful -->
+    <div class="stay-card">
+      <div class="stay-visual">
+        <div class="stay-bg"><img src="/images/cottages/812784261e6d52d7.jpg" alt="Woodlands Manor House — stone walls, beams and period charm"></div>
+        <div class="stay-info">
+          <div class="stay-type">Centrepiece &middot; Sleeps 12 + cots</div>
+          <div class="stay-name">Woodlands Manor House</div>
+          <div class="stay-sleeps">Three lounges &middot; AGA kitchen &middot; Period features</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Yurts — real yurt interior shot, huge upgrade -->
+    <div class="stay-card">
+      <div class="stay-visual">
+        <div class="stay-bg"><img src="/images/cottages/178e79588e66b04a.jpg" alt="Inside one of the Mongolian yurts at Woodlands Manor Farm" style="object-position: center 40%"></div>
+        <div class="stay-info">
+          <div class="stay-type">Glamping &middot; Sleeps 4 + cots</div>
+          <div class="stay-name">The Yurts</div>
+          <div class="stay-sleeps">Wood-burner &middot; Valley views &middot; Private bathroom</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rose Cottage — stone fireplace, warm living room -->
+    <div class="stay-card">
+      <div class="stay-visual">
+        <div class="stay-bg"><img src="/images/cottages/32742e1c3f3de7dd.jpg" alt="Rose Cottage stone fireplace and beamed lounge"></div>
+        <div class="stay-info">
+          <div class="stay-type">Cottage &middot; Sleeps 8 + cots</div>
+          <div class="stay-name">Rose Cottage</div>
+          <div class="stay-sleeps">Stone fireplace &middot; Two lounges &middot; Garden</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- The Stables — light, airy with arched door -->
+    <div class="stay-card">
+      <div class="stay-visual">
+        <div class="stay-bg"><img src="/images/cottages/b2a31f0f839f8fce.jpg" alt="The Stables — light open-plan lounge with arched door"></div>
+        <div class="stay-info">
+          <div class="stay-type">Converted &middot; Sleeps 4 + cots</div>
+          <div class="stay-name">The Stables</div>
+          <div class="stay-sleeps">Valley view &middot; Freestanding bath</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coach House — ivy-clad stone exterior, gorgeous -->
+    <div class="stay-card">
+      <div class="stay-visual">
+        <div class="stay-bg"><img src="/images/cottages/7da27dbd79d1c7d5.jpg" alt="Coach House — ivy-clad Cornish stone cottage"></div>
+        <div class="stay-info">
+          <div class="stay-type">Retreat &middot; Sleeps 2 + cot</div>
+          <div class="stay-name">The Coach House</div>
+          <div class="stay-sleeps">Vaulted beams &middot; Super king</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="experience-section">
+  <div class="experience-left">
+    <p class="section-label" style="color:var(--warm-stone)">More than a place to sleep</p>
+    <h2>A farm alive<br>with <em>experience.</em></h2>
+    <p>Woodlands isn&rsquo;t just somewhere to stay &mdash; it&rsquo;s a place to feel something. Whether it&rsquo;s your children&rsquo;s first encounter with a farm animal, a lazy morning in the pool, or a coast path walk that clears your head for good.</p>
+    <ul class="experience-list">
+      <li>Indoor heated pool</li><li>Games room</li><li>Farm animal feeding</li><li>Woodland walks</li>
+      <li>Open water swimming</li><li>Surfing &amp; coasteering</li><li>Orienteering</li><li>2 miles to the beach</li>
+    </ul>
+  </div>
+  <div class="experience-right">
+    <div class="exp-tile">
+      <img src="/images/home/cc82e0f15a7b2058.jpg" alt="Indoor heated swimming pool">
+      <div class="exp-tile-label"><h4>All-weather pool</h4><p>Warm 30&deg;C all year round</p></div>
+    </div>
+    <div class="exp-tile">
+      <img src="/images/home/57c6f3124406e0a5.jpg" alt="Feeding the pigs at Woodlands">
+      <div class="exp-tile-label"><h4>Feed the animals</h4><p>Pigs, sheep, alpacas &amp; more</p></div>
+    </div>
+    <div class="exp-tile">
+      <!-- Kite flying: spectacular Cornwall landscape, kids having fun in the meadow -->
+      <img src="/images/home/3c62af48f5d7d88b.jpg" alt="Children flying kites in the meadow at Woodlands Manor Farm">
+      <div class="exp-tile-label"><h4>Playing fields</h4><p>Kite flying &amp; five-a-side football</p></div>
+    </div>
+    <div class="exp-tile">
+      <!-- Bluebell woodland: absolutely magical, unique to Woodlands -->
+      <img src="/images/home/53289620864625e8.jpg" alt="Bluebell woodland walk at Woodlands Manor Farm">
+      <div class="exp-tile-label"><h4>Bluebell woodland</h4><p>Magical walks on the farm</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FARM TOUR VIDEO -->
+<section id="video" class="video-section">
+  <div class="video-header">
+    <p class="section-label">See it for yourself</p>
+    <h2>Take a tour of <em style="font-style:italic; color:var(--warm-stone)">the farm</em></h2>
+    <p>Three minutes. Valley views, stone fireplaces, happy animals, and that pool. Everything you need to know before you book.</p>
+  </div>
+  <div class="video-frame-wrap">
+    <!--
+      ACTIVATE: paste your YouTube embed iframe here and remove the placeholder below.
+      Go to YouTube > Share > Embed > copy the <iframe> tag.
+      Recommended: https://www.youtube.com/embed/YOUR_ID?rel=0&modestbranding=1&color=white
+    -->
+    <div class="video-placeholder">
+      <div class="video-placeholder-bg">
+        <!-- Stables exterior at golden hour — cinematic backdrop -->
+        <img src="/images/home/6779d3d99e56e799.jpg" alt="Woodlands Manor Farm stone cottage with valley views">
+      </div>
+      <button class="play-btn"><div class="play-icon"></div></button>
+      <div class="video-placeholder-text">
+        <h3>Farm Tour &mdash; Woodlands Manor Farm</h3>
+        <p>Paste your YouTube embed code here to activate</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section id="reviews" class="proof-section">
+  <div class="proof-header"><div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div><h2>What guests are saying</h2></div>
+  <div class="reviews-grid">
+    <div class="review-card"><p class="review-text">Really beautiful authentic old Manor House with quirky rooms and period features. Beautiful flat stone floors and huge fireplace. Brilliant place for multiple families with kids. Highly recommend.</p><div class="review-author"><div class="review-avatar">AK</div><div><div class="review-name">Alex K.</div><div class="review-unit">Manor House &middot; 2023</div></div></div></div>
+    <div class="review-card"><p class="review-text">Such a beautiful spot! Everything kitted out with the guest in mind. Andrew was very helpful and happy to help at a moment&rsquo;s notice. We are looking to book again with friends!</p><div class="review-author"><div class="review-avatar">EM</div><div><div class="review-name">Emma M.</div><div class="review-unit">Lavender Cottage &middot; 2024</div></div></div></div>
+    <div class="review-card"><p class="review-text">We absolutely loved our stay in one of the beautiful yurts. Andrew has really thought about everything you might need. We are already looking at staying again! Highly recommend!</p><div class="review-author"><div class="review-avatar">JP</div><div><div class="review-name">John &amp; Pippa</div><div class="review-unit">Budhyn Yurt &middot; 2024</div></div></div></div>
+  </div>
+  <div class="awards-row">
+    <div class="award-badge"><div class="award-icon">&#127942;</div><div class="award-name">TripAdvisor Travellers&rsquo; Choice 2026</div></div>
+    <div class="award-badge"><div class="award-icon">&#11088;</div><div class="award-name">Booking.com 6 Awards</div></div>
+    <div class="award-badge"><div class="award-icon">&#127807;</div><div class="award-name">Sustainable Tourism 3-Leaf</div></div>
+    <div class="award-badge"><div class="award-icon">&#127968;</div><div class="award-name">Airbnb Superhost</div></div>
+    <div class="award-badge"><div class="award-icon">&#127885;</div><div class="award-name">Cornwall Tourism Awards</div></div>
+  </div>
+</section>
+
+<!-- LOCATION — rose outdoor dining: sun-drenched outdoor terrace with valley beyond -->
+<section id="location" class="location-section">
+  <div class="location-map">
+    <img src="/images/home/4c4e10cb7708c56e.jpg" alt="Outdoor dining terrace at Woodlands Manor Farm with valley views" style="border-radius:4px;">
+  </div>
+  <div class="location-right">
+    <p class="section-label">Find us</p>
+    <h2 class="section-title" style="margin-bottom:20px;">Tucked into the<br>Coombe Valley</h2>
+    <p>Just two miles from the dramatic National Trust coastline and a short drive to the unspoilt town of Bude, Woodlands Manor Farm sits in one of Cornwall&rsquo;s most beautiful and peaceful valleys.</p>
+    <ul class="nearby-list">
+      <li class="nearby-item"><span>Duckpool Beach (National Trust)</span><span>2 miles</span></li>
+      <li class="nearby-item"><span>Sandymouth Beach</span><span>2.5 miles</span></li>
+      <li class="nearby-item"><span>Bude town &amp; sea pool</span><span>6 miles</span></li>
+      <li class="nearby-item"><span>Bude Surf School</span><span>7 miles</span></li>
+      <li class="nearby-item"><span>The Bush Inn, Morwenstow</span><span>4 miles</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" class="blog-section">
+  <div class="section-header">
+    <div><p class="section-label">From the farm</p><h2 class="section-title">News &amp; stories</h2></div>
+    <a href="https://woodlandsmanorfarm.co.uk/news/" target="_blank" class="section-link">Read all posts &rarr;</a>
+  </div>
+  <div class="blog-grid">
+    <!-- Featured: kite flying over Cornish hills — captures freedom and landscape perfectly -->
+    <div class="blog-card">
+      <div class="blog-thumb"><img src="/images/home/3c62af48f5d7d88b.jpg" alt="Children flying kites over the Cornish hills at Woodlands Manor Farm"></div>
+      <div class="blog-body">
+        <div class="blog-tag">Awards</div>
+        <h3 class="blog-title">Woodlands Manor Farm wins six Booking.com Traveller Choice Awards 2026</h3>
+        <p class="blog-excerpt">Incredible news to kick off the year &mdash; we&rsquo;re thrilled to have received six Traveller Review Awards from Booking.com, all thanks to the wonderful reviews left by our guests. It means the world to the whole team.</p>
+        <div class="blog-meta"><span class="blog-date">7 Feb 2026</span><a href="https://woodlandsmanorfarm.co.uk/woodlands-manor-farm-wins-6-booking-com-traveller-choice-awards/" target="_blank" class="blog-read-more">Read more &rarr;</a></div>
+      </div>
+    </div>
+    <!-- Card 2: animals lambs — warm farm life -->
+    <div class="blog-card">
+      <div class="blog-thumb"><img src="/images/home/89f10cdaa6fb94ce.jpg" alt="Feeding the lambs at Woodlands Manor Farm"></div>
+      <div class="blog-body">
+        <div class="blog-tag">Farm life</div>
+        <h3 class="blog-title">The magic of our Feed the Animals experience</h3>
+        <div class="blog-meta"><span class="blog-date">1 Sep 2025</span><a href="https://woodlandsmanorfarm.co.uk/the-magic-of-feed-the-animals/" target="_blank" class="blog-read-more">Read &rarr;</a></div>
+      </div>
+    </div>
+    <!-- Card 3: Bude sea pool — perfect match for "reasons to visit Bude" post -->
+    <div class="blog-card">
+      <div class="blog-thumb"><img src="/images/home/d618947f2c9c2c80.jpg" alt="Bude sea pool and Summerleaze Beach on a summer day"></div>
+      <div class="blog-body">
+        <div class="blog-tag">Local guide</div>
+        <h3 class="blog-title">10 reasons Bude is perfect for a family holiday in Cornwall</h3>
+        <div class="blog-meta"><span class="blog-date">11 Feb 2025</span><a href="https://woodlandsmanorfarm.co.uk/top-10-reasons-why-bude-is-perfect-for-family-holidays-in-cornwall/" target="_blank" class="blog-read-more">Read &rarr;</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section class="booking-strip">
+  <div class="booking-text"><h2>Ready to escape?</h2><p>Book direct for the best rate &mdash; or call Andrew &amp; Ruth to plan your perfect stay</p></div>
+  <div class="booking-actions">
+    <a href="#booking-widget" class="btn-white">Check Availability</a>
+    <a href="tel:07887677354" class="btn-outline-white">Call 07887 677 354</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">Woodlands Manor Farm<span>Bude, Cornwall &middot; EX23 9HT</span></a>
+      <p>A 17th-century farm in the Coombe Valley offering cottages, yurts, an indoor pool, and the warmest of Cornish welcomes.</p>
+      <div class="footer-social">
+        <a href="http://facebook.com/woodlandsmanorfarm.co.uk/" target="_blank" class="social-link">f</a>
+        <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank" class="social-link">ig</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Stay</h4>
+      <ul>
+        <li><a href="https://woodlandsmanorfarm.co.uk/the-manor-house/">Manor House (12)</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/rose-cottage/">Rose Cottage (8)</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/jasmine-cottage/">Jasmine Cottage (6)</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/lavender-cottage/">Lavender Cottage (4)</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/the-stables/">The Stables (4)</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/honeysuckle-cottage/">Honeysuckle (2)</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/the-coach-house/">Coach House (2)</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/yurts/">The Yurts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <ul>
+        <li><a href="https://woodlandsmanorfarm.co.uk/on-the-farm/">On the Farm</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/experiences-weddings-events/">Experiences</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/things-to-do-in-bude/">Things to do</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/places-to-eat-in-bude/">Places to eat</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/the-animals-at-woodlands/">Dog friendly</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/special-offers/">Special offers</a></li>
+        <li><a href="https://woodlandsmanorfarm.co.uk/news/">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:07887677354">07887 677 354</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#ddb8b3aca8b4afb4b8ae9daab2b2b9b1b

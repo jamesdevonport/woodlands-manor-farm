@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Dog Rules — Woodlands Manor Farm · Woodlands Manor Farm, Bude Cornwall</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+nav{position:fixed;top:0;left:0;right:0;z-index:9000;padding:20px 48px;display:flex;align-items:center;justify-content:space-between;background:transparent;transition:background 0.35s ease,padding 0.25s ease}
+nav.scrolled{background:rgba(74,100,89,0.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:12px 48px;box-shadow:0 1px 0 rgba(173,191,185,0.12)}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--cream:#F7F4EF;--sage:#7f9789;--sage-light:#adbfb9;--violet:#8B7BB5;--violet-hover:#7a6aa4;--dark-sage:#4a6459;--text-dark:#1E2422;--text-mid:#4A5550;--text-light:#8A9990;--white:#FEFEFE;--border:rgba(127,151,137,0.15);--gold:#C9A85C}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--cream);color:var(--text-dark);font-weight:300;overflow-x:hidden}
+.nav-logo-img{display:flex;align-items:center;text-decoration:none}.nav-logo-png{height:46px;width:auto;display:block;transition:height 0.3s}nav.scrolled .nav-logo-png{height:36px}
+.nav-right{display:flex;align-items:center;gap:16px}.nav-back{color:rgba(247,243,238,0.85);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:color 0.2s}.nav-back:hover{color:#F7F4EF}
+.nav-book{background:var(--violet);color:#FEFEFE;padding:10px 22px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap}.nav-book:hover{background:var(--violet-hover)}
+.hero{position:relative;height:58vh;min-height:480px;overflow:hidden}.hero img{width:100%;height:100%;object-fit:cover;object-position:center 45%;display:block}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,20,14,0.72) 0%,rgba(10,20,14,0.15) 18%,rgba(10,20,14,0) 38%,rgba(10,20,14,0) 52%,rgba(10,20,14,0.65) 100%)}
+.hero-content{position:absolute;bottom:0;left:0;right:0;padding:0 72px 56px}
+.hero-eyebrow{font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--sage-light);font-weight:400;margin-bottom:14px}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(40px,5vw,68px);color:#F7F4EF;font-weight:400;line-height:1.06;margin-bottom:12px}
+.hero-title em{font-style:italic;color:var(--sage-light)}
+.hero-desc{font-size:15px;color:rgba(247,244,239,0.72);font-weight:300;max-width:540px;line-height:1.8}
+/* Sub-nav breadcrumb strip */
+.sub-nav{background:var(--dark-sage);padding:0 72px;display:flex;gap:0;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid rgba(173,191,185,0.1)}.sub-nav::-webkit-scrollbar{display:none}
+.sub-nav a{color:rgba(247,244,239,0.55);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;padding:16px 18px;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.2s,border-color 0.2s}.sub-nav a:hover,.sub-nav a.active{color:#F7F4EF;border-bottom-color:var(--sage-light)}
+/* Content */
+.page-content{max-width:1100px;margin:0 auto;padding:72px}
+.section-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:12px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,3vw,40px);color:var(--dark-sage);font-weight:400;line-height:1.15;margin-bottom:8px}
+.section-title em{font-style:italic;color:var(--sage)}
+.section-body{font-size:15px;color:var(--text-mid);line-height:1.85;font-weight:300;margin-bottom:0}
+/* Grids */
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:40px}
+.card-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:40px}
+.info-card{background:var(--white);padding:32px 28px;position:relative;overflow:hidden}
+.info-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--sage)}
+.info-card.violet::before{background:var(--violet)}.info-card.gold::before{background:var(--gold)}.info-card.dark::before{background:var(--dark-sage)}
+.ic-icon{font-size:26px;margin-bottom:12px;display:block}
+.ic-title{font-size:16px;font-weight:500;color:var(--dark-sage);margin-bottom:8px;font-family:'Jost',sans-serif}
+.ic-body{font-size:13px;color:var(--text-mid);line-height:1.8;font-weight:300}
+.ic-body a{color:var(--violet);text-decoration:none}
+/* Split layout */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:48px}
+.split-img{overflow:hidden}.split-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:400px}
+.split-content{padding:56px 52px;background:var(--white);display:flex;flex-direction:column;justify-content:center}
+.split.reversed .split-img{order:2}.split.reversed .split-content{order:1}
+/* List items */
+.item-list{list-style:none;margin-top:16px}.item-list li{font-size:14px;color:var(--text-mid);padding:9px 0;border-bottom:1px solid rgba(127,151,137,0.08);display:flex;align-items:flex-start;gap:10px;line-height:1.6;font-weight:300}
+.item-list li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--sage);flex-shrink:0;margin-top:7px}
+/* Rule cards */
+.rule-card{background:var(--white);border-left:4px solid var(--violet);padding:20px 24px;margin-bottom:12px}
+.rule-card.warn{border-left-color:#D4A853}
+.rule-card.safe{border-left-color:var(--sage)}
+.rule-title{font-size:14px;font-weight:500;color:var(--dark-sage);margin-bottom:4px}
+.rule-body{font-size:13px;color:var(--text-mid);line-height:1.7;font-weight:300}
+/* Restaurant cards */
+.restaurant-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:32px}
+.rest-card{background:var(--white);padding:24px}
+.rest-name{font-family:'Playfair Display',serif;font-size:17px;color:var(--dark-sage);font-weight:400;margin-bottom:4px}
+.rest-type{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:8px}
+.rest-body{font-size:12px;color:var(--text-mid);line-height:1.7;font-weight:300;margin-bottom:12px}
+.rest-link{font-size:11px;color:var(--violet);text-decoration:none;letter-spacing:1px;border-bottom:1px solid rgba(139,123,181,0.3);padding-bottom:1px}
+/* Inventory cols */
+.inv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:32px}
+.inv-col h3{font-family:'Playfair Display',serif;font-size:17px;color:var(--dark-sage);font-weight:400;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.inv-col ul{list-style:none}.inv-col li{font-size:12px;color:var(--text-mid);padding:5px 0;border-bottom:1px solid rgba(127,151,137,0.06);font-weight:300}
+/* Animal card */
+.animal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:40px}
+.animal-card{background:var(--white);overflow:hidden}
+.animal-card-img{overflow:hidden;height:220px}.animal-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s}.animal-card:hover .animal-card-img img{transform:scale(1.04)}
+.animal-card-body{padding:24px}
+.animal-name{font-family:'Playfair Display',serif;font-size:18px;color:var(--dark-sage);font-weight:400;margin-bottom:4px}
+.animal-species{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--sage);margin-bottom:10px;font-weight:400}
+.animal-bio{font-size:13px;color:var(--text-mid);line-height:1.75;font-weight:300}
+/* Attraction cards */
+.attraction-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:32px}
+.attr-card{background:var(--white);padding:28px}
+.attr-distance{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--violet);font-weight:400;margin-bottom:8px}
+.attr-name{font-family:'Playfair Display',serif;font-size:18px;color:var(--dark-sage);font-weight:400;margin-bottom:8px}
+.attr-body{font-size:13px;color:var(--text-mid);line-height:1.75;font-weight:300;margin-bottom:12px}
+.attr-link{font-size:11px;color:var(--violet);text-decoration:none;letter-spacing:1px;border-bottom:1px solid rgba(139,123,181,0.3);padding-bottom:1px}
+/* CTA strip */
+.cta-strip{background:var(--sage);padding:52px 72px;display:flex;align-items:center;justify-content:space-between;gap:48px;margin-top:0}
+.cta-strip h2{font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,32px);color:#F7F4EF;font-weight:400;margin-bottom:6px}
+.cta-strip p{font-size:14px;color:rgba(247,244,239,0.7);font-weight:300}
+.btn-white{background:#F7F4EF;color:var(--dark-sage);padding:13px 26px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;transition:background 0.2s;white-space:nowrap;flex-shrink:0}
+/* Footer */
+footer{background:#111815;padding:48px 72px 32px}
+.footer-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:32px;gap:48px}
+.footer-brand p{font-size:12px;color:rgba(247,244,239,0.4);line-height:1.8;font-weight:300;margin-top:12px;max-width:280px}
+.footer-contact a{display:block;color:rgba(247,244,239,0.5);text-decoration:none;font-size:12px;font-weight:300;margin-bottom:6px;transition:color 0.2s}.footer-contact a:hover{color:#F7F4EF}
+.footer-bottom{display:flex;justify-content:space-between;font-size:11px;color:rgba(247,244,239,0.3);padding-top:24px;border-top:1px solid rgba(247,244,239,0.08)}
+.footer-links{display:flex;gap:24px}.footer-links a{color:rgba(247,244,239,0.3);text-decoration:none}
+.footer-logo-img{height:34px;width:auto}
+
+/* ── ABOUT SUB-NAV ── */
+.about-subnav-wrap{background:var(--dark-sage);border-bottom:1px solid rgba(173,191,185,0.12)}
+.about-subnav{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;padding:0 48px;-webkit-overflow-scrolling:touch}
+.about-subnav::-webkit-scrollbar{display:none}
+.about-subnav a{
+  color:rgba(247,244,239,0.55);text-decoration:none;
+  font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+  font-family:'Jost',sans-serif;font-weight:400;
+  padding:16px 20px;
+  border-bottom:2px solid transparent;
+  white-space:nowrap;
+  transition:color 0.2s,border-color 0.2s;
+  flex-shrink:0;
+}
+.about-subnav a:hover{color:rgba(247,244,239,0.85)}
+.about-subnav a.active{
+  color:#F7F4EF;
+  border-bottom-color:var(--sage-light);
+  font-weight:500;
+}
+.about-subnav-label{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--sage-light);font-weight:400;
+  padding:16px 20px 16px 0;
+  white-space:nowrap;flex-shrink:0;
+  border-right:1px solid rgba(173,191,185,0.15);
+  margin-right:8px;
+  display:flex;align-items:center;
+}
+
+
+/* ── HAMBURGER + DRAWER ── */
+.wmf-hamburger{width:40px;height:40px;background:rgba(255,255,255,0.1);border:1px solid rgba(247,243,238,0.25);border-radius:2px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:0;transition:background 0.2s,border-color 0.2s;flex-shrink:0}
+.wmf-hamburger:hover{background:rgba(255,255,255,0.18);border-color:rgba(247,243,238,0.5)}
+.wmf-hamburger span{display:block;width:16px;height:1.5px;background:#F7F4EF;border-radius:1px;transition:all 0.3s ease;transform-origin:center}
+.wmf-hamburger.wmf-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.wmf-hamburger.wmf-open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.wmf-hamburger.wmf-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.wmf-overlay{position:fixed;inset:0;background:rgba(5,12,8,0.6);z-index:9100;opacity:0;pointer-events:none;transition:opacity 0.4s ease;backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.wmf-overlay.wmf-open{opacity:1;pointer-events:all}
+.wmf-drawer{position:fixed;top:0;right:0;width:380px;height:100vh;background:#0f1c13;z-index:9200;transform:translateX(100%);transition:transform 0.45s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;overflow-y:auto;border-left:1px solid rgba(173,191,185,0.1);font-family:'Jost',sans-serif}
+.wmf-drawer.wmf-open{transform:translateX(0)}
+.wmf-drawer-close{position:absolute;top:18px;right:20px;background:none;border:none;color:rgba(247,243,238,0.3);font-size:26px;cursor:pointer;line-height:1;padding:4px;transition:color 0.2s}
+.wmf-drawer-close:hover{color:#F7F4EF}
+.wmf-drawer-logo{padding:44px 40px 24px;border-bottom:1px solid rgba(247,243,238,0.07)}
+.wmf-drawer-logo-name{font-family:'Playfair Display',serif;font-size:18px;color:#F7F4EF;font-weight:400;margin-bottom:4px}
+.wmf-drawer-logo-sub{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--sage-light);font-weight:400}
+.wmf-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0}
+.wmf-drawer-links a{display:flex;align-items:baseline;gap:16px;padding:15px 40px;color:rgba(247,243,238,0.6);text-decoration:none;font-family:'Playfair Display',serif;font-size:20px;font-weight:400;border-bottom:1px solid rgba(247,243,238,0.05);transition:color 0.2s,padding-left 0.25s ease}
+.wmf-drawer-links a:hover{color:#F7F4EF;padding-left:48px}
+.wmf-link-num{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2px;color:var(--violet);font-weight:400;flex-shrink:0;min-width:18px}
+.wmf-drawer-footer{padding:20px 40px 40px;border-top:1px solid rgba(247,243,238,0.07);display:flex;flex-direction:column;gap:14px}
+.wmf-drawer-book{display:block;background:var(--violet);color:#FEFEFE;padding:13px 20px;text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;font-family:'Jost',sans-serif;border-radius:2px;text-align:center;transition:background 0.2s}
+.wmf-drawer-book:hover{background:var(--violet-hover)}
+.wmf-drawer-contact{display:flex;flex-direction:column;gap:5px}
+.wmf-drawer-contact a{color:rgba(247,243,238,0.4);text-decoration:none;font-size:12px;font-weight:300;transition:color 0.2s}
+.wmf-drawer-contact a:hover{color:#F7F4EF}
+.wmf-drawer-social{display:flex;gap:18px}
+.wmf-drawer-social a{color:rgba(247,243,238,0.3);text-decoration:none;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:color 0.2s}
+.wmf-drawer-social a:hover{color:var(--sage-light)}
+
+</style>
+</head>
+<body>
+<nav id="mainNav">
+  <a href="woodlands_manor_farm.html" class="nav-logo-img">
+    <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="nav-logo-png">
+  </a>
+  <div class="nav-right">
+    <a href="woodlands_book_direct.html" class="nav-book">Book Direct</a>
+    <button class="wmf-hamburger" id="wmfHamburger" onclick="wmfToggleMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Overlay -->
+<div class="wmf-overlay" id="wmfOverlay" onclick="wmfCloseMenu()"></div>
+
+<!-- Drawer -->
+<div class="wmf-drawer" id="wmfDrawer">
+  <button class="wmf-drawer-close" onclick="wmfCloseMenu()" aria-label="Close menu">&#215;</button>
+  <div class="wmf-drawer-logo">
+    <div class="wmf-drawer-logo-name">Woodlands Manor Farm</div>
+    <div class="wmf-drawer-logo-sub">Bude &middot; Cornwall</div>
+  </div>
+  <nav class="wmf-drawer-links">
+    <a href="woodlands_cottages.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">01</span>Cottages</a>
+    <a href="woodlands_yurts.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">02</span>Yurts</a>
+    <a href="woodlands_experiences.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">03</span>Experiences</a>
+    <a href="woodlands_about.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">04</span>About</a>
+    <a href="woodlands_reviews.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">05</span>Reviews</a>
+    <a href="woodlands_special_offers.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">06</span>Special Offers</a>
+    <a href="woodlands_contact.html" onclick="wmfCloseMenu()"><span class="wmf-link-num">07</span>Find Us</a>
+  </nav>
+  <div class="wmf-drawer-footer">
+    <a href="woodlands_book_direct.html" class="wmf-drawer-book" onclick="wmfCloseMenu()">Check Availability</a>
+    <div class="wmf-drawer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+    </div>
+    <div class="wmf-drawer-social">
+      <a href="https://www.facebook.com/woodlandsmanorfarm.co.uk/" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/woodlandsmanorfarm/" target="_blank">Instagram</a>
+    </div>
+  </div>
+</div>
+
+<div class="hero">
+  <img src="/images/blog-template/50732616e754d9b7.jpg" alt="Dog Rules — Woodlands Manor Farm — Woodlands Manor Farm">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Woodlands Manor Farm &bull; Dog-friendly holidays</p>
+    <h1 class="hero-title">Dogs <em>welcome</em></h1>
+    <p class="hero-desc">All cottages and yurts are dog-friendly. Here is everything you need to know before you arrive &mdash; for the benefit of your dog and everyone else&rsquo;s.</p>
+  </div>
+</div>
+<div class="about-subnav-wrap" style="position:sticky;top:73px;z-index:8000;box-shadow:0 2px 8px rgba(10,20,14,0.18)">
+  <div class="about-subnav">
+    <span class="about-subnav-label">About</span>
+    <a href="woodlands_about.html">About Woodlands</a>
+<a href="woodlands_on_the_farm.html">On the Farm</a>
+<a href="woodlands_animals.html">The Animals</a>
+<a href="woodlands_things_to_do.html">Things to Do</a>
+<a href="woodlands_places_to_eat.html">Places to Eat</a>
+<a href="woodlands_little_extras.html">Little Extras</a>
+<a href="woodlands_inventory.html">Inventory</a>
+<a href="woodlands_dog_rules.html" class="active">Dog Rules</a>
+
+  </div>
+</div>
+
+
+<div class="page-content">
+  <p class="section-eyebrow">All cottages &amp; yurts &bull; Dog-friendly</p>
+  <h2 class="section-title">Dogs <em>welcome</em></h2>
+  <p class="section-body">We love dogs at Woodlands Manor Farm &mdash; this is Bailey, our Bernedoodle. All well-behaved dogs are welcome at every property. To make sure everyone has the best holiday &mdash; dogs included &mdash; please read and follow the guidelines below. They are there for everyone&rsquo;s safety, especially the dogs.</p>
+
+  <div style="background:var(--white);border-left:4px solid var(--sage);padding:20px 28px;margin:32px 0;border-radius:0 2px 2px 0">
+    <p style="font-size:13px;color:var(--dark-sage);font-weight:500;margin-bottom:4px">&#128021; Please tell us you&rsquo;re bringing a dog when you book</p>
+    <p style="font-size:13px;color:var(--text-mid);line-height:1.7;font-weight:300">Let us know your dog&rsquo;s breed, age and temperament. An additional deposit of <strong>&pound;25 per dog</strong> is required. Maximum two dogs per cottage.</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-bottom:40px">
+    <div class="rule-card warn"><div class="rule-title">&#128279; On a lead around the farm AT ALL TIMES</div><p class="rule-body">We have free-range chickens, farm animals and neighbouring livestock. Dogs must be on a lead on the drive and around the cottages at all times, without exception.</p></div>
+    <div class="rule-card safe"><div class="rule-title">&#127807; Free to run in the meadow &amp; woods</div><p class="rule-body">Dogs can run free in the meadow and bluebell woodland &mdash; a wonderful space for a good explore. Please be careful near sheep and cows in adjacent fields.</p></div>
+    <div class="rule-card"><div class="rule-title">&#128716; Dogs not allowed upstairs or in bedrooms</div><p class="rule-body">For the comfort of all guests, dogs should not be allowed upstairs or in the bedrooms in any of the cottages.</p></div>
+    <div class="rule-card"><div class="rule-title">&#128138; Sofa cover required for sofa access</div><p class="rule-body">If you want to let your dog on the sofa, please bring your own protective cover. Additional cleaning charges may apply if sofas are left dirty after a dog stay.</p></div>
+    <div class="rule-card warn"><div class="rule-title">&#128176; Do not leave dogs unattended</div><p class="rule-body">Dogs should not be left alone in the cottage or yurt unless they are in a crate and you are confident they will not cause damage or disturbance to other guests.</p></div>
+    <div class="rule-card safe"><div class="rule-title">&#10003; Come prepared &mdash; bring everything they need</div><p class="rule-body">Please bring your dog&rsquo;s bed, towels, food &amp; water bowls, blankets and crate if needed. If you forget anything, let us know and we will help where we can.</p></div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--dark-sage);font-weight:400;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--border)">Dog-friendly amenities &amp; services</h3>
+  <div class="card-grid">
+    <div class="info-card"><span class="ic-icon">&#128167;</span><div class="ic-title">Outdoor tap</div><p class="ic-body">An outdoor tap in the main courtyard for cleaning muddy paws before going back into the cottage. Use it after the woodland walk &mdash; it will be needed.</p></div>
+    <div class="info-card violet"><span class="ic-icon">&#128021;</span><div class="ic-title">Dog sitting &amp; walks</div><p class="ic-body">If you need to leave your dog for a longer period, please talk to us. On-site paid dog sitting and dog walking services can be arranged. We want your dog to be happy all day.</p></div>
+    <div class="info-card gold"><span class="ic-icon">&#127968;</span><div class="ic-title">Doggy day care &mdash; Wags</div><p class="ic-body">Wags Doggy Day Care is available locally if you need a full day out without your dog. <a href="https://www.facebook.com/profile.php?id=100057039056776" target="_blank">Find Wags on Facebook</a>.</p></div>
+    <div class="info-card dark"><span class="ic-icon">&#9986;&#65039;</span><div class="ic-title">Dog grooming in Bude</div><p class="ic-body">Two excellent dog groomers in Bude: <a href="https://www.facebook.com/lillysdoggroomingbude/" target="_blank">Lilly&rsquo;s Dog Grooming</a> and <a href="https://www.facebook.com/barkersofbude/" target="_blank">Barkers of Bude</a>.</p></div>
+    <div class="info-card"><span class="ic-icon">&#128699;</span><div class="ic-title">Vet in Bude</div><p class="ic-body">If you need veterinary assistance during your stay, we are happy to help. The vet we use is <a href="https://tamarvets.co.uk/" target="_blank">Tamar Vets</a> &mdash; Bude branch.</p></div>
+    <div class="info-card violet"><span class="ic-icon">&#127807;</span><div class="ic-title">Dog-friendly walks nearby</div><p class="ic-body">Bluebell woodland on the farm &bull; Kilkhampton Common &bull; Stowe Woods &bull; Tamar Lake circular walk (leads required) &bull; Duckpool Beach (NT, year-round) &bull; Northcott Mouth (year-round)</p></div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:20px;color:var(--dark-sage);font-weight:400;margin:48px 0 16px;padding-bottom:10px;border-bottom:1px solid var(--border)">Dog beach policy &mdash; seasonal restrictions</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
+    <div style="background:var(--white);padding:20px 24px"><p style="font-size:13px;font-weight:500;color:var(--dark-sage);margin-bottom:6px">&#10003; Dog-friendly ALL year</p><ul class="item-list" style="margin-top:0"><li>Duckpool Beach (National Trust) &mdash; 2 miles</li><li>Northcott Mouth (National Trust) &mdash; 4 miles</li><li>Sandymouth Beach &mdash; dogs must be under control in summer</li><li>Black Rock Beach (south of Widemouth Bay)</li><li>Millook Beach</li></ul></div>
+    <div style="background:var(--white);padding:20px 24px"><p style="font-size:13px;font-weight:500;color:var(--dark-sage);margin-bottom:6px">&#9888;&#65039; Seasonal restrictions (15 May &ndash; 30 Sep, 10am&ndash;6pm)</p><ul class="item-list" style="margin-top:0"><li>Crooklets Beach &mdash; no dogs 15 May to 30 Sep, 10am&ndash;6pm</li><li>Summerleaze Beach &mdash; dogs on leads 21 May to 30 Sep, 10am&ndash;6pm</li><li>Widemouth Bay (main beach) &mdash; no dogs 15 May to 30 Sep, 10am&ndash;6pm</li></ul></div>
+  </div>
+</div>
+
+<div class="cta-strip">
+  <div><h2>Any questions? Call Andy and Ruth.</h2><p>We want your dog to have the best holiday too.</p></div>
+  <a href="tel:07887677354" class="btn-white">Call 07887 677 354</a>
+</div>
+<footer>
+  <div class="footer-row">
+    <div class="footer-brand">
+      <img src="/images/about/c044be35178ab1af.png" alt="Woodlands Manor Farm" class="footer-logo-img" style="opacity:0.7">
+      <p>A 17th-century farm in the Coombe Valley &mdash; cottages, yurts, heated pool and the warmest Cornish welcome.</p>
+    </div>
+    <div class="footer-contact">
+      <a href="tel:07887677354">07887 677 354</a>
+      <a href="mailto:enquiries@woodlandsmanorfarm.co.uk">enquiries@woodlandsmanorfarm.co.uk</a>
+      <a href="https://maps.app.goo.gl/CUDSFvUtqPuTt6zs6" target="_blank">Woodford, Bude, Cornwall EX23 9HT</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>&copy; 2026 Woodlands Manor Farm.</span>
+    <div class="footer-links"><a href="woodlands_privacy.html">Privacy</a><a href="woodlands_terms.html">Terms</a></div>
+  </div>
+</footer>
+<script></script>
+</body>
+</html>
