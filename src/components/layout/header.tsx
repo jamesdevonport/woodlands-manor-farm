@@ -52,7 +52,7 @@ export function Header() {
       >
         <Link href="/" className="flex items-center" aria-label={SITE.name}>
           <Image
-            src="/images/wmf-logo.png"
+            src="/images/wmf-logo-light.png"
             alt={SITE.name}
             width={350}
             height={100}
