@@ -1,20 +1,37 @@
 import type { Metadata } from "next";
-import { PlaceholderPage } from "@/components/ui/placeholder-page";
+import { ListingPage } from "@/components/listing/listing-page";
+import { COTTAGE_CARDS, YURT_CARDS } from "@/lib/data/listing-content";
 
 export const metadata: Metadata = {
-  title: "Bude Holiday Cottages",
+  title: "Cottages & Yurts in Bude, Cornwall",
   description:
-    "Browse the seven self-catering cottages at Woodlands Manor Farm — sleeping from 2 to 12, with shared indoor pool and farm access.",
+    "Seven characterful cottages and two Mongolian glamping yurts at Woodlands Manor Farm — sleeping 2 to 12, all with indoor pool and farm access.",
   alternates: { canonical: "/bude-holiday-cottages/" },
+  openGraph: {
+    title: "Cottages & Yurts — Woodlands Manor Farm",
+    description:
+      "Seven cottages and two yurts on a working Cornish farm, with heated indoor pool, games room and animals.",
+    images: ["/images/cottages/9792dd1b5f66d139.jpg"],
+  },
 };
 
 export default function CottagesPage() {
   return (
-    <PlaceholderPage
-      eyebrow="Cottages"
-      title="Holiday cottages in Bude"
-      description="Seven cottages on a working farm — from snug couples' boltholes to a six-bedroom manor house."
-      sourceFile="design-references/woodlands_cottages.html"
+    <ListingPage
+      hero={{
+        image: "/images/cottages/9792dd1b5f66d139.jpg",
+        alt: "Woodlands Manor Farm courtyard — Bude, Cornwall",
+        eyebrow: "Woodlands Manor Farm · Bude, Cornwall",
+        title: (
+          <>
+            Cottages &amp; <em>yurts</em>
+          </>
+        ),
+        description:
+          "Seven characterful cottages and two Mongolian glamping yurts, sleeping 2 to 12. All with access to the heated indoor pool, games room, farm animals and two miles of Cornish coastline.",
+      }}
+      cottages={COTTAGE_CARDS}
+      yurts={YURT_CARDS}
     />
   );
 }

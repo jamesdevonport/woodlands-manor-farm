@@ -1,0 +1,137 @@
+import type { PropertyCardData } from "@/components/listing/property-card";
+
+export const COTTAGE_CARDS: PropertyCardData[] = [
+  {
+    href: "/the-manor-house/",
+    name: "Woodlands Manor House",
+    desc: "Our historic 17th-century farmhouse — a magnificent mix of original beams, slate floors, stone fireplaces and every modern comfort. Three lounges, a four-oven Aga, six bedrooms with romantic bedsteads, and a private mature garden. The one guests return to again and again.",
+    img: "/images/cottages/812784261e6d52d7.jpg",
+    alt: "Woodlands Manor House — stone lounge with beams",
+    tags: [
+      { label: "Flagship property", featured: true },
+      { label: "Grade II Listed" },
+    ],
+    stats: [
+      { val: "12", label: "Guests" },
+      { val: "6", label: "Bedrooms" },
+      { val: "3", label: "Bathrooms" },
+      { val: "🐕", label: "Dogs OK" },
+    ],
+    featured: true,
+  },
+  {
+    href: "/rose-cottage/",
+    name: "Rose Cottage",
+    desc: "A large converted hay barn with two lounges and a glowing log burner. Perfect for family groups who need space to spread out, with bedroom and bathroom on the ground floor.",
+    img: "/images/cottages/32742e1c3f3de7dd.jpg",
+    alt: "Rose Cottage — stone fireplace and beamed lounge",
+    tags: [{ label: "Sleeps 8" }],
+    stats: [
+      { val: "8", label: "Guests" },
+      { val: "4", label: "Bedrooms" },
+      { val: "2", label: "Bathrooms" },
+      { val: "🐕", label: "Dogs OK" },
+    ],
+  },
+  {
+    href: "/jasmine-cottage/",
+    name: "Jasmine Cottage",
+    desc: "A spacious barn conversion with a secret bookcase door connecting to Lavender — combine them for 10 guests. Three doubles, a stunning farm table and a stone wood burner.",
+    img: "/images/cottages/4e9d92fa8d3c1e84.jpg",
+    alt: "Jasmine Cottage kitchen dining",
+    tags: [{ label: "Sleeps 6" }, { label: "Secret door" }],
+    stats: [
+      { val: "6", label: "Guests" },
+      { val: "3", label: "Bedrooms" },
+      { val: "2", label: "Bathrooms" },
+      { val: "🐕", label: "Dogs OK" },
+    ],
+  },
+  {
+    href: "/the-stables/",
+    name: "The Stables",
+    desc: "Characterful and luxurious — open-plan living with a breathtaking valley view from the stone patio. Two bedrooms each with ensuite, and a freestanding bath in the master.",
+    img: "/images/cottages/b2a31f0f839f8fce.jpg",
+    alt: "The Stables — light open-plan lounge",
+    tags: [{ label: "Sleeps 4" }, { label: "Valley view" }],
+    stats: [
+      { val: "4", label: "Guests" },
+      { val: "2", label: "Bedrooms" },
+      { val: "2", label: "Ensuites" },
+      { val: "🐕", label: "Dogs OK" },
+    ],
+  },
+  {
+    href: "/lavender-cottage/",
+    name: "Lavender Cottage",
+    desc: "Entirely on one level — perfect for families with young children or those who prefer to avoid steps. Connects to Jasmine via a secret door for larger group stays.",
+    img: "/images/cottages/69d76075f1839b61.jpg",
+    alt: "Lavender Cottage lounge",
+    tags: [{ label: "Sleeps 4" }, { label: "Single level" }],
+    stats: [
+      { val: "4", label: "Guests" },
+      { val: "2", label: "Bedrooms" },
+      { val: "2", label: "Bathrooms" },
+      { val: "🐕", label: "Dogs OK" },
+    ],
+  },
+  {
+    href: "/the-coach-house/",
+    name: "The Coach House",
+    desc: "Intimate and full of charm — a beautiful vaulted ceiling bedroom, super king bed, and stone-floored kitchen lounge. The perfect romantic retreat for two.",
+    img: "/images/cottages/7da27dbd79d1c7d5.jpg",
+    alt: "Coach House — ivy-clad stone cottage",
+    tags: [{ label: "Sleeps 2" }],
+    stats: [
+      { val: "2", label: "Guests" },
+      { val: "1", label: "Bedroom" },
+      { val: "1", label: "Bathroom" },
+      { val: "🐕", label: "Dogs OK" },
+    ],
+  },
+  {
+    href: "/honeysuckle-cottage/",
+    name: "Honeysuckle Cottage",
+    desc: "Ground floor and open plan — brilliant for couples or young families with small children. Peaceful, cosy, and with everything you need for a perfect break.",
+    img: "/images/cottages/7275ce59f132f14c.jpg",
+    alt: "Honeysuckle Cottage kitchen lounge",
+    tags: [{ label: "Sleeps 2" }, { label: "Single level" }],
+    stats: [
+      { val: "2", label: "Guests" },
+      { val: "1", label: "Bedroom" },
+      { val: "1", label: "Bathroom" },
+      { val: "🐕", label: "Dogs OK" },
+    ],
+  },
+];
+
+export const YURT_CARDS: PropertyCardData[] = [
+  {
+    href: "/budhyn-yurt/",
+    name: "Budhyn Yurt",
+    desc: "Authentic Mongolian glamping with a high-end Nordpeis wood-burner at its heart. Super king bed, two singles, your own private kitchen, bathroom and a picnic table with valley views.",
+    img: "/images/cottages/178e79588e66b04a.jpg",
+    alt: "Inside the Budhyn Yurt",
+    tags: [{ label: "Glamping", featured: true }, { label: "Sleeps 4" }],
+    stats: [
+      { val: "4", label: "Guests" },
+      { val: "3", label: "Beds" },
+      { val: "1", label: "Bathroom" },
+      { val: "🐕", label: "Dogs OK" },
+    ],
+  },
+  {
+    href: "/fenton-yurt/",
+    name: "Fenton Yurt",
+    desc: "Identical in luxury to Budhyn — nestled beside it in the valley with the same wood-burner warmth, private bathroom and kitchen. Book both yurts together for a group of eight.",
+    img: "/images/cottages/ee96ea80e53b6e33.jpg",
+    alt: "Fenton Yurt — valley setting",
+    tags: [{ label: "Glamping", featured: true }, { label: "Sleeps 4" }],
+    stats: [
+      { val: "4", label: "Guests" },
+      { val: "3", label: "Beds" },
+      { val: "1", label: "Bathroom" },
+      { val: "🐕", label: "Dogs OK" },
+    ],
+  },
+];
