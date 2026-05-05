@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { PlaceholderPage } from "@/components/ui/placeholder-page";
+import TermsConditionsPage from "../terms-conditions/page";
 
-// Alias of /terms-conditions/ — both URLs exist in the WP sitemap.
-// Canonical points to the primary route to avoid duplicate-content penalties.
 export const metadata: Metadata = {
   title: "Hotel Terms & Conditions",
   description: "Booking terms and conditions for stays at Woodlands Manor Farm.",
@@ -11,11 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return (
-    <PlaceholderPage
-      eyebrow="Legal"
-      title="Terms & conditions"
-      sourceFile="design-references/woodlands_terms.html"
-    />
-  );
+  return <TermsConditionsPage />;
 }
