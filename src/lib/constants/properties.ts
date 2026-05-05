@@ -9,6 +9,8 @@ export type Property = {
   shortDescription: string;
   href: string;
   heroImage: string;
+  /** SuperControl property ID — used by the booking widget embed. */
+  superControlId: string;
 };
 
 /**
@@ -25,27 +27,30 @@ export const PROPERTIES: Property[] = [
     shortDescription:
       "The original 17th-century farmhouse — six bedrooms, sleeps twelve, perfect for large family gatherings.",
     href: "/the-manor-house/",
-    heroImage: "/images/the-manor-house/hero.jpg",
+    heroImage: "/images/cottages/812784261e6d52d7.jpg",
+    superControlId: "563129",
   },
   {
     slug: "rose-cottage",
     name: "Rose Cottage",
     type: "cottage",
-    sleeps: 4,
-    bedrooms: 2,
-    shortDescription: "A romantic two-bedroom cottage with garden views.",
+    sleeps: 8,
+    bedrooms: 4,
+    shortDescription: "Two-lounge converted barn with stone fireplace, sleeps 8.",
     href: "/rose-cottage/",
-    heroImage: "/images/rose-cottage/hero.jpg",
+    heroImage: "/images/cottages/32742e1c3f3de7dd.jpg",
+    superControlId: "562739",
   },
   {
     slug: "jasmine-cottage",
     name: "Jasmine Cottage",
     type: "cottage",
-    sleeps: 4,
-    bedrooms: 2,
+    sleeps: 6,
+    bedrooms: 3,
     shortDescription: "Light-filled cottage with a private patio overlooking the meadow.",
     href: "/jasmine-cottage/",
-    heroImage: "/images/jasmine-cottage/hero.jpg",
+    heroImage: "/images/jasmine-cottage/125d965f9db47fa9.jpg",
+    superControlId: "577259",
   },
   {
     slug: "lavender-cottage",
@@ -55,27 +60,30 @@ export const PROPERTIES: Property[] = [
     bedrooms: 2,
     shortDescription: "Cosy stone cottage with woodburner and country-style kitchen.",
     href: "/lavender-cottage/",
-    heroImage: "/images/lavender-cottage/hero.jpg",
+    heroImage: "/images/cottages/69d76075f1839b61.jpg",
+    superControlId: "577258",
   },
   {
     slug: "the-coach-house",
     name: "The Coach House",
     type: "cottage",
-    sleeps: 6,
-    bedrooms: 3,
-    shortDescription: "Three-bedroom converted coach house with vaulted ceilings.",
+    sleeps: 2,
+    bedrooms: 1,
+    shortDescription: "Ivy-clad couples' retreat with vaulted beams and super-king bed.",
     href: "/the-coach-house/",
-    heroImage: "/images/the-coach-house/hero.jpg",
+    heroImage: "/images/cottages/7da27dbd79d1c7d5.jpg",
+    superControlId: "565805",
   },
   {
     slug: "the-stables",
     name: "The Stables",
     type: "cottage",
-    sleeps: 6,
-    bedrooms: 3,
-    shortDescription: "Single-storey three-bedroom barn conversion, fully accessible.",
+    sleeps: 4,
+    bedrooms: 2,
+    shortDescription: "Single-storey conversion with valley views and freestanding bath.",
     href: "/the-stables/",
-    heroImage: "/images/the-stables/hero.jpg",
+    heroImage: "/images/cottages/b2a31f0f839f8fce.jpg",
+    superControlId: "565803",
   },
   {
     slug: "honeysuckle-cottage",
@@ -85,7 +93,8 @@ export const PROPERTIES: Property[] = [
     bedrooms: 1,
     shortDescription: "Intimate one-bedroom cottage ideal for couples.",
     href: "/honeysuckle-cottage/",
-    heroImage: "/images/honeysuckle-cottage/hero.jpg",
+    heroImage: "/images/cottages/7275ce59f132f14c.jpg",
+    superControlId: "565804",
   },
   {
     slug: "budhyn-yurt",
@@ -95,7 +104,8 @@ export const PROPERTIES: Property[] = [
     bedrooms: 1,
     shortDescription: "Hand-crafted Mongolian yurt in its own meadow with private hot tub.",
     href: "/budhyn-yurt/",
-    heroImage: "/images/budhyn-yurt/hero.jpg",
+    heroImage: "/images/budhyn-yurt/413fc9c154a95c8e.jpg",
+    superControlId: "593204",
   },
   {
     slug: "fenton-yurt",
@@ -105,7 +115,8 @@ export const PROPERTIES: Property[] = [
     bedrooms: 1,
     shortDescription: "Sister yurt to Budhyn — woodburner, big sky, deep quiet.",
     href: "/fenton-yurt/",
-    heroImage: "/images/fenton-yurt/hero.jpg",
+    heroImage: "/images/cottages/ee96ea80e53b6e33.jpg",
+    superControlId: "593172",
   },
 ];
 

@@ -4,7 +4,7 @@ import styles from "./property.module.css";
 import { PropertyGallery, type GalleryImage } from "./property-gallery";
 import { PROPERTIES } from "@/lib/constants/properties";
 import { SITE } from "@/lib/constants/seo";
-import { BOOK_HREF } from "@/lib/constants/nav";
+import { SuperControlWidget } from "@/components/booking/super-control-widget";
 
 export type PropertyPageData = {
   slug: string;
@@ -27,6 +27,7 @@ export type PropertyPageData = {
 };
 
 export function PropertyPage({ data }: { data: PropertyPageData }) {
+  const property = PROPERTIES.find((p) => p.slug === data.slug);
   const others = PROPERTIES.filter((p) => p.slug !== data.slug).slice(0, 5);
 
   return (
@@ -78,9 +79,9 @@ export function PropertyPage({ data }: { data: PropertyPageData }) {
             <div className={styles.bookingBox} id="booking">
               <div className={styles.bookingBoxLabel}>Book direct — best rate guaranteed</div>
               <div className={styles.bookingBoxTitle}>Check availability</div>
-              <Link href={BOOK_HREF} className={styles.btnBookNow}>
+              <a href="#book" className={styles.btnBookNow}>
                 Check Availability &amp; Book
-              </Link>
+              </a>
               <div className={styles.bookingNote}>
                 No booking fees ·{" "}
                 <a href={`tel:${SITE.contact.phone}`}>Call {SITE.contact.phoneDisplay}</a> for groups
@@ -124,6 +125,27 @@ export function PropertyPage({ data }: { data: PropertyPageData }) {
           </div>
         </aside>
       </div>
+
+      {property ? (
+        <section className={styles.bookSection} id="book">
+          <div className={styles.bookInner}>
+            <p className={styles.eyebrow}>Secure online booking</p>
+            <h2 className={styles.h2}>Check availability &amp; book direct</h2>
+            <p className={styles.bookLead}>
+              Real-time availability for {data.name}, powered by Supercontrol. No booking fees,
+              best price guaranteed.
+            </p>
+            <div className={styles.widgetWrap}>
+              <SuperControlWidget propertyId={property.superControlId} />
+            </div>
+            <p className={styles.bookFinePrint}>
+              Booking trouble? Call Andy direct on{" "}
+              <a href={`tel:${SITE.contact.phone}`}>{SITE.contact.phoneDisplay}</a> — he&rsquo;ll
+              sort it.
+            </p>
+          </div>
+        </section>
+      ) : null}
 
       <section className={styles.below}>
         <div className={styles.belowInner}>

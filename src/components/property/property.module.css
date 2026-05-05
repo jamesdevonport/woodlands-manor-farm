@@ -317,6 +317,44 @@
   letter-spacing: 1px;
 }
 
+/* ── BOOKING WIDGET SECTION ── */
+.bookSection {
+  background: #fff;
+  padding: 80px 32px;
+  border-top: 1px solid rgba(127, 151, 137, 0.18);
+  scroll-margin-top: 80px;
+}
+.bookInner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.bookLead {
+  font-size: 15px;
+  color: var(--color-text-mid);
+  line-height: 1.85;
+  font-weight: 300;
+  max-width: 640px;
+  margin-bottom: 32px;
+}
+.widgetWrap {
+  background: var(--color-cream);
+  border: 1px solid rgba(127, 151, 137, 0.18);
+  border-radius: 4px;
+  padding: 24px;
+  min-height: 600px;
+}
+.bookFinePrint {
+  margin-top: 20px;
+  font-size: 12px;
+  color: var(--color-text-light);
+  font-weight: 300;
+}
+.bookFinePrint a {
+  color: var(--color-violet);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(139, 123, 181, 0.3);
+}
+
 /* ── BELOW FOLD ── */
 .below {
   background: var(--color-cream);

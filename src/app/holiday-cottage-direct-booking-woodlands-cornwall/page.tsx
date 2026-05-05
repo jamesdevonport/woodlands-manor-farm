@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "@/components/marketing/marketing.module.css";
+import { SuperControlWidget } from "@/components/booking/super-control-widget";
 import { PROPERTIES } from "@/lib/constants/properties";
 import { SITE } from "@/lib/constants/seo";
 
@@ -103,50 +104,15 @@ export default function Page() {
 
           <div
             style={{
-              border: "2px dashed rgba(127,151,137,0.3)",
               borderRadius: 4,
-              padding: "80px 40px",
-              textAlign: "center",
+              padding: 24,
               background: "var(--color-cream)",
               marginTop: 32,
+              border: "1px solid rgba(127,151,137,0.18)",
+              minHeight: 700,
             }}
           >
-            <div style={{ fontSize: 32, marginBottom: 16 }}>📅</div>
-            <h3
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontSize: 22,
-                color: "#4a6459",
-                fontWeight: 400,
-                marginBottom: 12,
-              }}
-            >
-              Availability calendar &amp; booking
-            </h3>
-            <p
-              style={{
-                fontSize: 14,
-                color: "var(--color-text-mid)",
-                fontWeight: 300,
-                maxWidth: 520,
-                margin: "0 auto 16px",
-                lineHeight: 1.7,
-              }}
-            >
-              Your Supercontrol booking widget will appear here. Paste your embed code from the
-              Supercontrol dashboard to activate.
-            </p>
-            <code
-              style={{
-                fontSize: 12,
-                background: "rgba(127,151,137,0.1)",
-                padding: "6px 12px",
-                borderRadius: 2,
-                color: "var(--color-text-mid)",
-              }}
-            >
-              Paste Supercontrol embed code here
-            </code>
+            <SuperControlWidget />
           </div>
         </div>
       </section>
