@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Script from "next/script";
 
 // Per-property availability calendar (one calendar per property).
@@ -12,15 +13,27 @@ const MASTER_KEY =
 
 const SCRIPT_SRC = "https://secure.supercontrol.co.uk/components/embed.js";
 
+type SuperControlWindow = Window & {
+  superControlCalendarWidgetManualBootstrap?: () => void;
+};
+
 type Props = {
   /** SuperControl property ID — required for per-property embed. Omit for the master calendar. */
   propertyId?: string;
-  /** Optional className to wrap the embed div (e.g. for sizing). */
   className?: string;
 };
 
 export function SuperControlWidget({ propertyId, className }: Props) {
   const isMaster = !propertyId;
+
+  // On client-side navigation between widget pages the <Script> is already
+  // loaded and the embed's window.load handler has already run — so it set
+  // `superControlCalendarWidgetManualBootstrap` on window. Call it on mount
+  // to (re)scan the DOM for the newly-rendered widget div.
+  useEffect(() => {
+    const bootstrap = (window as SuperControlWindow).superControlCalendarWidgetManualBootstrap;
+    if (typeof bootstrap === "function") bootstrap();
+  }, [propertyId]);
 
   return (
     <>
@@ -41,7 +54,19 @@ export function SuperControlWidget({ propertyId, className }: Props) {
           Loading availability calendar…
         </p>
       </div>
-      <Script src={SCRIPT_SRC} strategy="afterInteractive" id="supercontrol-embed" />
+      <Script
+        src={SCRIPT_SRC}
+        strategy="afterInteractive"
+        id="supercontrol-embed"
+        onLoad={() => {
+          // embed.js attaches a window.load listener that defines
+          // `superControlCalendarWidgetManualBootstrap` and runs it. With
+          // afterInteractive the natural load event has typically already
+          // fired before the script executes, so the listener never runs.
+          // Dispatch a synthetic load to fire it.
+          window.dispatchEvent(new Event("load"));
+        }}
+      />
     </>
   );
 }
