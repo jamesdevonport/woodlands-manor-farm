@@ -1,0 +1,177 @@
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./property.module.css";
+import { PropertyGallery, type GalleryImage } from "./property-gallery";
+import { PROPERTIES } from "@/lib/constants/properties";
+import { SITE } from "@/lib/constants/seo";
+import { BOOK_HREF } from "@/lib/constants/nav";
+
+export type PropertyPageData = {
+  slug: string;
+  name: string;
+  nameLine2?: string;
+  tag: string;
+  subtitle: string;
+  description: string;
+  gallery: GalleryImage[];
+  stats: {
+    guests: number | string;
+    bedrooms: number | string;
+    bathrooms: number | string;
+    dogs: string;
+  };
+  amenities: string[];
+  miniReviews: { stars?: number; text: string; author: string }[];
+  facilityChips: { icon: string; label: string }[];
+  detailColumns: { title: string; items: string[] }[];
+};
+
+export function PropertyPage({ data }: { data: PropertyPageData }) {
+  const others = PROPERTIES.filter((p) => p.slug !== data.slug).slice(0, 5);
+
+  return (
+    <>
+      <div className={styles.pageWrap}>
+        <div className={styles.galleryPanel}>
+          <PropertyGallery images={data.gallery} propertyName={data.name} />
+        </div>
+
+        <aside className={styles.detailsPanel}>
+          <div className={styles.detailsInner}>
+            <div className={styles.tag}>{data.tag}</div>
+            <h1 className={styles.name}>
+              {data.name}
+              {data.nameLine2 ? (
+                <>
+                  <br />
+                  {data.nameLine2}
+                </>
+              ) : null}
+            </h1>
+            <div className={styles.subtitle}>{data.subtitle}</div>
+
+            <div className={styles.quickStats}>
+              <div className={styles.qs}>
+                <span className={styles.qsIcon}>🏡</span>
+                <span className={styles.qsVal}>{data.stats.guests}</span>
+                <span className={styles.qsLabel}>Guests</span>
+              </div>
+              <div className={styles.qs}>
+                <span className={styles.qsIcon}>🛏️</span>
+                <span className={styles.qsVal}>{data.stats.bedrooms}</span>
+                <span className={styles.qsLabel}>Bedrooms</span>
+              </div>
+              <div className={styles.qs}>
+                <span className={styles.qsIcon}>🛁</span>
+                <span className={styles.qsVal}>{data.stats.bathrooms}</span>
+                <span className={styles.qsLabel}>Bathrooms</span>
+              </div>
+              <div className={styles.qs}>
+                <span className={styles.qsIcon}>🐕</span>
+                <span className={styles.qsVal}>{data.stats.dogs}</span>
+                <span className={styles.qsLabel}>Dogs OK</span>
+              </div>
+            </div>
+
+            <p className={styles.desc}>{data.description}</p>
+
+            <div className={styles.bookingBox} id="booking">
+              <div className={styles.bookingBoxLabel}>Book direct — best rate guaranteed</div>
+              <div className={styles.bookingBoxTitle}>Check availability</div>
+              <Link href={BOOK_HREF} className={styles.btnBookNow}>
+                Check Availability &amp; Book
+              </Link>
+              <div className={styles.bookingNote}>
+                No booking fees ·{" "}
+                <a href={`tel:${SITE.contact.phone}`}>Call {SITE.contact.phoneDisplay}</a> for groups
+              </div>
+            </div>
+
+            <div className={styles.callStrip}>
+              <div className={styles.callStripText}>
+                Group booking or returning guest?
+                <strong>{SITE.contact.phoneDisplay}</strong>
+              </div>
+              <a href={`tel:${SITE.contact.phone}`} className={styles.callStripLink}>
+                Call Andy
+              </a>
+            </div>
+
+            <div className={styles.panelTitle}>Highlights</div>
+            <div className={styles.amenities}>
+              {data.amenities.map((a) => (
+                <div key={a} className={styles.amenity}>
+                  <div className={styles.amenityDot} />
+                  {a}
+                </div>
+              ))}
+            </div>
+
+            {data.miniReviews.length > 0 ? (
+              <>
+                <div className={styles.panelTitle}>What guests say</div>
+                <div className={styles.miniReviews}>
+                  {data.miniReviews.map((r) => (
+                    <div key={r.author} className={styles.miniReview}>
+                      <div className={styles.miniStars}>{"★".repeat(r.stars ?? 5)}</div>
+                      <div className={styles.miniText}>“{r.text}”</div>
+                      <div className={styles.miniAuthor}>{r.author}</div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            ) : null}
+          </div>
+        </aside>
+      </div>
+
+      <section className={styles.below}>
+        <div className={styles.belowInner}>
+          <p className={styles.eyebrow}>The property</p>
+          <h2 className={styles.h2}>Every room, every detail</h2>
+
+          <div className={styles.facilityChips}>
+            {data.facilityChips.map((c) => (
+              <div key={c.label} className={styles.chip}>
+                <span className={styles.chipIcon}>{c.icon}</span> {c.label}
+              </div>
+            ))}
+          </div>
+
+          <div
+            className={styles.detailGrid}
+            style={data.detailColumns.length === 4 ? { gridTemplateColumns: "repeat(2, 1fr)" } : undefined}
+          >
+            {data.detailColumns.map((col) => (
+              <div key={col.title} className={styles.detailCol}>
+                <h3>{col.title}</h3>
+                <ul>
+                  {col.items.map((item, i) => (
+                    <li key={`${col.title}-${i}`}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.others}>
+        <div className={styles.othersTitle}>Also at Woodlands Manor Farm</div>
+        <div className={styles.othersStrip}>
+          {others.map((p) => (
+            <Link key={p.slug} href={p.href} className={styles.cottageThumb}>
+              <div className={styles.cottageThumbImg}>
+                <Image src={p.heroImage} alt={p.name} fill sizes="(min-width: 900px) 20vw, 50vw" />
+              </div>
+              <div className={styles.cottageThumbInfo}>
+                <div className={styles.ctiName}>{p.name}</div>
+                <div className={styles.ctiSleeps}>Sleeps {p.sleeps}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
