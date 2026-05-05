@@ -51,13 +51,36 @@ async function fetchSitemap(): Promise<string[]> {
   return matches.filter((u) => !u.endsWith("/posts/"));
 }
 
+function extFromContentType(ct?: string | null): string | null {
+  if (!ct) return null;
+  const m = ct.toLowerCase().match(/image\/(jpe?g|png|gif|webp|avif|svg\+xml)/);
+  if (!m) return null;
+  return m[1] === "jpeg" ? "jpg" : m[1] === "svg+xml" ? "svg" : m[1];
+}
+
+function extFromUrl(url: string): string | null {
+  if (url.startsWith("data:")) return null;
+  // strip query/fragment, take last path segment, then last dot-extension
+  const path = url.split("?")[0].split("#")[0];
+  const seg = path.split("/").pop() ?? "";
+  const m = seg.match(/\.([a-zA-Z0-9]{2,5})$/);
+  if (!m) return null;
+  const e = m[1].toLowerCase();
+  return ["jpg", "jpeg", "png", "gif", "webp", "avif", "svg"].includes(e)
+    ? e === "jpeg"
+      ? "jpg"
+      : e
+    : null;
+}
+
 async function downloadImage(url: string, slug: string): Promise<string | null> {
+  if (url.startsWith("data:")) return null;
   try {
     const res = await fetch(url);
     if (!res.ok) return null;
     const buf = Buffer.from(await res.arrayBuffer());
+    const ext = extFromContentType(res.headers.get("content-type")) ?? extFromUrl(url) ?? "jpg";
     const hash = createHash("sha1").update(buf).digest("hex").slice(0, 12);
-    const ext = (url.split(".").pop() ?? "jpg").split("?")[0].slice(0, 5);
     const dir = join(BLOG_IMAGES_DIR, slug);
     mkdirSync(dir, { recursive: true });
     const filename = `${hash}.${ext}`;
@@ -96,9 +119,14 @@ async function migratePost(url: string) {
   const excerpt = $('meta[property="og:description"]').attr("content") || $('meta[name="description"]').attr("content") || "";
   const featureImageUrl = $('meta[property="og:image"]').attr("content");
 
-  // WordPress typically wraps body in .entry-content; fall back to <article>.
-  let body = $(".entry-content").first().html();
-  if (!body) body = $("article").first().html();
+  // The site is Elementor-built; the article body lives in
+  // .elementor-widget-theme-post-content. Try selectors in order of
+  // specificity and fall back to <article> as a last resort.
+  let body =
+    $(".elementor-widget-theme-post-content .elementor-widget-container").first().html() ||
+    $(".elementor-widget-theme-post-content").first().html() ||
+    $(".entry-content").first().html() ||
+    $("article").first().html();
   if (!body) {
     console.warn(`[no-body] ${slug}`);
     return;
@@ -106,13 +134,53 @@ async function migratePost(url: string) {
 
   const $body = load(`<div>${body}</div>`);
 
-  // Download every image and rewrite to local path.
+  // Strip out related-post / share / nav widgets that sometimes appear
+  // inside the post content widget on Elementor pages.
+  $body(
+    ".elementor-widget-loop-grid, .elementor-widget-share-buttons, .recent-posts, .related-posts, nav, .elementor-widget-author-box, .elementor-widget-post-info, .elementor-widget-post-navigation, .elementor-widget-divider",
+  ).remove();
+
+  // Download every image and rewrite to local path. The site uses
+  // NitroPack lazy-loading: real URLs live in `nitro-lazy-src` /
+  // `nitro-lazy-srcset` while `src` is a tiny SVG placeholder.
+  // Resolution order: nitro-lazy-src → nitro-lazy-srcset → data-src →
+  // srcset → src. If the only thing we can find is a data: URL, drop
+  // the <img> entirely so it doesn't pollute the markdown.
+  const pickFromSrcset = (srcset?: string) => {
+    if (!srcset) return undefined;
+    const last = srcset.split(",").pop()?.trim().split(/\s+/)[0];
+    return last && !last.startsWith("data:") ? last : undefined;
+  };
+
   const imgs = $body("img").toArray();
   for (const el of imgs) {
-    const src = $body(el).attr("src");
-    if (!src) continue;
+    const $el = $body(el);
+    const candidates: (string | undefined)[] = [
+      $el.attr("nitro-lazy-src"),
+      pickFromSrcset($el.attr("nitro-lazy-srcset")),
+      $el.attr("data-src"),
+      pickFromSrcset($el.attr("srcset")),
+      $el.attr("src"),
+    ];
+    const src = candidates.find((c) => c && !c.startsWith("data:"));
+    if (!src) {
+      $el.remove();
+      continue;
+    }
     const local = await downloadImage(src, slug);
-    if (local) $body(el).attr("src", local);
+    if (local) {
+      $el.attr("src", local);
+      [
+        "srcset",
+        "data-src",
+        "nitro-lazy-src",
+        "nitro-lazy-srcset",
+        "nitro-lazy-empty",
+        "data-nitro-empty-id",
+      ].forEach((a) => $el.removeAttr(a));
+    } else {
+      $el.remove();
+    }
   }
 
   let featureImageLocal: string | undefined;
