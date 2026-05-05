@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import styles from "./page.module.css";
 import { HeroCarousel } from "@/components/home/hero-carousel";
+import { SuperControlWidget } from "@/components/booking/super-control-widget";
 import { BOOK_HREF } from "@/lib/constants/nav";
 import { SITE } from "@/lib/constants/seo";
 
@@ -199,40 +200,9 @@ export default function HomePage() {
             </h2>
             <div className={styles.badge}>Best price guaranteed — no booking fees</div>
           </div>
-          <form action={BOOK_HREF} method="get" className={styles.widgetBar}>
-            <div className={styles.widgetCol}>
-              <label htmlFor="arrival">Arrival date</label>
-              <input id="arrival" name="arrival" type="text" placeholder="Choose a date" readOnly />
-            </div>
-            <div className={styles.widgetCol}>
-              <label htmlFor="departure">Departure date</label>
-              <input
-                id="departure"
-                name="departure"
-                type="text"
-                placeholder="Choose a date"
-                readOnly
-              />
-            </div>
-            <div className={styles.widgetCol}>
-              <label htmlFor="property">Property</label>
-              <select id="property" name="property" defaultValue="">
-                <option value="">All cottages &amp; yurts</option>
-                <option value="manor-house">Manor House — sleeps 12</option>
-                <option value="rose-cottage">Rose Cottage — sleeps 8</option>
-                <option value="jasmine-cottage">Jasmine Cottage — sleeps 6</option>
-                <option value="lavender-cottage">Lavender Cottage — sleeps 4</option>
-                <option value="the-stables">The Stables — sleeps 4</option>
-                <option value="honeysuckle-cottage">Honeysuckle — sleeps 2</option>
-                <option value="the-coach-house">Coach House — sleeps 2</option>
-                <option value="budhyn-yurt">Budhyn Yurt</option>
-                <option value="fenton-yurt">Fenton Yurt</option>
-              </select>
-            </div>
-            <button type="submit" className={styles.widgetSearch}>
-              Check Availability
-            </button>
-          </form>
+          <div className={styles.widgetWrap}>
+            <SuperControlWidget />
+          </div>
           <div className={styles.widgetLinks}>
             <Link href="/bude-holiday-cottages/" className={styles.widgetLink}>
               <span>Cottages — 2 to 12 guests</span>
