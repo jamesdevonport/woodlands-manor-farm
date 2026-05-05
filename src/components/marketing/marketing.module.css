@@ -1,0 +1,455 @@
+/* Hero variant for marketing/booking pages */
+.hero {
+  position: relative;
+  height: 70vh;
+  min-height: 540px;
+  overflow: hidden;
+}
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+.heroOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 20, 14, 0.7) 0%,
+    rgba(10, 20, 14, 0.2) 30%,
+    rgba(10, 20, 14, 0) 50%,
+    rgba(10, 20, 14, 0.5) 100%
+  );
+}
+.heroSplit {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  align-items: end;
+  padding: 0 32px 64px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.heroLeft {
+  color: var(--color-cream);
+}
+.heroEyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-warm-stone);
+  margin-bottom: 14px;
+}
+.heroLeft h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(44px, 5vw, 72px);
+  color: var(--color-cream);
+  line-height: 1.06;
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+.heroLeft h1 em { font-style: italic; color: var(--color-warm-stone); }
+.heroLeft p {
+  font-size: 16px;
+  color: rgba(247, 244, 239, 0.78);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 520px;
+}
+.heroBadge {
+  background: rgba(247, 244, 239, 0.97);
+  backdrop-filter: blur(8px);
+  border-radius: 4px;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.heroBadge h3 {
+  font-family: var(--font-serif);
+  font-size: 26px;
+  color: #4a6459;
+  font-weight: 400;
+}
+.heroBadgeLabel {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-violet);
+}
+.heroBadgeNote {
+  font-size: 12px;
+  color: var(--color-text-mid);
+  line-height: 1.6;
+  font-weight: 300;
+  margin-bottom: 4px;
+}
+.btnPrimary {
+  background: var(--color-violet);
+  color: #fff;
+  padding: 13px 26px;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 2px;
+  transition: background 0.2s;
+  text-align: center;
+}
+.btnPrimary:hover { background: #7a6aa4; }
+
+/* Why strip */
+.whyStrip {
+  background: #fff;
+  padding: 64px 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 48px;
+  border-bottom: 1px solid rgba(127, 151, 137, 0.15);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.whyItem {
+  text-align: center;
+}
+.whyIcon {
+  font-size: 28px;
+  margin-bottom: 14px;
+  display: block;
+}
+.whyTitle {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: #4a6459;
+  font-weight: 400;
+  margin-bottom: 8px;
+}
+.whyBody {
+  font-size: 13px;
+  color: var(--color-text-mid);
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+/* Section wrapper */
+.section {
+  padding: 80px 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.sectionDark {
+  background: #4a6459;
+}
+.sectionCream {
+  background: var(--color-cream);
+}
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3vw, 42px);
+  color: #4a6459;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.sectionTitle em { font-style: italic; color: var(--color-deep-green); }
+.sectionTitleLight { color: var(--color-cream); }
+.sectionTitleLight em { color: var(--color-warm-stone); }
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--color-violet);
+  margin-bottom: 12px;
+}
+.eyebrowLight { color: var(--color-warm-stone); }
+.sectionLead {
+  font-size: 15px;
+  color: var(--color-text-mid);
+  line-height: 1.85;
+  font-weight: 300;
+  max-width: 700px;
+  margin-bottom: 40px;
+}
+.sectionLeadLight { color: rgba(247, 244, 239, 0.7); }
+
+/* Offer cards */
+.offerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  margin-top: 40px;
+}
+.offerCard {
+  background: #fff;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.offerCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-violet);
+}
+.offerCardSeasonal::before { background: #c9a85c; }
+.offerCardLastMin::before { background: var(--color-deep-green); }
+.offerLabel {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-violet);
+  margin-bottom: 10px;
+}
+.offerTitle {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: #4a6459;
+  font-weight: 400;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+.offerSave {
+  font-size: 12px;
+  color: var(--color-deep-green);
+  font-weight: 500;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+.offerBody {
+  font-size: 13px;
+  color: var(--color-text-mid);
+  line-height: 1.75;
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 20px;
+}
+.offerFooter {
+  border-top: 1px solid rgba(127, 151, 137, 0.15);
+  padding-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: var(--color-violet);
+  letter-spacing: 1px;
+}
+
+/* Experience cards */
+.experienceGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3px;
+  margin-top: 40px;
+}
+.expCard {
+  background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.expCardImg {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+.expCardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.expCard:hover .expCardImg img { transform: scale(1.04); }
+.expCardBody {
+  padding: 28px 26px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.expType {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--color-violet);
+  margin-bottom: 8px;
+}
+.expName {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: #4a6459;
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+.expBody {
+  font-size: 13px;
+  color: var(--color-text-mid);
+  line-height: 1.75;
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 16px;
+}
+.expDetail {
+  font-size: 12px;
+  color: var(--color-text-light);
+  letter-spacing: 1px;
+  border-top: 1px solid rgba(127, 151, 137, 0.15);
+  padding-top: 14px;
+}
+
+/* Review cards */
+.reviewsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+.reviewCard {
+  background: #fff;
+  border: 1px solid rgba(127, 151, 137, 0.12);
+  padding: 32px 28px;
+  position: relative;
+}
+.reviewCard::before {
+  content: "“";
+  font-family: var(--font-serif);
+  font-size: 80px;
+  color: rgba(173, 191, 185, 0.3);
+  position: absolute;
+  top: 8px;
+  left: 24px;
+  line-height: 1;
+}
+.reviewStars {
+  color: #c9a85c;
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+  position: relative;
+  padding-top: 30px;
+}
+.reviewText {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--color-text-mid);
+  margin-bottom: 24px;
+  font-weight: 300;
+  position: relative;
+}
+.reviewMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid rgba(127, 151, 137, 0.12);
+  padding-top: 18px;
+}
+.reviewAvatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--color-deep-green);
+  color: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.reviewName {
+  font-size: 13px;
+  font-weight: 500;
+  color: #4a6459;
+}
+.reviewSource {
+  font-size: 11px;
+  color: var(--color-text-light);
+  margin-top: 2px;
+}
+
+/* Stats banner */
+.statsBanner {
+  background: var(--color-violet);
+  padding: 56px 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  text-align: center;
+  color: #fff;
+}
+.statBig {
+  font-family: var(--font-serif);
+  font-size: 44px;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.statSub {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Final CTA */
+.finalCta {
+  background: var(--color-deep-green);
+  padding: 80px 32px;
+  text-align: center;
+}
+.finalCta h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3vw, 44px);
+  color: var(--color-cream);
+  font-weight: 400;
+  margin-bottom: 16px;
+}
+.finalCta h2 em { font-style: italic; color: var(--color-warm-stone); }
+.finalCta p {
+  font-size: 15px;
+  color: rgba(247, 244, 239, 0.7);
+  font-weight: 300;
+  margin-bottom: 32px;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.finalCtaButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btnWhite {
+  background: #fff;
+  color: var(--color-violet);
+  padding: 16px 32px;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 2px;
+}
+.btnGhost {
+  color: var(--color-cream);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(247, 244, 239, 0.4);
+  padding-bottom: 2px;
+}
+
+@media (max-width: 900px) {
+  .heroSplit { grid-template-columns: 1fr; gap: 32px; padding-bottom: 48px; }
+  .whyStrip { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .offerGrid, .experienceGrid, .reviewsGrid { grid-template-columns: 1fr; }
+  .statsBanner { grid-template-columns: 1fr 1fr; }
+}
