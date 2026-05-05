@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — ported from the original WIP HTML :root variables */
+  --color-cream: #f7f3ee;
+  --color-deep-green: #7f9789;
+  --color-mid-green: #6a8478;
+  --color-warm-stone: #adbfb9;
+  --color-violet: #8b7bb5;
+  --color-text-dark: #1e2422;
+  --color-text-mid: #4a5550;
+  --color-text-light: #8a9990;
+  --color-white: #fefefe;
+
+  /* Fonts wired up via next/font/google in layout.tsx — variable names match. */
+  --font-serif: var(--font-playfair), "Playfair Display", ui-serif, Georgia, serif;
+  --font-sans: var(--font-jost), "Jost", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-cream);
+    color: var(--color-text-dark);
+    font-weight: 300;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    color: var(--color-deep-green);
+    line-height: 1.15;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+  .font-sans {
+    font-family: var(--font-sans);
+  }
+
+  /* Eyebrow/section-label style used pervasively in the source designs */
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-violet);
+    font-weight: 400;
+  }
+}
