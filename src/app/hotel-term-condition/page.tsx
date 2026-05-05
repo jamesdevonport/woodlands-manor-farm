@@ -1,10 +1,21 @@
-// Alias of /terms-conditions/ — preserved from the WP sitemap.
 import type { Metadata } from "next";
-export { default } from "../terms-conditions/page";
+import { PlaceholderPage } from "@/components/ui/placeholder-page";
 
+// Alias of /terms-conditions/ — both URLs exist in the WP sitemap.
+// Canonical points to the primary route to avoid duplicate-content penalties.
 export const metadata: Metadata = {
   title: "Hotel Terms & Conditions",
   description: "Booking terms and conditions for stays at Woodlands Manor Farm.",
   alternates: { canonical: "/terms-conditions/" },
   robots: { index: false, follow: true },
 };
+
+export default function Page() {
+  return (
+    <PlaceholderPage
+      eyebrow="Legal"
+      title="Terms & conditions"
+      sourceFile="design-references/woodlands_terms.html"
+    />
+  );
+}

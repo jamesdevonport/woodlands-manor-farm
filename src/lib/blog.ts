@@ -24,10 +24,9 @@ function readPostFiles(): string[] {
   return fs.readdirSync(BLOG_DIR).filter((f) => f.endsWith(".md"));
 }
 
-function parseFile(filename: string): BlogPost & { raw: string } {
-  const fullPath = path.join(BLOG_DIR, filename);
-  const file = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(file);
+function parseMeta(filename: string): BlogPost {
+  const file = fs.readFileSync(path.join(BLOG_DIR, filename), "utf8");
+  const { data } = matter(file);
   const slug = (data.slug as string) ?? filename.replace(/\.md$/, "");
   return {
     slug,
@@ -35,28 +34,27 @@ function parseFile(filename: string): BlogPost & { raw: string } {
     date: (data.date as string) ?? "",
     author: data.author as string | undefined,
     excerpt: data.excerpt as string | undefined,
-    featureImage: (data.feature_image as string | undefined) ?? (data.featureImage as string | undefined),
-    raw: content,
+    featureImage:
+      (data.feature_image as string | undefined) ?? (data.featureImage as string | undefined),
   };
 }
 
 export function getAllPosts(): BlogPost[] {
   return readPostFiles()
-    .map((f) => {
-      const { raw: _raw, ...meta } = parseFile(f);
-      return meta;
-    })
+    .map(parseMeta)
     .sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
 export function getAllPostSlugs(): string[] {
-  return readPostFiles().map((f) => parseFile(f).slug);
+  return readPostFiles().map((f) => parseMeta(f).slug);
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPostFull | null> {
-  const file = readPostFiles().find((f) => parseFile(f).slug === slug);
+  const file = readPostFiles().find((f) => parseMeta(f).slug === slug);
   if (!file) return null;
-  const { raw, ...meta } = parseFile(file);
-  const processed = await remark().use(remarkHtml).process(raw);
+  const meta = parseMeta(file);
+  const fullPath = path.join(BLOG_DIR, file);
+  const { content } = matter(fs.readFileSync(fullPath, "utf8"));
+  const processed = await remark().use(remarkHtml).process(content);
   return { ...meta, contentHtml: processed.toString() };
 }
