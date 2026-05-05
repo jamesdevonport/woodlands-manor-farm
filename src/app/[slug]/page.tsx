@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getAllPostSlugs, getPostBySlug } from "@/lib/blog";
+import { getAllPostSlugs, getAllPosts, getPostBySlug } from "@/lib/blog";
+import { BOOK_HREF } from "@/lib/constants/nav";
+import { SITE } from "@/lib/constants/seo";
+import styles from "@/components/blog/blog.module.css";
 
 type Params = Promise<{ slug: string }>;
 
@@ -30,41 +33,165 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   };
 }
 
+function formatDate(date?: string) {
+  if (!date) return "";
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return date;
+  return d.toLocaleDateString("en-GB", { month: "long", year: "numeric" });
+}
+
+function readingTime(html: string) {
+  const text = html.replace(/<[^>]*>/g, " ");
+  const words = text.split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.round(words / 200));
+}
+
 export default async function BlogPostPage({ params }: { params: Params }) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
-  return (
-    <article className="mx-auto max-w-3xl px-6 pb-24 pt-32">
-      <Link href="/news/" className="eyebrow inline-block">
-        ← News
-      </Link>
-      <h1 className="mt-6 font-serif text-4xl text-[var(--color-deep-green)] md:text-5xl">
-        {post.title}
-      </h1>
-      <p className="mt-4 text-sm text-[var(--color-text-light)]">
-        {post.date}
-        {post.author ? <> · {post.author}</> : null}
-      </p>
+  const allPosts = getAllPosts();
+  const others = allPosts.filter((p) => p.slug !== post.slug);
+  const sidebarRelated = others.slice(0, 4);
+  const moreBelow = others.slice(0, 3);
 
-      {post.featureImage ? (
-        <div className="relative mt-10 aspect-[16/9] overflow-hidden rounded-sm">
+  return (
+    <>
+      <header className={styles.hero}>
+        {post.featureImage ? (
           <Image
             src={post.featureImage}
             alt={post.title}
             fill
-            className="object-cover"
-            sizes="(min-width: 768px) 768px, 100vw"
             priority
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center 45%" }}
           />
+        ) : (
+          <Image
+            src="/images/blog-template/50732616e754d9b7.jpg"
+            alt={post.title}
+            fill
+            priority
+            sizes="100vw"
+            style={{ objectFit: "cover", objectPosition: "center 45%" }}
+          />
+        )}
+        <div className={styles.heroOverlay} />
+        <div className={styles.heroContent}>
+          <span className={styles.category}>From the blog</span>
+          <h1 className={styles.title}>{post.title}</h1>
+          <div className={styles.meta}>
+            <div>{formatDate(post.date)}</div>
+            <div>{post.author ?? "Andy & Ruth Peters"}</div>
+            <div>{readingTime(post.contentHtml)} min read</div>
+          </div>
         </div>
-      ) : null}
+      </header>
 
-      <div
-        className="prose prose-lg mt-12 max-w-none text-[var(--color-text-dark)] [&_a]:text-[var(--color-violet)] [&_h2]:font-serif [&_h2]:text-[var(--color-deep-green)] [&_h3]:font-serif [&_h3]:text-[var(--color-deep-green)] [&_p]:leading-8"
-        dangerouslySetInnerHTML={{ __html: post.contentHtml }}
-      />
-    </article>
+      <div className={styles.layout}>
+        <article className={styles.article}>
+          <div className={styles.body} dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+          <footer className={styles.articleFooter}>
+            <div className={styles.tags}>
+              <Link href="/news/" className={styles.tag}>
+                Bude
+              </Link>
+              <Link href="/news/" className={styles.tag}>
+                Cornwall
+              </Link>
+            </div>
+            <div className={styles.share}>
+              <span className={styles.shareLabel}>Share</span>
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${SITE.url}/${post.slug}/`}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.shareBtn}
+              >
+                Facebook
+              </a>
+              <a
+                href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(`${SITE.url}/${post.slug}/`)}`}
+                className={styles.shareBtn}
+              >
+                Email
+              </a>
+            </div>
+          </footer>
+        </article>
+
+        <aside className={styles.sidebar}>
+          <div className={styles.sidebarBook}>
+            <div className={styles.sbTitle}>Plan your stay</div>
+            <p className={styles.sbBody}>
+              Seven cottages and two luxury yurts in the Coombe Valley. Best price guaranteed when
+              you book direct.
+            </p>
+            <Link href={BOOK_HREF} className={styles.sbBtn}>
+              Check availability
+            </Link>
+            <div className={styles.sbTel}>
+              Or call <a href={`tel:${SITE.contact.phone}`}>{SITE.contact.phoneDisplay}</a>
+            </div>
+          </div>
+
+          {sidebarRelated.length > 0 ? (
+            <div className={styles.sidebarSection}>
+              <div className={styles.sidebarLabel}>More from the blog</div>
+              {sidebarRelated.map((p) => (
+                <Link key={p.slug} href={`/${p.slug}/`} className={styles.relatedPost}>
+                  <div className={styles.rpImg}>
+                    <Image
+                      src={p.featureImage ?? "/images/blog-template/50732616e754d9b7.jpg"}
+                      alt={p.title}
+                      width={64}
+                      height={64}
+                    />
+                  </div>
+                  <div>
+                    <span className={styles.rpDate}>{formatDate(p.date)}</span>
+                    <span className={styles.rpTitle}>{p.title}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          ) : null}
+        </aside>
+      </div>
+
+      {moreBelow.length > 0 ? (
+        <section className={styles.morePosts}>
+          <div className={styles.morePostsInner}>
+            <div className={styles.moreHead}>
+              <p className={styles.moreEyebrow}>Keep reading</p>
+              <h2 className={styles.moreTitle}>
+                More from the <em>Woodlands blog</em>
+              </h2>
+            </div>
+            <div className={styles.moreGrid}>
+              {moreBelow.map((p) => (
+                <Link key={p.slug} href={`/${p.slug}/`} className={styles.moreCard}>
+                  <div className={styles.mcImg}>
+                    <Image
+                      src={p.featureImage ?? "/images/blog-template/dcf926b3c1174be3.jpg"}
+                      alt={p.title}
+                      fill
+                      sizes="(min-width: 900px) 33vw, 100vw"
+                    />
+                  </div>
+                  <div className={styles.mcBody}>
+                    <div className={styles.mcCat}>From the blog</div>
+                    <div className={styles.mcTitle}>{p.title}</div>
+                    <div className={styles.mcDate}>{formatDate(p.date)}</div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+    </>
   );
 }
